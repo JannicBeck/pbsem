@@ -1,0 +1,78 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: pb-report.aux
+The style file: plain.bst
+I couldn't open database file literatur.bib
+---line 86 of file pb-report.aux
+ : \bibdata{literatur
+ :                   }
+I'm skipping whatever remains of this command
+I found no database files---while reading file pb-report.aux
+Warning--I didn't find a database entry for "seiler2009kundenzufriedenheit"
+Warning--I didn't find a database entry for "sanchez2013pls"
+Warning--I didn't find a database entry for "semPLS"
+Warning--I didn't find a database entry for "noonan1982pls"
+Warning--I didn't find a database entry for "bliemel2005handbuch"
+Warning--I didn't find a database entry for "hair2013primer"
+Warning--I didn't find a database entry for "weiber2010strukturgleichungsmodellierung"
+Warning--I didn't find a database entry for "hildebrandt1984kausalanalytische"
+Warning--I didn't find a database entry for "vinzi2003pls"
+Warning--I didn't find a database entry for "horn1965rationale"
+Warning--I didn't find a database entry for "dinno2009exploring"
+Warning--I didn't find a database entry for "hayton2004factor"
+Warning--I didn't find a database entry for "hair2006multivariate"
+Warning--I didn't find a database entry for "joreskog1986prelis"
+Warning--I didn't find a database entry for "zwick1986comparison"
+Warning--I didn't find a database entry for "mulaik1972foundations"
+Warning--I didn't find a database entry for "carmines1979reliability"
+Warning--I didn't find a database entry for "hulland1999use"
+Warning--I didn't find a database entry for "fornell1981structural"
+Warning--I didn't find a database entry for "nunnally1978c"
+Warning--I didn't find a database entry for "bagozzi1988evaluation"
+Warning--I didn't find a database entry for "homburg1996konzeptualisierung"
+Warning--I didn't find a database entry for "rodgers2003developing"
+Warning--I didn't find a database entry for "backhaus2004industriegutermarketing"
+Warning--I didn't find a database entry for "hair2011pls"
+Warning--I didn't find a database entry for "henseler2009use"
+You've used 0 entries,
+            2118 wiz_defined-function locations,
+            524 strings with 4517 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 2 error messages)
