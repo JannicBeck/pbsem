@@ -272,7 +272,7 @@ Ein entscheidender Nachteil besteht jedoch in Version 0.4.0 (2013-12-08) bei der
 \hlkwd{innerplot}\hlstd{(CB_inner_model)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-3} 
+\includegraphics[width=\maxwidth]{figure/plspm} 
 \begin{kframe}\begin{alltt}
 \hlcom{#specify outer model}
 \hlstd{CB_outer_model} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"SQ060"}\hlstd{,}\hlstr{"SQ062"}\hlstd{,}\hlstr{"SQ096"}\hlstd{,}\hlstr{"SQ076"}\hlstd{),}
@@ -427,39 +427,48 @@ Ein entscheidender Nachteil besteht jedoch in Version 0.4.0 (2013-12-08) bei der
 \hlkwd{plot}\hlstd{(CB_PLS)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-51} 
+\includegraphics[width=\maxwidth]{figure/zoo1} 
 \begin{kframe}\begin{alltt}
 \hlcom{#plot the outer model}
 \hlkwd{outerplot}\hlstd{(CB_PLS)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-52} 
+\includegraphics[width=\maxwidth]{figure/zoo2} 
 
 \end{knitrout}
 
 Beschreibung zum Code:\\
 Zunächst wird das Paket in die aktuelle R-Session geladen. Als nächstes wird ein Datensatz benötigt. Durch den file.choose() Befehl kann im Verzeichnis des Computers durch die Ordner zum gewünschten Datensatz navigiert werden. Wird dieser nun ausgewählt ist der Verzeichnispfad erst einmal in der Variable CBdataPath gespeichert. In R-Studio wird nun unter "Environment" diese Variable und ihr Wert angezeigt. Um die Datei jedoch einzulesen wird die Funktion read.csv() oder alternativ read.table() benötigt. Als Argument bekommt diese den vorher ausgewählten Dateipfad, welcher in der Variable CBdataPath gespeichert ist. Alternativ kann natürlich auch direkt der Dateipfad in Form eines Strings oder die Funktion file.choose() als Argument eingefügt werden. Auch wenn solche Abkürzungen den Code erheblich komprimieren sollte auch immer auf eine Lesbarkeit geachtet werden damit er auch für neue Nutzer verständlich bleibt. Falls fehlenden Werte als leere Felder dargestellt werden, können diese durch einen weiteren Parameter der read.csv() Funktion na.strings = "NA" auf die R-Standardnotation "NA" gesetzt werden . Falls der Datensatz Fehlende Werte als 888 darstellt, wie in smartPLS werden diese durch einen neuen Befehl (siehe Code) in "NA" umgewandelt. Falls die Spalten im Datensatz durch Semikolon getrennt werden kann entweder die Funktion read.csv2() benutzt werden oder ein weiterer Parameter in die read.csv() Funktion übergeben werden (sep=";"). Nun sehen wir unsere nächste Variable CBdata unter "Environment". Dies ist nun unser Datensatz welcher auch durch einen Klick auf das Tabellenzeichen angeschaut werden kann. Als nächstes wird das Strukturmodell (inneres Modell) definiert. Dies geschieht durch das Erstellen einer unteren Dreiecksmatrix. Zunächst wird also für jede Latente Variable im Modell ein Vektor erstellt mit der Länge der Gesamtzahl der Latenten Variablen und den Werten 0 oder 1. Eins bedeutet hier eine Verbindung und Null dementsprechend keine. Die Richtung des Zusammenhangs wird wie folgt gelesen: Von Spalte, zu Zeile. Zur besseren Lesbarkeit werden die Zeilennamen der Matrix gleich den Spaltennamen gesetzt. Nun können durch einen Klick auf das Tabellensymbol neben der CB\_inner\_model Variable im Environment die Beziehungen abgelesen werden. Die Diagonale besteht nur aus Nullen, da sonst eine Variable sich selbst erklären würde. Ebenso besteht der Teil über der Diagonale, die obere Matrix aus Nullen, damit keine Schleifen entstehen können was im PLS-Algorithmus ebenfalls nicht erlaubt ist. Allerdings erschwert dies die Spezifikation von Modellen, da es sein kann dass im Model keine Schleifen sind, obwohl in der oberen Matrix eine 1 steht. Dies muss nun behoben werden durch vertauschen der Spalten damit die 1 unterhalb der Matrix steht.
-% <<mis, results='hide', warning=FALSE,message=FALSE>>=
-% #does not work
-% Preis_Leistung <- c(0,0,0)
-% Performance <- c(1,0,1)
-% Kundenzufriedenheit <- c(1,0,0)
-% 
-% CB_inner_model <- rbind(Preis_Leistung, 
-%                         Performance, Kundenzufriedenheit)
-% 
-% innerplot(CB_inner_model, main="valid, but does not work")
-% 
-% #works
-% Preis_Leistung <- c(0,0,0)
-% Kundenzufriedenheit <- c(1,0,0)
-% Performance <- c(1,1,0)
-% 
-% CB_inner_model <- rbind(Preis_Leistung, 
-%                         Kundenzufriedenheit, Performance)
-% 
-% innerplot(CB_inner_model, main="works")
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#does not work}
+\hlstd{Preis_Leistung} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{)}
+\hlstd{Performance} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{)}
+\hlstd{Kundenzufriedenheit} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{)}
+
+\hlstd{CB_inner_model} \hlkwb{<-} \hlkwd{rbind}\hlstd{(Preis_Leistung,}
+                        \hlstd{Performance, Kundenzufriedenheit)}
+
+\hlkwd{innerplot}\hlstd{(CB_inner_model,} \hlkwc{main}\hlstd{=}\hlstr{"SEM: valid, plspm: not valid"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/mis1} 
+\begin{kframe}\begin{alltt}
+\hlcom{#works}
+\hlstd{Preis_Leistung} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{)}
+\hlstd{Kundenzufriedenheit} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{0}\hlstd{)}
+\hlstd{Performance} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{)}
+
+\hlstd{CB_inner_model} \hlkwb{<-} \hlkwd{rbind}\hlstd{(Preis_Leistung,}
+                        \hlstd{Kundenzufriedenheit, Performance)}
+
+\hlkwd{innerplot}\hlstd{(CB_inner_model,} \hlkwc{main}\hlstd{=}\hlstr{"SEM: valid, plspm: valid"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/mis2} 
+
+\end{knitrout}
 Um sicher zu gehen ob das gewünschte Modell spezifiziert wurde kann durch den Befehl innerplot() eine graphische Veranschaulichung aufgerufen werden, welche im Plots Tab erscheint. Das vertauschen der Spalten, beeinflusst auch das Messmodell (äußeres Modell), welches durch eine Liste von Vektoren spezifiziert wird. Hier sind die Vektoren die Latenten Variablen in der Reihenfolge des rbind() Befehls und der Inhalt der Vektoren die Indikatoren eines Konstrukts. Anschließend muss noch ein Vektor erstellt werden, welcher die Messmethode für jedes Konstrukt enthält. Der Buchstabe "A" repräsentiert die reflektive Messung und "B" dementsprechend eine formative Messung.\\
 Nun sind alle Parameter für die Hauptfunktion plspm() verfügbar. Diese ist zur Berechnung des Modells zuständig und bekommt in ihrer einfachsten Form folgende Parameter:\\
 \begin{enumerate}
@@ -475,100 +484,176 @@ Zur Demonstration der Ergebnisse wurden die fehlenden Werte mit dem zoo Paket in
 Das Paket semPLS\cite{semPLS} wurde von \href{Armin.Monecke@stat.uni-muenchen.de}{Armin Monecke} und \href{Friedrich.Leisch@R-project.org}{Friedrich Leisch} geschrieben. Wie bei jedem Paket finden sich hierzu ein \href{http://cran.r-project.org/web/packages/semPLS/semPLS.pdf}{Handbuch} und eine kurze \href{http://cran.r-project.org/web/packages/semPLS/vignettes/semPLS-intro.pdf}{Einführung}.\\
 Das Paket erwies sich nach Meinung der Autoren als derzeit bestes für Strukturgleichungsmodelle basierend auf dem PLS Ansatz. Einziger Nachteil des Pakets ist die eher umständliche Visualisierung der Modelle mit dot - \href{http://www.graphviz.org/}{Graphviz}. Besonders nützlich ist das einfache importieren von Modellen die in SmartPLS erstellt wurden. Somit können die Vorteile von SmartPLS, einfache Modellierung per Drag \& Drop und die von R, mehr Funktionalitäten, kombiniert werden. Ein weiterer Vorteil könnte auch das Umwandeln des Modells in ein Objekt, welches Kovarianz basierte Berechnungen mit Hilfe des sem Pakets von \href{jfox@mcmaster.ca}{John Fox} erlaubt. Dies könnte sich vor allem in kommenden Praktika als nützlich erweisen um bei einem größeren Datensatz, einem weiter entwickelten Modell und mehr Erfahrung, den eher bestätigenden Kovarianzbasierten Ansatz anzuwenden. Ein Vorteil sind dabei die zahlreichen Kennziffern (Chi-Squared,RMSEA, GFI, AGFI...), zur Güte des Gesamtmodells, welche im PLS Ansatz nur durch eine kumultative Betrachtung der Kennziffern aus Struktur- und Messmodell erfolgt. Dies soll jedoch hier nicht weiter erläutert werden, da es Gegenstand zukünftiger Praktika sein könnte und sich hier auf den PLS Ansatz fokussiert wurde. Nachfolgend wird der R-Code für das Erstellen und Berechnen eines Sturkturmodells mit dem semPLS Paket gezeigt.
 
-% # <<semPLS, results='hide', warning=FALSE,message=FALSE>>=
-% # #load package in R Session
-% # library(semPLS)
-% # 
-% # # variable erstellen und dateipfad zu csv zuweisen
-% # #PBdataPath <- file.choose()
-% # CBdataPath <- "/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv"
-% # 
-% # # alternativ: variable erstellen und dateipfad zu splsm zuweisen
-% # #PBsmartPath <- file.choose()
-% # 
-% # #csv datei einlesen mit sempls funktion
-% # CBdata <- read.csv(CBdataPath)
-% # 
-% # # alternative: einlesen der splsm datei (mit Hilfe der XML Spezifikation von SmartPLS)
-% # #model <- read.splsm(file=PBsmartPath)
-% # 
-% # #create measuring model
-% # #lazy alternative instead of 5 times Preis_Leistung: rep("Preis_Leistung",5)
-% # latentvar <- c("Preis_Leistung","Preis_Leistung","Preis_Leistung","Preis_Leistung","Preis_Leistung",
-% #                "Performance","Performance",
-% #                "Kundenzufriedenheit","Kundenzufriedenheit")  
-% # 
-% # indicators <- c("SQ009","SQ076","SQ092","SQ096","SQ101",
-% #                 "SQ079","SQ080",
-% #                 "SQ046","SQ110") 
-% # 
-% # #bind latent variables and indicators to matrix
-% # CB_outer_model <- matrix(c(latentvar,indicators),length(latentvar))
-% # #alternative to matrix operator
-% # #CB_outer_model <- cbind(latentvar,indicators)
-% # 
-% # #change column names to source and target for better reading
-% # colnames(CB_outer_model) <- c("source","target")
-% # 
-% # #create structural model
-% # x <- c("Preis_Leistung","Performance")                      
-% # y <- c("Kundenzufriedenheit","Kundenzufriedenheit")                         
-% # CB_inner_model <- matrix(c(x,y),length(x))
-% # colnames(CB_inner_model) <- c("source","target")
-% # 
-% # #create plsm object 
-% # model <- plsm(data = CBdata, strucmod = CB_inner_model, measuremod = CB_outer_model)
-% # 
-% # #explore blocks of MVs for LV "Performance"
-% # mvpairs(model = model, data = CBdata, LVs = "Kundenzufriedenheit")
-% # 
-% # #calculate model
-% # PB_model <- sempls(model = model,data = CBdata)
-% # 
-% # #show model
-% # PB_model
-% # 
-% # #show all information in the object
-% # summary(PB_model)
-% # 
-% # #to access parts of the object the $ operator is used f.e.
-% # PB_model$iterations
-% # 
-% # #load the Rgraphviz Package
-% # library(Rgraphviz)
-% # 
-% # #visualize model with dot 
-% # ##graphviz required
-% # pathDiagram(PB_model, file = "PB-structure", edge.labels = "both",
-% #             output.type = "graphics", digits = 2)
-% # 
-% # PBdot <- "/home/jannic/PB-structure.dot"
-% # PBcom <- agread(PBdot, layoutType="dot")
-% # plot(PBcom)
-% # @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#load package in R Session}
+\hlkwd{library}\hlstd{(semPLS)}
+
+\hlcom{# variable erstellen und dateipfad zu csv zuweisen}
+\hlcom{#PBdataPath <- file.choose()}
+\hlstd{CBdataPath} \hlkwb{<-} \hlstr{"/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv"}
+
+\hlcom{# alternativ: variable erstellen und dateipfad zu splsm zuweisen}
+\hlcom{#PBsmartPath <- file.choose()}
+
+\hlcom{#csv datei einlesen mit sempls funktion}
+\hlstd{CBdata} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(CBdataPath)}
+
+\hlcom{# alternative: einlesen der splsm datei (mit Hilfe der XML Spezifikation von SmartPLS)}
+\hlcom{#model <- read.splsm(file=PBsmartPath)}
+
+\hlcom{#create measuring model}
+\hlcom{#lazy alternative instead of 5 times Preis_Leistung: rep("Preis_Leistung",5)}
+\hlstd{latentvar} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Preis_Leistung"}\hlstd{,}
+               \hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Preis_Leistung"}\hlstd{,}
+              \hlstr{"Performance"}\hlstd{,}\hlstr{"Performance"}\hlstd{,}
+              \hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlstr{"Kundenzufriedenheit"}\hlstd{)}
+
+\hlstd{indicators} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"SQ009"}\hlstd{,}\hlstr{"SQ076"}\hlstd{,}\hlstr{"SQ092"}\hlstd{,}\hlstr{"SQ096"}\hlstd{,}\hlstr{"SQ101"}\hlstd{,}
+                \hlstr{"SQ079"}\hlstd{,}\hlstr{"SQ080"}\hlstd{,}
+               \hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{)}
+
+\hlcom{#bind latent variables and indicators to matrix}
+\hlstd{CB_outer_model} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(latentvar,indicators),}\hlkwd{length}\hlstd{(latentvar))}
+\hlcom{#alternative to matrix operator}
+\hlcom{#CB_outer_model <- cbind(latentvar,indicators)}
+
+\hlcom{#change column names to source and target for better reading}
+\hlkwd{colnames}\hlstd{(CB_outer_model)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"source"}\hlstd{,}\hlstr{"target"}\hlstd{)}
+
+\hlcom{#create structural model}
+\hlstd{x} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Performance"}\hlstd{)}
+\hlstd{y} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlstr{"Kundenzufriedenheit"}\hlstd{)}
+\hlstd{CB_inner_model} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(x,y),}\hlkwd{length}\hlstd{(x))}
+\hlkwd{colnames}\hlstd{(CB_inner_model)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"source"}\hlstd{,}\hlstr{"target"}\hlstd{)}
+
+\hlcom{#create plsm object }
+\hlstd{model} \hlkwb{<-} \hlkwd{plsm}\hlstd{(}\hlkwc{data} \hlstd{= CBdata,} \hlkwc{strucmod} \hlstd{= CB_inner_model,}
+              \hlkwc{measuremod} \hlstd{= CB_outer_model)}
+
+\hlcom{#explore blocks of MVs for LV "Performance"}
+\hlkwd{mvpairs}\hlstd{(}\hlkwc{model} \hlstd{= model,} \hlkwc{data} \hlstd{= CBdata,} \hlkwc{LVs} \hlstd{=} \hlstr{"Kundenzufriedenheit"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/semPLS1} 
+\begin{kframe}\begin{alltt}
+\hlcom{#calculate model}
+\hlstd{PB_model} \hlkwb{<-} \hlkwd{sempls}\hlstd{(}\hlkwc{model} \hlstd{= model,}\hlkwc{data} \hlstd{= CBdata)}
+\end{alltt}
+\begin{verbatim}
+## Data rows: 4, 6, 15, 20, 21, 29, 32, 33, 34, 36, 37, 39, 43, 55, 58, 61, 72, 75, 76, 77, 80, 85, 90, 92, 95, 96, 97, 98, 100, 101, 102, 116, 128, 139, 144, 145, 153, 162, 163, 175, 176, 180, 184, 185, 186, 191, 192, 193, 197, 200, 206, 211, 218, 219, 224, 226, 227, 233, 235, 237, 240, 242, 245, 253, 258, 261 
+## are not taken into acount, due to missings in the manifest variables.
+##  Total number of complete cases: 195 
+## Converged after 8 iterations.
+## Tolerance: 1e-07
+## Scheme: centroid
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show model}
+\hlstd{PB_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                   Performance -> SQ079     0.93
+## lam_1_2                   Performance -> SQ080     0.93
+## lam_2_1                Preis_Leistung -> SQ009     0.84
+## lam_2_2                Preis_Leistung -> SQ076     0.88
+## lam_2_3                Preis_Leistung -> SQ092     0.76
+## lam_2_4                Preis_Leistung -> SQ096    -0.48
+## lam_2_5                Preis_Leistung -> SQ101     0.59
+## lam_3_1           Kundenzufriedenheit -> SQ046     0.80
+## lam_3_2           Kundenzufriedenheit -> SQ110     0.94
+## beta_1_3    Performance -> Kundenzufriedenheit     0.42
+## beta_2_3 Preis_Leistung -> Kundenzufriedenheit     0.34
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show all information in the object}
+\hlkwd{summary}\hlstd{(PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                   Length Class      Mode     
+## coefficients         2   data.frame list     
+## path_coefficients    9   -none-     numeric  
+## outer_loadings      27   -none-     numeric  
+## cross_loadings      27   -none-     numeric  
+## total_effects        9   -none-     numeric  
+## inner_weights        9   -none-     numeric  
+## outer_weights       27   -none-     numeric  
+## blocks               0   -none-     NULL     
+## factor_scores      585   -none-     numeric  
+## data              1755   -none-     numeric  
+## scaled               1   -none-     logical  
+## model                8   plsm       list     
+## weighting_scheme     1   -none-     character
+## weights_evolution    4   data.frame list     
+## sum1                 1   -none-     logical  
+## pairwise             1   -none-     logical  
+## method               1   -none-     character
+## iterations           1   -none-     numeric  
+## convCrit             1   -none-     character
+## verbose              1   -none-     logical  
+## tolerance            1   -none-     numeric  
+## maxit                1   -none-     numeric  
+## N                    1   -none-     numeric  
+## incomplete          66   -none-     numeric  
+## Hanafi              27   -none-     numeric
+\end{verbatim}
+\begin{alltt}
+\hlcom{#to access parts of the object the $ operator is used f.e.}
+\hlstd{PB_model}\hlopt{$}\hlstd{iterations}
+\end{alltt}
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+\begin{alltt}
+\hlcom{#load the Rgraphviz Package}
+\hlkwd{library}\hlstd{(Rgraphviz)}
+
+\hlcom{#visualize model with dot }
+\hlcom{#graphviz required}
+\hlkwd{pathDiagram}\hlstd{(PB_model,} \hlkwc{file} \hlstd{=} \hlstr{"PB-structure"}\hlstd{,} \hlkwc{edge.labels} \hlstd{=} \hlstr{"both"}\hlstd{,}
+           \hlkwc{output.type} \hlstd{=} \hlstr{"graphics"}\hlstd{,} \hlkwc{digits} \hlstd{=} \hlnum{2}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## Running  dot -Tpdf -o PB-structure.pdf  PB-structure.dot
+\end{verbatim}
+\begin{alltt}
+\hlstd{PBdot} \hlkwb{<-} \hlstr{"/home/jannic/PB-structure.dot"}
+\hlstd{PBcom} \hlkwb{<-} \hlkwd{agread}\hlstd{(PBdot,} \hlkwc{layoutType}\hlstd{=}\hlstr{"dot"}\hlstd{)}
+\hlkwd{plot}\hlstd{(PBcom,} \hlkwc{main}\hlstd{=}\hlstr{"Path model"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/semPLS2} 
+
+\end{knitrout}
 Beschreibung zum Code:\\
 Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache erstellt. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
 Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendiger als die Drag \& Drop Logik in SmartPLS. Allerdings können die Modelle aus SmartPLS mit dem semPLS Paket eingelesen werden. Somit kann das Modell in SmartPLS spezifiziert werden und weitere Berechnungen in R erfolgen. Alternativ kann die Spezifizierung in interaktiven Spreadsheets erfolgen. Nehmen wir z.B. die Matrix des Strukturmodells und führen folgenden Code aus:
-% <<>>=
-% data.entry(CB_inner_model)
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{data.entry}\hlstd{(CB_inner_model)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 Nun können die Beziehung einfach in einem interaktiven Spreadsheet bearbeitet werden.\\
 
 \subsubsection{knitr}
-Knitr ist ein Paket zu Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
-Zunächst wird das Paket installiert.
+\href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
+Die folgenden Erläuterungen waren bei der Erstellung dieses Berichts hilfreich, stellen jedoch nur einen Bruchteil der Möglichkeiten dar, welche dieses Paket bietet. Für eine ausführlichere Darstellung wird das Buch "Dynamic Documents with R and knitr" empfohlen.\cite{xie2013dynamic}\\
+Zunächst wird das Paket installiert:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{install.packages}\hlstd{(}\hlstr{"knitr"}\hlstd{)}
-\hlkwd{install.packages}\hlstd{(}\hlstr{"xtable"}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rnw files using: auf knitr gesetzt werden. Nun kann unter File -> New File -> R Sweave ein neues Projekt erstellt werden. In diesem kann dann LaTeX Code geschrieben werden und mit der folgenden Syntax auch R Code eingebettet werden. Ein R Code Block wird mit $<<>>=$ begonnen und \@ geschlossen. In den Anfangstag $<<>>=$ können weitere Parameter übergeben, welche den Output beeinflussen. Ohne Parameter wird der R Code mit Syntaxhervorhebung dargestellt, ausgeführt und die Ergebnisse wie Console Output und Plots ebenfalls in die PDF geschrieben. Dies geschieht mit dem Button "Compile PDF". Mit dem Parameter eval=FALSE wird verhindert dass der R-Code ausgeführt wird. Dieser eignet sich zum Beispiel bei install.packages oder nicht funktionierenden Code, da der Output in diesem Fall für den Leser nicht von Relevanz ist. Der Parameter include=FALSE führt dagegen den Code aus aber die Ergebnisse dieser Ausführung werden nicht in den Bericht geschrieben. Dies ist zum Beispiel für das laden von Paketen von Vorteil.
-
-
-
+Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rnw files using: auf knitr gesetzt werden. Nun kann unter File -> New File -> R Sweave ein neues Projekt erstellt werden. In diesem kann dann LaTeX Code geschrieben werden und mit der folgenden Syntax auch R Code eingebettet werden. Ein R Code Block wird mit $<<>>=$ begonnen und mit $@$ geschlossen. In den Anfangstag $<<>>=$ können weitere Parameter übergeben, welche den Output beeinflussen. Ohne Parameter wird der R Code mit Syntaxhervorhebung dargestellt, ausgeführt und die Ergebnisse wie Console Output und Plots ebenfalls in die PDF geschrieben. Dies geschieht mit dem Button "Compile PDF". Als erster Parameter kann ein Label, also Name für den Codeblock übergeben werden, um diesen später zu referenzieren oder lediglich schneller zu finden. Mit dem Parameter eval=FALSE wird verhindert dass der R-Code ausgeführt wird. Dieser eignet sich zum Beispiel bei install.packages oder nicht funktionierendem Code, da der Output in diesem Fall für den Leser nicht von Relevanz ist. Der Parameter include=FALSE führt dagegen den Code aus, aber die Ergebnisse dieser Ausführung werden nicht in den Bericht geschrieben. Dies ist zum Beispiel für das Laden von Paketen von Vorteil. Mit message=FALSE und warning=FALSE können Nachrichten und Warnungen im Bericht unterdrückt werden.
+Mit dem Parameter echo=FALSE wird der Code nicht in den Bericht geschrieben, aber trotzdem ausgeführt und die Ergebnisse in den Bericht geschrieben. Der Parameter results='asis' schreibt die rohen Ergebnisse aus R direkt in den Bericht. Ein Beispiel dazu wird nachfolgend mit xtable gezeigt.\\
+\\
+Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTeX oder HTML Tabellen erzeugen kann.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -576,6 +661,7 @@ Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rn
 \end{alltt}
 \end{kframe}
 \end{knitrout}
+
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -584,12 +670,39 @@ Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rn
 \end{alltt}
 \end{kframe}
 \end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#print LaTeX Code}
+\hlkwd{print}\hlstd{(}\hlkwd{xtable}\hlstd{(}\hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{correlations))}
+\end{alltt}
+\begin{verbatim}
+## % latex table generated in R 3.0.2 by xtable 1.7-4 package
+## % Fri Jan  2 16:36:09 2015
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{rrrr}
+##   \hline
+##  & Preis\_Leistung & Performance & Kundenzufriedenheit \\ 
+##   \hline
+## Preis\_Leistung & 1.00 & 0.52 & 0.75 \\ 
+##   Performance & 0.52 & 1.00 & 0.34 \\ 
+##   Kundenzufriedenheit & 0.75 & 0.34 & 1.00 \\ 
+##    \hline
+## \end{tabular}
+## \end{table}
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
 \begin{kframe}
 \begin{alltt}
+\hlcom{#print table with results='asis'}
 \hlkwd{print}\hlstd{(}\hlkwd{xtable}\hlstd{(}\hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{correlations))}
 \end{alltt}
 \end{kframe}% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Jan  1 20:53:37 2015
+% Fri Jan  2 16:36:09 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -603,37 +716,72 @@ Preis\_Leistung & 1.00 & 0.52 & 0.75 \\
 \end{tabular}
 \end{table}
 
-results='asis' da die Funktion xtable direkten LaTeX Code liefert und dieser so wie er ist kompiliert werden soll
-echo=FALSE in der finalen Version um den print xtable Befehl zu unterdrücken
+Der Parameter results='asis' wird verwendet, da die Funktion xtable direkten LaTeX Code liefert und dieser so wie er ist kompiliert werden soll um die Tabelle im Bericht darzustellen anstatt des LaTeX Code. In der finalen Version sollte ebenfalls echo=FALSE verwendet werden, um den Befehl print xtable zu unterdrücken, da dieser lediglich zur Erzeugung einer ansprechenderen Tabelle dient und dem Leser sogesehen keinen zusätzlichen Nutzen bringt.\\
+\\
+Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werden, sodass diese zunächst berechnet und anschließend die Variable durch den Wert ersetzt wird. Der folgende R Code wählt beispielsweise eine Zahl von 1-10 zufällig aus und schreibt diese in die Variable x.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{x} \hlkwb{<-} \hlkwd{sample}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{10}\hlstd{,} \hlnum{1}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Die Variable kann nun mit \lstinline!2! im Text refernziert werden:\\
+Die Variable x hat den Wert 2.\\
 
 \subsection{SmartPLS Modell einlesen}
 
 Alternativ kann wie bereits erwähnt ein Modell aus SmartPLS importiert werden. Dazu muss das XML Paket installiert werden, da die Modellinformationen in XML Code gespeichert sind und nur so in R geladen werden können.\\
 Für Ubuntu wird hier eine andere Methode zur Installation benötigt. Dazu wird einfach in ein Terminal der Befehl:
-% <<DONTRUN>>=
-% #!ACHTUNG KEIN R-CODE!
-% sudo apt-get install r-cran-xml
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#!ACHTUNG KEIN R-CODE!}
+sudo apt-get install r-cran-xml
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 eingegeben.\\
 Je nach Betriebssystem kann jedoch auch nach der schon vorgestellten Methode in R installiert werden.
-% <<>>=
-% install.packages("XML")
-% library(XML)
-% 
-% #get both filepaths
-% dataPath <- "/home/jannic/Schreibtisch/PB/Data/Datensatz.csv"
-% modelPath <- "/home/jannic/Schreibtisch/PB/Data/Modell.splsm"
-% 
-% #read dataset
-% mvdata <- read.csv(dataPath)
-% 
-% #read SmartPLS model
-% model <- read.splsm(modelPath)
-% 
-% #show the model
-% model
-% 
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"XML"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(XML)}
+
+\hlcom{#get both filepaths}
+\hlstd{dataPath} \hlkwb{<-} \hlstr{"/home/jannic/Schreibtisch/PB/Data/Datensatz.csv"}
+\hlstd{modelPath} \hlkwb{<-} \hlstr{"/home/jannic/Schreibtisch/PB/Data/Modell.splsm"}
+
+\hlcom{#read dataset}
+\hlstd{mvdata} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(dataPath)}
+\end{alltt}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: kann Datei '/home/jannic/Schreibtisch/PB/Data/Datensatz.csv' nicht öffnen: No such file or directory}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: kann Verbindung nicht öffnen}}\begin{alltt}
+\hlcom{#read SmartPLS model}
+\hlstd{splsmodel} \hlkwb{<-} \hlkwd{read.splsm}\hlstd{(modelPath)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: XML content does not seem to be XML: '/home/jannic/Schreibtisch/PB/Data/Modell.splsm'}}\begin{alltt}
+\hlcom{#show the model}
+\hlstd{splsmodel}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: Objekt 'splsmodel' nicht gefunden}}\end{kframe}
+\end{knitrout}
+
 Zunächst wird das XML Paket in die R Session geladen und die zwei Dateipfade zu den in SmartPLS verwendeten Modell und Datensatz initialisiert. Dann wird der Datensatz wie bisher mit read.csv() eingelesen und anschließend das Modell mit der Funktion read.splsm() geladen. Nun kann das Modell angezeigt werden.\\
 Hier sind jedoch zwei wesentliche Vorschriften zu beachten:
 \begin{enumerate}
@@ -650,8 +798,6 @@ Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berech
 \\
 
 
-
-
 \subsection{Validation}
 Die folgenden Ausführungen zur Validation stammen inhaltlich aus den Büchern PLS-Pfadmodellierung (S.71-87)\cite{bliemel2005handbuch}, A Primer on PLS-SEM (S.95-205)\cite{hair2013primer} und Strukturgleichungsmodellierung (S.325-337).\cite{weiber2010strukturgleichungsmodellierung} Letzteres wird jedoch nicht empfohlen, da dort die Validation reflektiver Messmodelle im PLS Ansatz gleich dem Kovarianzbasierten Ansatz gesetzt wird und Literaturangaben fehlen.
 \subsubsection{reflektives Messmodell}
@@ -660,46 +806,142 @@ Die Validationsmethoden des Messmodells beziehen sich ausschließlich auf den re
 \paragraph{Inhaltsvaliditität} 
 
 Grad, zu dem die Indikatoren dem inhaltlich-semantischen Bereich des Konstrukts angehören. Diese kann zum Beispiel mit Hilfe von Experten im Forschungsgebiet überprüft werden. Allerdings können auch die Intekorrelationen der Indikatoren eines Konstrukts auf Inhaltsvalidität hinweisen.\cite{hildebrandt1984kausalanalytische} Dazu eignet sich die explorative Faktorenanalyse.\cite{vinzi2003pls}\\
-# <<NOTRUN>>=
-# install.packages("psych","GPArotation")
-# @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"psych"}\hlstd{,}\hlstr{"GPArotation"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 Zunächst werden die Pakete "psych" und "GPArotation" installiert.
-% <<>>=
-% library(psych)
-% library(GPArotation)
-% 
-% #read in dataset (optional)
-% CBdata <- read.csv("/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv")
-% 
-% #target indicators used in the model
-% indicatorset <- CBdata[c("SQ009","SQ076","SQ092","SQ101","SQ096",
-%                 "SQ079","SQ080",
-%                 "SQ046","SQ110") ]
-% 
-% #do parallel analysis
-% fa.parallel(indicatorset,fa="fa")
-% 
-% #do parallel analysis with polychoric correlations 
-% fa.parallel.poly(indicatorset,global=TRUE,fa="fa")
-% 
-% #do factor analysis
-% PB_fac <- fa(indicatorset, nfactors=3, rotate="varimax")
-% 
-% #do factor analysis with polychoric correlations
-% PB_fac_poly <- fa.poly(indicatorset, nfactors=3, rotate="varimax",global=TRUE)
-% 
-% #show results
-% print(PB_fac$loadings, cut=0.3)
-% print(PB_fac_poly$fa$loadings, cut=0.3)
-% 
-% #show initial Model
-% PB_model
-% 
-% #show diagram
-% fa.diagram(PB_fac)
-% fa.diagram(PB_fac_poly)
-% 
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(psych)}
+\hlkwd{library}\hlstd{(GPArotation)}
+
+\hlcom{#read in dataset (optional)}
+\hlstd{CBdata} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv"}\hlstd{)}
+
+\hlcom{#target indicators used in the model}
+\hlstd{indicatorset} \hlkwb{<-} \hlstd{CBdata[}\hlkwd{c}\hlstd{(}\hlstr{"SQ009"}\hlstd{,}\hlstr{"SQ076"}\hlstd{,}\hlstr{"SQ092"}\hlstd{,}\hlstr{"SQ101"}\hlstd{,}\hlstr{"SQ096"}\hlstd{,}
+                \hlstr{"SQ079"}\hlstd{,}\hlstr{"SQ080"}\hlstd{,}
+                \hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{) ]}
+
+\hlcom{#do parallel analysis}
+\hlkwd{fa.parallel}\hlstd{(indicatorset,}\hlkwc{fa}\hlstd{=}\hlstr{"fa"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/psych1} 
+\begin{kframe}\begin{verbatim}
+## Parallel analysis suggests that the number of factors =  3  and the number of components =  2
+\end{verbatim}
+\begin{alltt}
+\hlcom{#do parallel analysis with polychoric correlations }
+\hlkwd{fa.parallel.poly}\hlstd{(indicatorset,}\hlkwc{global}\hlstd{=}\hlnum{TRUE}\hlstd{,}\hlkwc{fa}\hlstd{=}\hlstr{"fa"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 
+## 
+##  See the graphic output for a description of the results
+\end{verbatim}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/psych2} 
+\begin{kframe}\begin{verbatim}
+## Parallel analysis suggests that the number of factors =  3  and the number of components =  1
+## Call: fa.parallel.poly(x = indicatorset, fa = "fa", global = TRUE)
+## Parallel analysis suggests that the number of factors =  3  and the number of components =  1 
+## 
+##  Eigen Values of 
+##   Original factors Simulated data Original components simulated data
+## 1             4.04           0.68                4.55           1.49
+## 2             0.66           0.31                1.22           1.26
+## 3             0.23           0.19                0.85           1.14
+\end{verbatim}
+\begin{alltt}
+\hlcom{#do factor analysis}
+\hlstd{PB_fac} \hlkwb{<-} \hlkwd{fa}\hlstd{(indicatorset,} \hlkwc{nfactors}\hlstd{=}\hlnum{3}\hlstd{,} \hlkwc{rotate}\hlstd{=}\hlstr{"varimax"}\hlstd{)}
+
+\hlcom{#do factor analysis with polychoric correlations}
+\hlstd{PB_fac_poly} \hlkwb{<-} \hlkwd{fa.poly}\hlstd{(indicatorset,} \hlkwc{nfactors}\hlstd{=}\hlnum{3}\hlstd{,} \hlkwc{rotate}\hlstd{=}\hlstr{"varimax"}\hlstd{,}\hlkwc{global}\hlstd{=}\hlnum{TRUE}\hlstd{)}
+
+\hlcom{#show results}
+\hlkwd{print}\hlstd{(PB_fac}\hlopt{$}\hlstd{loadings,} \hlkwc{cut}\hlstd{=}\hlnum{0.3}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## Loadings:
+##       MR2    MR1    MR3   
+## SQ009  0.784              
+## SQ076  0.834              
+## SQ092  0.465              
+## SQ101  0.362         0.301
+## SQ096 -0.483              
+## SQ079         0.930       
+## SQ080         0.668       
+## SQ046                0.763
+## SQ110         0.479  0.570
+## 
+##                  MR2   MR1   MR3
+## SS loadings    2.074 1.713 1.252
+## Proportion Var 0.230 0.190 0.139
+## Cumulative Var 0.230 0.421 0.560
+\end{verbatim}
+\begin{alltt}
+\hlkwd{print}\hlstd{(PB_fac_poly}\hlopt{$}\hlstd{fa}\hlopt{$}\hlstd{loadings,} \hlkwc{cut}\hlstd{=}\hlnum{0.3}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## Loadings:
+##       MR3    MR1    MR2   
+## SQ009  0.765              
+## SQ076  0.883              
+## SQ092  0.513         0.332
+## SQ101  0.444              
+## SQ096 -0.506              
+## SQ079         0.946       
+## SQ080         0.658  0.360
+## SQ046                0.942
+## SQ110  0.399  0.458  0.586
+## 
+##                  MR3   MR1   MR2
+## SS loadings    2.396 1.764 1.660
+## Proportion Var 0.266 0.196 0.184
+## Cumulative Var 0.266 0.462 0.647
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show initial Model}
+\hlstd{PB_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                   Performance -> SQ079     0.93
+## lam_1_2                   Performance -> SQ080     0.93
+## lam_2_1                Preis_Leistung -> SQ009     0.84
+## lam_2_2                Preis_Leistung -> SQ076     0.88
+## lam_2_3                Preis_Leistung -> SQ092     0.76
+## lam_2_4                Preis_Leistung -> SQ096    -0.48
+## lam_2_5                Preis_Leistung -> SQ101     0.59
+## lam_3_1           Kundenzufriedenheit -> SQ046     0.80
+## lam_3_2           Kundenzufriedenheit -> SQ110     0.94
+## beta_1_3    Performance -> Kundenzufriedenheit     0.42
+## beta_2_3 Preis_Leistung -> Kundenzufriedenheit     0.34
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show diagram}
+\hlkwd{fa.diagram}\hlstd{(PB_fac,} \hlkwc{main} \hlstd{=}\hlstr{"Factor Analysis"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/psych3} 
+\begin{kframe}\begin{alltt}
+\hlkwd{fa.diagram}\hlstd{(PB_fac_poly,} \hlkwc{main} \hlstd{=}\hlstr{"Factor Analysis polychoric"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/psych4} 
+
+\end{knitrout}
+
 Anschließend werden diese wie gewohnt in die R-Session geladen. Der Datensatz muss nicht noch einmal eingelesen werden, falls dies schon erfolgte. Hier wird dieser erneut eingelesen, da die explorative Faktorenanalyse auch vor der Modellspezifikation erfolgen kann und somit Konstrukte aus vorhandenen Daten gebildet werden statt diese persönlich manuell zu erstellen.\\
 Zunächst muss der gewünschte Teildatensatz extrahiert werden. In diesem Fall wurden die Indikatoren bereits gewählt und daher werden diese auch als Teildatensatz für die Faktorenanalyse in der Variable "indicatorset" gespeichert. Alternativ könnten auch noch andere Indikatoren hinzugefügt werden von denen vermutet wird dass Sie zu einem spezifizierten Konstrukt passen. Um die Anzahl der Faktoren zu bestimmten, wird zunächst eine parallel Analyse nach Horn\cite{horn1965rationale} durchgeführt. Alternativ könnte auch in Scree-Test oder das Kaiser-Guttman-Kriterium herangezogen werden, allerdings herrscht in der Literatur Konsens darüber dass die parallel Analyse diesen überlegen ist.\cite{dinno2009exploring} Die nachfolgenden Berechnungen und Erklärungen sollen lediglich der Illustration dienen, da die Autoren der Meinung sind dass sich vorher mit der Methodik, den Annahmen und der Interpretation der Ergebnisse intensiver beschäftigt werden sollte, statt blind Funktionen auszuführen dessen Funktionsweise noch nicht gänzlich recherchiert wurde. Eine gute Einstiegsliteratur dazu ist beispielsweise Hayton's Tutorial zur parallel Analyse\cite{hayton2004factor} und das Kapitel zur explorativen Faktorenanalyse im Buch Multivariate Data Analysis von Hair et al.\cite{hair2006multivariate}\\
 Die parallel Analyse wird mit der Funktion fa.parallel() aufgerufen und erhält als Parameter den Teil-Datensatz indicatorset, sowie fa="fa", das lediglich dazu dient die Hauptkomponentenanalyse nicht im Plot zu zeigen, da sie in diesem Fall nicht von Interesse ist. Zu beachten ist hier dass mehr Beobachtungen als Variablen in diesem Datensatz enthalten sein müssen. Dies ist in dem genannten Fall mit 261 Beobachtungen und 9 Variablen gewährleistet. Laut des Outputs in der Console werden 3 Faktoren vorgeschlagen. (Die Anzahl der Komponenten kann ignoriert werden, da eine Faktorenanalyse das Ziel ist und keine Hauptkomponentenanalyse). Dies ist ebenfalls im dazugehörigen Scree Plot zu sehen: Auf der X-Achse ist die Anzahl der Faktoren und auf der Y-Achse die Eigenwerte der Faktorenanalyse dargestellt. Die blaue durchgezogene Linie, unterbrochen durch Dreiecke stellt die Eigenwerte der Faktoren dar. Solange die Dreiecke oberhalb der gestrichelten roten Linie der Faktorenanalyse liegen, können diese Faktoren extrahiert werden. Die gestrichelte rote Linie stellt dabei die durchschnittlichen Eigenwerte von zufälligen, unkorrelierten, simulierten Daten dar.\\
@@ -711,20 +953,84 @@ Mit der fa.diagram() Funktion können die Ergebnisse auch in einem leicht verst�
 \paragraph{Indikatorreliabilität} 
 
 Die sogenannten äußeren Ladungen (outer loadings) wurden bereits mit der Funktion sempls() berechnet und können auch im Plot des Modells (lam\_x\_y = outer loadings) abgelesen werden. Hierbei handelt es sich um die Beziehungen zwischen Indikatoren und latenten Variablen, also des Messmodells. Äußere Gewichte (outer weights) wurden nicht berechnet, da das Modell rein reflektiv gemessen wurde. Bei einer formativen Messung und daraus resultierenden äußeren Gewichten gelten die nachfolgenden Erläuterungen zu äußeren Ladungen nicht. Die äußeren Ladungen geben von -1 bis 1 den Anteil der Varianz eines Indikators an, welcher durch seine latente Variable erklärt wird. Wird eine latente Variable nur mit einem einzigen Indikator gemessen ist die Ladung also logischerweise genau 1. Wird diese mit mehreren Indikatoren gemessen, sollten die Ladungen in der Regel über 0.7 sein.\cite{carmines1979reliability} Ladungen unter 0.4 sollten generell entfernt werden.\cite{hulland1999use} Für Ladungen von 0.4 bis 0.7 wird empfohlen die Auswirkungen des Löschens im Blick zu behalten und diese gegebenfalls nicht zu löschen, falls sich z.B. die Konstruktreliabilität nicht verbessert. Die Berechnung der Konstruktreliabilität wird im nächsten Abschnitt erläutert. Zunächst werden die Ladungen angezeigt:
-% <<>>=
-% PB_model$outer_loadings
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{PB_model}\hlopt{$}\hlstd{outer_loadings}
+\end{alltt}
+\begin{verbatim}
+##       Performance Preis_Leistung Kundenzufriedenheit
+## SQ079      0.9288         0.0000              0.0000
+## SQ080      0.9339         0.0000              0.0000
+## SQ009      0.0000         0.8429              0.0000
+## SQ076      0.0000         0.8800              0.0000
+## SQ092      0.0000         0.7562              0.0000
+## SQ096      0.0000        -0.4799              0.0000
+## SQ101      0.0000         0.5937              0.0000
+## SQ046      0.0000         0.0000              0.7989
+## SQ110      0.0000         0.0000              0.9416
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Beim Konstrukt Preis\_Leistung sind die Ladungen der Indikatoren SQ096 und SQ101 unter den gewünschten 0.7, jedoch noch über dem Minimum von 0.4. Hier muss also abgewogen werden ob diese gelöscht werden sollten. Da sich die Konstruktreliabilität von 0.74 auf 0.89 verbessert werden diese entfernt und es entsteht das folgende Modell: 
-% <<>>=
-% #specify new model
-% new_PB_model <- sempls(model = plsm(data = CBdata, strucmod = cbind(c("Preis_Leistung","Performance"),c(rep("Kundenzufriedenheit",2))), measuremod = cbind(c(rep("Preis_Leistung",3),rep("Performance",2),rep("Kundenzufriedenheit",2)),c("SQ009","SQ076","SQ092","SQ079","SQ080","SQ046","SQ110"))),data = CBdata)
-% 
-% #show old model
-% PB_model
-% 
-% #show new model
-% new_PB_model
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#specify new model}
+\hlstd{new_PB_model} \hlkwb{<-} \hlkwd{sempls}\hlstd{(}\hlkwc{model} \hlstd{=} \hlkwd{plsm}\hlstd{(}\hlkwc{data} \hlstd{= CBdata,}
+                \hlkwc{strucmod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Performance"}\hlstd{),}
+                                 \hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{2}\hlstd{))),}
+                \hlkwc{measuremod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlnum{3}\hlstd{),}
+                                     \hlkwd{rep}\hlstd{(}\hlstr{"Performance"}\hlstd{,}\hlnum{2}\hlstd{),}
+                                     \hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{2}\hlstd{)),}
+                                   \hlkwd{c}\hlstd{(}\hlstr{"SQ009"}\hlstd{,}\hlstr{"SQ076"}\hlstd{,}\hlstr{"SQ092"}\hlstd{,}\hlstr{"SQ079"}\hlstd{,}
+                                     \hlstr{"SQ080"}\hlstd{,}\hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{)))}
+                \hlstd{,}\hlkwc{data} \hlstd{= CBdata)}
+\end{alltt}
+\begin{verbatim}
+## Data rows: 4, 6, 20, 29, 32, 33, 36, 37, 39, 43, 55, 61, 72, 76, 77, 80, 90, 92, 95, 96, 97, 100, 101, 102, 116, 139, 144, 145, 153, 162, 163, 175, 176, 184, 185, 186, 192, 193, 197, 218, 224, 227, 233, 235, 237, 240, 242, 245, 253, 258, 261 
+## are not taken into acount, due to missings in the manifest variables.
+##  Total number of complete cases: 210 
+## Converged after 7 iterations.
+## Tolerance: 1e-07
+## Scheme: centroid
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show old model}
+\hlstd{PB_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                   Performance -> SQ079     0.93
+## lam_1_2                   Performance -> SQ080     0.93
+## lam_2_1                Preis_Leistung -> SQ009     0.84
+## lam_2_2                Preis_Leistung -> SQ076     0.88
+## lam_2_3                Preis_Leistung -> SQ092     0.76
+## lam_2_4                Preis_Leistung -> SQ096    -0.48
+## lam_2_5                Preis_Leistung -> SQ101     0.59
+## lam_3_1           Kundenzufriedenheit -> SQ046     0.80
+## lam_3_2           Kundenzufriedenheit -> SQ110     0.94
+## beta_1_3    Performance -> Kundenzufriedenheit     0.42
+## beta_2_3 Preis_Leistung -> Kundenzufriedenheit     0.34
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show new model}
+\hlstd{new_PB_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                   Performance -> SQ079     0.92
+## lam_1_2                   Performance -> SQ080     0.92
+## lam_2_1                Preis_Leistung -> SQ009     0.86
+## lam_2_2                Preis_Leistung -> SQ076     0.90
+## lam_2_3                Preis_Leistung -> SQ092     0.80
+## lam_3_1           Kundenzufriedenheit -> SQ046     0.79
+## lam_3_2           Kundenzufriedenheit -> SQ110     0.94
+## beta_1_3    Performance -> Kundenzufriedenheit     0.43
+## beta_2_3 Preis_Leistung -> Kundenzufriedenheit     0.29
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Der Code wurde hier auf das nötigste reduziert, da dieser bereits im Kapitel semPLS ausführlicher dargestellt wurde. Auf die Konstruktreliabilität wird im nächsten Abschnitt eingegangen. Neben den verbesserten Ladungen und damit der Konstruktreliabilität durch das Löschen ist jedoch auch zu sehen, dass der Pfadkoeffizient von Preis\_Leistung zu Kundenzufriedenheit von 0.34 auf 0.29 gesunken ist. Hier müssen also die Vor- und Nachteile wie bereits erwähnt abgewogen werden. Im Idealfall lässt sich ein anderer Indikator finden, welcher beide Werte verbessert. Da das Modell jedoch nur zur Demonstration dient, wird dies an dieser Stelle jedoch unterlassen.
 
 \paragraph{Konstruktreliabilität} 
@@ -740,11 +1046,30 @@ $\epsilon_{i}$ &= Messfehler der Indikatorvariable i\\
 j  &= Laufindex über alle reflektiven Messmodelle\\
 $var(\epsilon_{i})$ &= Varianz des Messfehlers\\
 \end{tabular}
+\\
 Die korrespondierende Funktion heißt im semPLS Paket dgrho() und erhält als einzigen Parameter das Modell.
-% <<>>=
-% dgrho(PB_model)
-% dgrho(new_PB_model)
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{dgrho}\hlstd{(PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     Dillon-Goldstein's rho reflective MVs
+## Performance                           0.93              2
+## Preis_Leistung                        0.74              5
+## Kundenzufriedenheit                   0.86              2
+\end{verbatim}
+\begin{alltt}
+\hlkwd{dgrho}\hlstd{(new_PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     Dillon-Goldstein's rho reflective MVs
+## Performance                           0.92              2
+## Preis_Leistung                        0.89              3
+## Kundenzufriedenheit                   0.86              2
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Hier erkennt man die Steigerung des rho der latenten Variable Preis\_Leistung von 0.74 im alten Modell auf 0.89 im neuen Modell, welche durch das löschen der Indikatoren SQ096 und SQ101 erreicht wurde. Außerdem liegen alle rhos über den in der Literatur üblichen Empfehlungen von mindestens 0.6 bis 0.7.\cite{nunnally1978c,bagozzi1988evaluation} Allerdings muss bei zu hohen Werten (>0.95) untersucht werden ob die Indikatoren nicht eventuell einfach das gleiche messen.
 
 \paragraph{Diskriminanzvalidität} 
@@ -761,19 +1086,85 @@ $var(\epsilon_{i})$ &= Varianz des Messfehlers\\
 \end{tabular}
 Eine durchschnittlich erfasste Varianz von bspw. 0.5 bedeutet hier, dass das Konstrukt im Mittel 50\% der Varianz seiner Indikatoren erklärt. Dies stellt gleichzeitig den empfohlenen Mindestwert dar, weil sonst der überwiegende Teil der Varianz auf den Fehlerterm entfällt.\cite{homburg1996konzeptualisierung,rodgers2003developing}
 Im semPLS Paket heißt die korrespondierende Funktion communality().
-% <<>>=
-% communality(PB_model)
-% PB_model$path_coefficients^2
-% communality(new_PB_model)
-% new_PB_model$path_coefficients^2
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{communality}\hlstd{(PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     communality reflective MVs
+## Performance                0.87              2
+## Preis_Leistung             0.53              5
+## Kundenzufriedenheit        0.76              2
+## 
+## 	Average communality: 0.66
+\end{verbatim}
+\begin{alltt}
+\hlstd{PB_model}\hlopt{$}\hlstd{path_coefficients}\hlopt{^}\hlnum{2}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0              0.1750
+## Preis_Leistung                0              0              0.1165
+## Kundenzufriedenheit           0              0              0.0000
+\end{verbatim}
+\begin{alltt}
+\hlkwd{communality}\hlstd{(new_PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     communality reflective MVs
+## Performance                0.85              2
+## Preis_Leistung             0.73              3
+## Kundenzufriedenheit        0.76              2
+## 
+## 	Average communality: 0.77
+\end{verbatim}
+\begin{alltt}
+\hlstd{new_PB_model}\hlopt{$}\hlstd{path_coefficients}\hlopt{^}\hlnum{2}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0             0.18424
+## Preis_Leistung                0              0             0.08654
+## Kundenzufriedenheit           0              0             0.00000
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Ist nun die jeweils ermittelte durchschnittlich erfasste Varianz eines Konstrukts höher als jede quadrierte Korrelation mit einem anderen Konstrukt, ist das Fornell \& Larcker Kriterium erfüllt. Dies ist im alten, sowie im neuen Modell gegeben. Beachte auch die gesteigerte DEV der Preis\_Leistung im neuen Modell, welche sich durch das Löschen der zwei Indikatoren ergibt.\\
 \\
 Eine weitere Methode die Diskriminanzvalidität zu überprüfen stellt das Analysieren der "cross loadings" dar.
-% <<>>=
-% PB_model$cross_loadings
-% new_PB_model$cross_loadings
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{PB_model}\hlopt{$}\hlstd{cross_loadings}
+\end{alltt}
+\begin{verbatim}
+##       Performance Preis_Leistung Kundenzufriedenheit
+## SQ079      0.9288         0.4307              0.5226
+## SQ080      0.9339         0.4056              0.5417
+## SQ009      0.3375         0.8429              0.4125
+## SQ076      0.4162         0.8800              0.4777
+## SQ092      0.3809         0.7562              0.4040
+## SQ096     -0.2130        -0.4799             -0.1204
+## SQ101      0.2399         0.5937              0.3743
+## SQ046      0.2852         0.3664              0.7989
+## SQ110      0.6341         0.5297              0.9416
+\end{verbatim}
+\begin{alltt}
+\hlstd{new_PB_model}\hlopt{$}\hlstd{cross_loadings}
+\end{alltt}
+\begin{verbatim}
+##       Performance Preis_Leistung Kundenzufriedenheit
+## SQ079      0.9227         0.4009              0.5190
+## SQ080      0.9180         0.3933              0.5046
+## SQ009      0.3036         0.8600              0.3790
+## SQ076      0.4129         0.8974              0.4505
+## SQ092      0.3807         0.7993              0.3920
+## SQ046      0.2897         0.3117              0.7927
+## SQ110      0.6071         0.4893              0.9424
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Hier sollten die Ladungen der Indikatoren auf das im Modell entsprechend zugeordnete Konstrukt am höchsten sein und idealerweise, jedoch nicht notwendigerweise die Ladungen auf andere Konstrukte unter 0.7 betragen. Dies ist sowohl im Ausgangsmodell als auch im neuen Modell erfüllt.\\
 \\
 Damit sind alle Kriterien an das reflektive Messmodell erfüllt. Bei komplexen Modellen sind diese Kennzahlen nicht immer alle erfüllt, jedoch liefern sie wertvolle Maßzahlen an denen sich Ersteller des Modells bei der Spezifikation orientieren kann. Am Ende sollte der Ersteller sich allerdings nicht  ausschließlich auf diese Kennzahlen verlassen und jegliche Logik ausschalten, sondern diese auch kritisch hinterfragen, sowie das Gesamtmodell im Auge behalten. So könnte z.B. durch reine Beachtung der Kennzahlen ein Modell, welches diese perfekt erfüllt erstellt werden, jedoch am Ende die für den Ersteller eigentlich wichtigen latenten Variablen gar nicht oder nur schlecht erklärt.
@@ -783,51 +1174,148 @@ Damit sind alle Kriterien an das reflektive Messmodell erfüllt. Bei komplexen M
 \paragraph{Pfadkoeffizienten}
 
 Die Pfadkoeffizienten (path coefficients) wurden bereits mit der Funktion sempls() berechnet und können auch im Plot des Modells (beta\_x\_y = path coefficients) abgelesen werden. Hierbei handelt es sich um die direkten Beziehungen zwischen den latenten Variablen, also des Strukturmodells. Diese werden mit standardisierten Werten angezeigt, welche von -1 über 0 bis 1 reichen. Hier repräsentieren Werte nahe 1 einen starken positiven Zusammenhang, nahe 0 einen schwachen und nahe -1 einen stark negativen Zusammenhang. Interessant sind ebenfalls die "total effects", d.h. die Summe der direkten und indirekten Beziehungen. Da im vorgestellten Modell jedoch keine Konstrukte zwischen der endogenen Variable Kundenzufriedenheit und den exogenen Variablen Performance und Preis\_Leistung liegen, es also keine indirekten Beziehungen gibt, sind "total effects" und "path coefficients" äquivalent.
-% <<>>=
-% PB_model$path_coefficients
-% PB_model$total_effects
-% 
-% new_PB_model$path_coefficients
-% new_PB_model$total_effects
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{PB_model}\hlopt{$}\hlstd{path_coefficients}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0              0.4183
+## Preis_Leistung                0              0              0.3414
+## Kundenzufriedenheit           0              0              0.0000
+\end{verbatim}
+\begin{alltt}
+\hlstd{PB_model}\hlopt{$}\hlstd{total_effects}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0              0.4183
+## Preis_Leistung                0              0              0.3414
+## Kundenzufriedenheit           0              0              0.0000
+\end{verbatim}
+\begin{alltt}
+\hlstd{new_PB_model}\hlopt{$}\hlstd{path_coefficients}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0              0.4292
+## Preis_Leistung                0              0              0.2942
+## Kundenzufriedenheit           0              0              0.0000
+\end{verbatim}
+\begin{alltt}
+\hlstd{new_PB_model}\hlopt{$}\hlstd{total_effects}
+\end{alltt}
+\begin{verbatim}
+##                     Performance Preis_Leistung Kundenzufriedenheit
+## Performance                   0              0              0.4292
+## Preis_Leistung                0              0              0.2942
+## Kundenzufriedenheit           0              0              0.0000
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 \paragraph{Bootstrapping}
 
 Die Zuverlässigkeit der Pfadkoeffizienten kann mittels der Bootstrapping Methode ermittelt werden. Hierbei werden eine bestimmte Anzahl und Größe an Teilmengen zufällig aus dem original Datensatz gezogen und jeweils mit diesen Teilmengen das Modell berechnet. Somit erhält man Intervalle mit durchschnitts, minimalen, maximalen Werten, sowie Standardfehler der jeweiligen Beziehung.
-% <<>>=
-% #create seed with arbitrary number
-% set.seed(123)
-% 
-% #execute algorithm
-% new_PB_model_boot <- bootsempls(new_PB_model, nboot=5000, verbose=TRUE)
-% 
-% #show results
-% new_PB_model_boot
-% 
-% #give a summary
-% summary(new_PB_model_boot, level=0.95)
-% 
-% #get coefficients names
-% new_PB_model_boot$fitted_model
-% 
-% #plot bootstrap samples
-% parallelplot(new_PB_model_boot, subset=1:ncol(new_PB_model_boot$t), reflinesAt=c(-1,0,1))
-% 
-% #plot path coefficients only
-% parallelplot(PB_model_boot, pattern="beta", reflinesAt=c(-1,0,1))
-% 
-% #plot outer loadings only
-% parallelplot(PB_model_boot, pattern="lam",reflinesAt=c(-1,0,1))
-% 
-% #plot path coefficients only
-% densityplot(PB_model_boot, pattern="beta")
-% 
-% #plot outer loadings only
-% densityplot(PB_model_boot, pattern="lam")
-% 
-% @
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#create seed with arbitrary number}
+\hlkwd{set.seed}\hlstd{(}\hlnum{123}\hlstd{)}
+
+\hlcom{#execute algorithm}
+\hlstd{new_PB_model_boot} \hlkwb{<-} \hlkwd{bootsempls}\hlstd{(new_PB_model,} \hlkwc{nboot}\hlstd{=}\hlnum{200}\hlstd{,} \hlkwc{verbose}\hlstd{=}\hlnum{FALSE}\hlstd{)}
+
+\hlcom{#show results}
+\hlstd{new_PB_model_boot}
+\end{alltt}
+\begin{verbatim}
+## Call: bootsempls(object = new_PB_model, nboot = 200, verbose = FALSE)
+## 
+##                                       Estimate     Bias Std.Error
+## Performance -> SQ079                     0.923  0.00131   0.01311
+## Performance -> SQ080                     0.918  0.00197   0.01724
+## Preis_Leistung -> SQ009                  0.860  0.00012   0.02546
+## Preis_Leistung -> SQ076                  0.897  0.00133   0.01508
+## Preis_Leistung -> SQ092                  0.799 -0.00265   0.03463
+## Kundenzufriedenheit -> SQ046             0.793 -0.00402   0.06372
+## Kundenzufriedenheit -> SQ110             0.942  0.00206   0.00925
+## Performance -> Kundenzufriedenheit       0.429  0.00832   0.07462
+## Preis_Leistung -> Kundenzufriedenheit    0.294 -0.00181   0.07521
+\end{verbatim}
+\begin{alltt}
+\hlcom{#give a summary}
+\hlkwd{summary}\hlstd{(new_PB_model_boot,} \hlkwc{level}\hlstd{=}\hlnum{0.95}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## Call: bootsempls(object = new_PB_model, nboot = 200, verbose = FALSE)
+## 
+## Lower and upper limits are for the 95 percent perc confidence interval
+## 
+##          Estimate     Bias Std.Error Lower Upper
+## lam_1_1     0.923  0.00131   0.01311 0.892 0.943
+## lam_1_2     0.918  0.00197   0.01724 0.877 0.947
+## lam_2_1     0.860  0.00012   0.02546 0.804 0.907
+## lam_2_2     0.897  0.00133   0.01508 0.865 0.927
+## lam_2_3     0.799 -0.00265   0.03463 0.719 0.859
+## lam_3_1     0.793 -0.00402   0.06372 0.642 0.898
+## lam_3_2     0.942  0.00206   0.00925 0.926 0.966
+## beta_1_3    0.429  0.00832   0.07462 0.280 0.589
+## beta_2_3    0.294 -0.00181   0.07521 0.120 0.417
+\end{verbatim}
+\begin{alltt}
+\hlcom{#get coefficient names}
+\hlstd{new_PB_model_boot}\hlopt{$}\hlstd{fitted_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                   Performance -> SQ079     0.92
+## lam_1_2                   Performance -> SQ080     0.92
+## lam_2_1                Preis_Leistung -> SQ009     0.86
+## lam_2_2                Preis_Leistung -> SQ076     0.90
+## lam_2_3                Preis_Leistung -> SQ092     0.80
+## lam_3_1           Kundenzufriedenheit -> SQ046     0.79
+## lam_3_2           Kundenzufriedenheit -> SQ110     0.94
+## beta_1_3    Performance -> Kundenzufriedenheit     0.43
+## beta_2_3 Preis_Leistung -> Kundenzufriedenheit     0.29
+\end{verbatim}
+\begin{alltt}
+\hlcom{#plot bootstrap samples}
+\hlkwd{parallelplot}\hlstd{(new_PB_model_boot,} \hlkwc{subset}\hlstd{=}\hlnum{1}\hlopt{:}\hlkwd{ncol}\hlstd{(new_PB_model_boot}\hlopt{$}\hlstd{t),} \hlkwc{reflinesAt}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/boot1} 
+\begin{kframe}\begin{alltt}
+\hlcom{#plot path coefficients only}
+\hlkwd{parallelplot}\hlstd{(new_PB_model_boot,} \hlkwc{pattern}\hlstd{=}\hlstr{"beta"}\hlstd{,} \hlkwc{reflinesAt}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/boot2} 
+\begin{kframe}\begin{alltt}
+\hlcom{#plot outer loadings only}
+\hlkwd{parallelplot}\hlstd{(new_PB_model_boot,} \hlkwc{pattern}\hlstd{=}\hlstr{"lam"}\hlstd{,}\hlkwc{reflinesAt}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/boot3} 
+\begin{kframe}\begin{alltt}
+\hlcom{#plot path coefficients only}
+\hlkwd{densityplot}\hlstd{(new_PB_model_boot,} \hlkwc{pattern}\hlstd{=}\hlstr{"beta"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/boot4} 
+\begin{kframe}\begin{alltt}
+\hlcom{#plot outer loadings only}
+\hlkwd{densityplot}\hlstd{(new_PB_model_boot,} \hlkwc{pattern}\hlstd{=}\hlstr{"lam"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/boot5} 
+
+\end{knitrout}
+
 Beschreibung zum Code:\\
-Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: PB\_model, die Anzahl der samples: nboot=300 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
+Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: new\_PB\_model, die Anzahl der samples: nboot=300 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
 Mit new\_PB\_model\_boot wird das erzeugte Objekt ausgegeben. Es enthält die Berechnungen der äußeren Ladungen und Pfadkoeffizienten, sowie den entsprechenden Bias und Standardfehler. Mit dem summary() Befehl wird zusätzlich noch der niedrigste und Höchste Wert angezeigt bei einem Konfidenzintervall von 0.95 (siehe Parameter level=0.95). Dies bedeutet dass die niedrigsten und höchsten Werte nur für das Konfidenzintervall von 95\% gezeigt werden. Es werden also jeweils 2.5\% unten und oben "abgeschnitten", da diese nicht häufig genug vorkommen um repräsentativ zu sein. In der Ausgabe stehen allerdings die Beziehungen nun in einer anderen Notation, wie schon beim Plot des Strukturmodells als Pfadmodell. Durch den Befehl new\_PB\_model\_boot\$fitted\_model\$ können jedoch bequem beide Notationen angezeigt werden und somit "übersetzt" werden.\\
 Anschließend werden diese Daten graphisch mit der Funktion parallelplot() dargestellt. Diese erhält als Parameter das neu erstellte Objekt new\_PB\_model\_boot, die Teilmenge new\_PB\_model\_boot\$t und eine refline an der Stelle 0. Die Teilmenge t ist dabei eine Matrix mit den berechneten Werten jeder einzelnen Bootstrap Replikation (Stichprobenziehung, case). Die Referenzlinien bei -1,0,1 dienen lediglich dazu, einschätzen zu können ob die Werte negativ oder positiv sind. Der Plot zeigt die schon erwähnten Pfadkoeffizienten, bzw. äußeren Ladungen aus der t Matrix in visueller Form. Eine graue Linie steht dabei für jeweils eine Stichprobenziehung. Die durchgezogene rote Linie zeigt die usprünglichen "originalen" (ohne Bootstrapping) ermittelten Beziehungen an. Die gestrichelte rote Linie gibt die Werte, welche innerhalb des Konfidenzintervall von 0.95 liegen an. Die gestrichelten vertikalen schwarzen Linien stellen die Referenzlinien bei -1,0,1 dar. Auf der Y-Achse sind die jeweiligen Beziehungen dargestellt und auf der X-Achse die entsprechenden Werte von -1 bis 1. Anschließend kann durch den zusätzlichen Parameter pattern="beta" (pattern="lam") nur die Pfadkoeffizienten (äußeren Ladungen) der Plot auf die jeweilige Beziehung beschränkt werden. Eine weitere Möglichkeit der Visualisierung stellt die densityplot() Funktion dar, welche analog die Ergebnisse in einer Verteilungsfunktion zeigt.\\
 Die empirischen t-Werte (Achtung nicht verwechseln mit der oben genannten t Matrix, diese heißt lediglich so) werden nun mit der folgenden Formel ermittelt:
@@ -840,37 +1328,67 @@ $t$ &= empirischer t-Wert\\
 $p_{ij}$  &= "originaler" Pfadkoeffizient\\
 $se^{*}_{p_{ij}}$ &= Bootstrapping Standardfehler\\
 \end{tabular}
-
+\\
 Der zugehörige R Code sieht wie folt aus:
-% <<>>=
-% #store summary in s
-% s <- summary(new_PB_model_boot)
-% 
-% #get standard errors
-% stderr <- s$table$Std.Err
-% 
-% #get original coefficients
-% new_PB_model_boot$t0
-% 
-% #calculate t-values
-% t_values <- new_PB_model_boot$t0/stderr
-% 
-% #show t_values
-% t_values
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#store summary in s}
+\hlstd{s} \hlkwb{<-} \hlkwd{summary}\hlstd{(new_PB_model_boot)}
+
+\hlcom{#get standard errors}
+\hlstd{stderr} \hlkwb{<-} \hlstd{s}\hlopt{$}\hlstd{table}\hlopt{$}\hlstd{Std.Err}
+
+\hlcom{#get original coefficients}
+\hlstd{new_PB_model_boot}\hlopt{$}\hlstd{t0}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.9227 0.9180 0.8600 0.8974 0.7993 0.7927 0.9424 0.4292 0.2942
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate t-values}
+\hlstd{t_values} \hlkwb{<-} \hlstd{new_PB_model_boot}\hlopt{$}\hlstd{t0}\hlopt{/}\hlstd{stderr}
+
+\hlcom{#show t_values}
+\hlstd{t_values}
+\end{alltt}
+\begin{verbatim}
+## [1]  70.371  53.261  33.773  59.506  23.084  12.440 101.849   5.752   3.911
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Zunächst wird ein Vektor mit den Standardfehlern erstellt, welche durch das Speichern des summary() Outputs in der Variable "s" mit dem \$ Operator angesteuert werden können. Die "originalen" Koeffizienten können einfacher durch new\_PB\_model\_boot\$t0 abgerufen werden. Nun wird ein neuer Vektor t\_values durch Division der "originalen" Werte durch die jeweiligen Standardfehler erstellt. Liegt nun ein t-Wert über einem festgelegten kritischen Wert von bspw. 2.57 (Signifikanzniveau = 1\%), ist die korrespondierende Beziehung signifikant mit einer Irrtumswahrscheinlichkeit von 1\%. Das Signifikanzniveau hängt dabei vom Forschungsgebiet ab. Im Marketing ist ein Signifikanzniveau von 5\% üblich, was einem kritischen Wert von 1.96 entspricht. Da jedoch alle ermittelten t-Werte über 4 liegen, erfüllen diese alle gebräuchlichen Signifikanzniveaus und können somit auch als signifikant angesehen werden.\\
 
 \paragraph{Determinationskoeffizient}
 
 Die Kennzahl $R^2$ ist ein Messzahl für den erklärten Anteil der Varianz einer abhängigen Variablen durch ein statistisches Modell. Mögliche Werte gehen von 0 (0\% der Varianz wurden erklärt, kein linearer Zusammenhang) bis 1 (100\% der Varianz wurden erklärt, perfekter linearer Zusammenhang). Vereinfacht bedeutet dies, dass bei einem $R^2$ von 1 alle prognostizierten Werte den tatsächlich gemessenen Werten entsprechen. Da die latente Variable Kundenzufriedenheit in diesem Modell die einzige abhängige (analog: endogene) Variable darstellt, liefert die Methode auch nur für diese einen Wert. Die Funktion rSquared() bekommt als einzigen Parameter das komplette Modell (PB\_model).
-% <<>>=
-% rSquared(PB_model)
-% rSquared(new_PB_model)
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{rSquared}\hlstd{(PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     R-squared
+## Performance                 .
+## Preis_Leistung              .
+## Kundenzufriedenheit      0.42
+\end{verbatim}
+\begin{alltt}
+\hlkwd{rSquared}\hlstd{(new_PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     R-squared
+## Performance                 .
+## Preis_Leistung              .
+## Kundenzufriedenheit      0.38
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Allerdings lässt sich laut Backhaus et al.\cite{backhaus2004industriegutermarketing} keine allgemein gültige Aussage formulieren, ab welcher Höhe ein $R^{2}$ als gut zu betrachten ist, da dies von der Problemstellung abhängt. In der Marketing Forschung werden als Daumenregel $R^{2}$ Werte von 0.75, 0.50 und 0.25 als wesentlich, moderat und schwach angesehen.\cite{hair2011pls,henseler2009use} Modelle sollten nicht auf Basis der $R^{2}$ Werte spezifiziert werden, da diese künstlich durch lediglich genügend erklärende Variablen erhöht werden können. Stattdessen sollen die $R^{2}$ Werte zwar hoch sein, jedoch mit einer möglichst geringen Anzahl an erklärende Variablen. Dazu gibt es das korrigierte $R^{2}_{adj}$, welches zusätzlich die Anzahl der exogenen Variablen in der Berechnung berücksichtigt und somit Modelle vergleichbar macht, die mit einer unterschiedlichen Anzahl an erklärenden Variablen einen unterschiedlichen $R^{2}$ Wert erreichen. Da dies jedoch in dem vorgestellten Modell aufgrund der lediglich 2 exogenen Variablen wenig Sinnvoll ist, wird dies hier nur zur Veranschaulichung demonstriert. 
 \begin{equation}
  R^{2}_{adj} = 1-(1-R^{2})*\frac{n-1}{n-k-1}
 \end{equation}
+
 mit:\\
 \begin{tabular}{llll}
 $R^{2}_{adj}$ &= korrigiertes $R^{2}$\\
@@ -878,46 +1396,121 @@ n  &= Zahl der Beobachtungswerte\\
 k &= Zahl der erklärenden Variablen\\
 n-k-1 &= Zahl der Freiheitsgrade
 \end{tabular}
+\\
 Mit der Zahl der erklärenden Variablen ist jedoch nicht die Gesamtmenge des Modells gemeint, sondern lediglich diese welche die endogene Variable erklären. (Für die $R^{2}$ berechnet wurde)\\
 Der korrespondierende R-Code:
-% <<>>=
-% #get position of target R^2
-% rSquared(new_PB_model)
-% #position is 3!
-% 
-% #get total number of complete cases
-% new_PB_model$N-length(new_PB_model$incomplete)
-% 
-% #adjusted rSquared for LV Kundenzufriedenheit
-% adjrSquared <- 1-(1-rSquared(new_PB_model)[3])*((210-1)/(210-2-1))
-% 
-% #print result
-% adjrSquared
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#get position of target R^2}
+\hlkwd{rSquared}\hlstd{(new_PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     R-squared
+## Performance                 .
+## Preis_Leistung              .
+## Kundenzufriedenheit      0.38
+\end{verbatim}
+\begin{alltt}
+\hlcom{#position is 3!}
+
+\hlcom{#get total number of complete cases}
+\hlstd{new_PB_model}\hlopt{$}\hlstd{N}\hlopt{-}\hlkwd{length}\hlstd{(new_PB_model}\hlopt{$}\hlstd{incomplete)}
+\end{alltt}
+\begin{verbatim}
+## [1] 210
+\end{verbatim}
+\begin{alltt}
+\hlcom{#adjusted rSquared for LV Kundenzufriedenheit}
+\hlstd{adjrSquared} \hlkwb{<-} \hlnum{1}\hlopt{-}\hlstd{(}\hlnum{1}\hlopt{-}\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{])}\hlopt{*}\hlstd{((}\hlnum{210}\hlopt{-}\hlnum{1}\hlstd{)}\hlopt{/}\hlstd{(}\hlnum{210}\hlopt{-}\hlnum{2}\hlopt{-}\hlnum{1}\hlstd{))}
+
+\hlcom{#print result}
+\hlstd{adjrSquared}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3738
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Hier wird nun das korrigierte $R^{2}$ für die endogene latente Variable Kundenzufriedenheit berechnet. Dies geschieht nach der oben vorgestellten Formel. Erwähnenswert ist hier die Nummer 3 in den eckigen Klammern nach der normalen rSquared() Funktion. Diese ist eigentlich nicht notwendig, da lediglich 1 $R^{2}$ berechnet wurde, falls es jedoch mehrere erklärte (endogene) Variablen gibt wird diese wichtig, da mit der oben Vorgestellten Formel nicht ein kompletter Vektor berechnet werden kann wie bei den Standardfehlern. Dies begründet sich dadurch, dass die Zahl (k) der exogenen, also erklärenden Variablen für jede endogene, erklärte Variable unterschiedlich ist. Somit kann mit den eckigen Klammern wie bei einem Array lediglich das $R^{2}$ der Kundenzufriedenheit angesprochen werden. Kundenzufriedenheit hat 2 erklärende Variablen Performance und Preis\_Leistung, daher beträgt k = 2. Nun fehlt nur noch die Zahl der Beobachtungswerte (n) welches mit 210 ausgewiesen ist. Dies kann entweder nach dem durchführen der sempls() Methode in der Console als Output abgelesen werden (Total number of complete cases: 210) oder durch Subtraktion der nicht validen Fälle von der gesamten Fallzahl (N).\\
 Beachte jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern lediglich zum Vergleich mit anders spezifizierten Modellen herangezogen wird. Zur Veranschaulichung wird erneut ein neues Modell spezifiziert, welches die weiteren exogenen Variablen Ambiente und Kenntnisstand beinhaltet, die beide ebenfalls die Kundenzufriedenheit erklären.
-% <<>>=
-% #specify new model
-% diff_PB_model <- sempls(model = plsm(data = CBdata, strucmod = cbind(c("Preis_Leistung","Performance","Ambiente","Kenntnisstand"),c(rep("Kundenzufriedenheit",4))), measuremod = cbind(c(rep("Preis_Leistung",3),rep("Performance",2),rep("Kundenzufriedenheit",2),"Ambiente","Kenntnisstand"),c("SQ009","SQ076","SQ092","SQ079","SQ080","SQ046","SQ110","SQ021","SQ024"))),data = CBdata)
-% 
-% #show different model
-% diff_PB_model
-% 
-% #show new R^2
-% rSquared(diff_PB_model)[5]
-% 
-% #compare to old R^2
-% rSquared(new_PB_model)[3]
-% 
-% #new_adjusted rSquared for LV Kundenzufriedenheit
-% new_adjrSquared <- 1-(1-rSquared(diff_PB_model)[5])*((210-1)/(210-5-1))
-% 
-% #show new adjusted rSquared
-% new_adjrSquared
-% 
-% #compare to old adjusted rSquared
-% adjrSquared
-% @
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#specify new model}
+\hlstd{diff_PB_model} \hlkwb{<-} \hlkwd{sempls}\hlstd{(}\hlkwc{model} \hlstd{=} \hlkwd{plsm}\hlstd{(}\hlkwc{data} \hlstd{= CBdata,}
+                        \hlkwc{strucmod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlstr{"Performance"}\hlstd{,}
+                                           \hlstr{"Ambiente"}\hlstd{,}\hlstr{"Kenntnisstand"}\hlstd{),}
+                                         \hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{4}\hlstd{))),}
+                        \hlkwc{measuremod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlnum{3}\hlstd{),}
+                                             \hlkwd{rep}\hlstd{(}\hlstr{"Performance"}\hlstd{,}\hlnum{2}\hlstd{),}
+                                             \hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{2}\hlstd{),}
+                                             \hlstr{"Ambiente"}\hlstd{,}\hlstr{"Kenntnisstand"}\hlstd{),}
+                                           \hlkwd{c}\hlstd{(}\hlstr{"SQ009"}\hlstd{,}\hlstr{"SQ076"}\hlstd{,}\hlstr{"SQ092"}\hlstd{,}\hlstr{"SQ079"}\hlstd{,}
+                                             \hlstr{"SQ080"}\hlstd{,}\hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{,}\hlstr{"SQ021"}\hlstd{,}\hlstr{"SQ024"}\hlstd{))),}
+                        \hlkwc{data} \hlstd{= CBdata)}
+\end{alltt}
+\begin{verbatim}
+## Data rows: 4, 5, 6, 8, 11, 16, 18, 20, 29, 32, 33, 36, 37, 39, 43, 55, 61, 72, 76, 77, 80, 86, 90, 92, 95, 96, 97, 100, 101, 102, 111, 116, 117, 121, 124, 132, 139, 144, 145, 153, 155, 162, 163, 165, 175, 176, 184, 185, 186, 192, 193, 196, 197, 211, 218, 224, 227, 228, 233, 235, 237, 240, 242, 245, 253, 258, 261 
+## are not taken into acount, due to missings in the manifest variables.
+##  Total number of complete cases: 194 
+## Converged after 6 iterations.
+## Tolerance: 1e-07
+## Scheme: centroid
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show different model}
+\hlstd{diff_PB_model}
+\end{alltt}
+\begin{verbatim}
+##                                           Path Estimate
+## lam_1_1                      Ambiente -> SQ021     1.00
+## lam_2_1                 Kenntnisstand -> SQ024     1.00
+## lam_3_1                   Performance -> SQ079     0.92
+## lam_3_2                   Performance -> SQ080     0.92
+## lam_4_1                Preis_Leistung -> SQ009     0.86
+## lam_4_2                Preis_Leistung -> SQ076     0.89
+## lam_4_3                Preis_Leistung -> SQ092     0.80
+## lam_5_1           Kundenzufriedenheit -> SQ046     0.84
+## lam_5_2           Kundenzufriedenheit -> SQ110     0.91
+## beta_1_5       Ambiente -> Kundenzufriedenheit     0.14
+## beta_2_5  Kenntnisstand -> Kundenzufriedenheit     0.11
+## beta_3_5    Performance -> Kundenzufriedenheit     0.45
+## beta_4_5 Preis_Leistung -> Kundenzufriedenheit     0.21
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show new R^2}
+\hlkwd{rSquared}\hlstd{(diff_PB_model)[}\hlnum{5}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3815
+\end{verbatim}
+\begin{alltt}
+\hlcom{#compare to old R^2}
+\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3798
+\end{verbatim}
+\begin{alltt}
+\hlcom{#new_adjusted rSquared for LV Kundenzufriedenheit}
+\hlstd{new_adjrSquared} \hlkwb{<-} \hlnum{1}\hlopt{-}\hlstd{(}\hlnum{1}\hlopt{-}\hlkwd{rSquared}\hlstd{(diff_PB_model)[}\hlnum{5}\hlstd{])}\hlopt{*}\hlstd{((}\hlnum{210}\hlopt{-}\hlnum{1}\hlstd{)}\hlopt{/}\hlstd{(}\hlnum{210}\hlopt{-}\hlnum{5}\hlopt{-}\hlnum{1}\hlstd{))}
+
+\hlcom{#show new adjusted rSquared}
+\hlstd{new_adjrSquared}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3663
+\end{verbatim}
+\begin{alltt}
+\hlcom{#compare to old adjusted rSquared}
+\hlstd{adjrSquared}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3738
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821, wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet sieht man dass das alte mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche kleine Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
 
 
