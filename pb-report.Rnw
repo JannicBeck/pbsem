@@ -316,9 +316,6 @@ CBdataPath <- "/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv"
 #csv datei einlesen mit sempls funktion
 CBdata <- read.csv(CBdataPath)
 
-# alternative: einlesen der splsm datei (mit Hilfe der XML Spezifikation von SmartPLS)
-#model <- read.splsm(file=PBsmartPath)
-
 #create measuring model
 #lazy alternative instead of 5 times Preis_Leistung: rep("Preis_Leistung",5)
 latentvar <- c("Preis_Leistung","Preis_Leistung","Preis_Leistung",
@@ -369,14 +366,22 @@ library(Rgraphviz)
 #visualize model with dot 
 #graphviz required
 pathDiagram(PB_model, file = "PB-structure", edge.labels = "both",
-           output.type = "graphics", digits = 2)
+           output.type = "graphics", digits = 3)
 
-PBdot <- "/home/jannic/PB-structure.dot"
+#show workspace
+getwd()
+
+#save filepath
+PBdot <- "/home/jannic/Dokumente/R/pbsem/PB-structure.dot"
+
+#read in dot file
 PBcom <- agread(PBdot, layoutType="dot")
+
+#plot diagram
 plot(PBcom, main="Path model")
 @
 Beschreibung zum Code:\\
-Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache erstellt. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
+Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
 Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendiger als die Drag \& Drop Logik in SmartPLS. Allerdings können die Modelle aus SmartPLS mit dem semPLS Paket eingelesen werden. Somit kann das Modell in SmartPLS spezifiziert werden und weitere Berechnungen in R erfolgen. Alternativ kann die Spezifizierung in interaktiven Spreadsheets erfolgen. Nehmen wir z.B. die Matrix des Strukturmodells und führen folgenden Code aus:
 <<entry, eval=FALSE>>=
 data.entry(CB_inner_model)
@@ -449,8 +454,8 @@ install.packages("XML")
 library(XML)
 
 #get both filepaths
-dataPath <- "/home/jannic/Schreibtisch/PB/Data/Datensatz.csv"
-modelPath <- "/home/jannic/Schreibtisch/PB/Data/Modell.splsm"
+dataPath <- "/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv"
+modelPath <- "/home/jannic/Schreibtisch/PB/Data/PB_model.splsm"
 
 #read dataset
 mvdata <- read.csv(dataPath)
@@ -460,6 +465,16 @@ splsmodel <- read.splsm(modelPath)
 
 #show the model
 splsmodel
+
+#calculate model
+PB_model_smart <- sempls(model = splsmodel,data = mvdata)
+
+#show smartPLS the model
+PB_model_smart
+
+#show R model
+PB_model
+
 @
 
 Zunächst wird das XML Paket in die R Session geladen und die zwei Dateipfade zu den in SmartPLS verwendeten Modell und Datensatz initialisiert. Dann wird der Datensatz wie bisher mit read.csv() eingelesen und anschließend das Modell mit der Funktion read.splsm() geladen. Nun kann das Modell angezeigt werden.\\
@@ -474,9 +489,23 @@ beim einlesen der csv Datei in R in:\\
 F001..SQ001..\\
 geändert werden. Daher empfiehlt es sich entweder schon in SmartPLS die csv Datei mit den Spaltennamen
 SQ001 zu benutzen (2014\_08\_30-CB\_Alle\_R.csv) oder die Spaltennamen in R nach dem einlesen wieder in F001[SQ001] zu ändern, was jedoch wesentlich aufwendiger ist.\\
-Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berechnungen wie gewohnt durchgeführt werden.\\
+Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berechnungen wie gewohnt durchgeführt werden.\\ Die Ergebnisse sind logischerweise identisch, da bei beiden die Funktion sempls() die Berechnungen durchführt, lediglich das Modell wurde in unterschiedlichen Umgebungen (R und smartPLS) spezifiziert. Wo das Modell spezifiziert wird kann also individuell entschieden werden.
 \\
 
+\subsection{Vergleich smartPLS und R}
+Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Zunächst wird noch einmal das Modell in R geplotted um diese direkt vergleichen zu können. Anschließend wird mit der rSquared() Funktion noch das $R^{2}$, welches in SmartPLS in der latenten Variable "Kundenzufriedenheit" steht, in die Console geschrieben. Dieses wird jedoch noch ausführlicher im nächsten Kapitel erläutert, hier sollen nur die Differenz der Werte interessieren.
+
+<<>>=
+#plot the R model
+plot(PBcom, main="Path model in R")
+
+#show 
+rSquared(PB_model)
+@
+
+\includegraphics{Grafiken/PB_model_smartpls}
+
+Wie gut zu sehen ist, sind die Pfadkoeffizienten, äußeren Ladungen und das $R^{2}$ exakt gleich. Somit kann ein Fehler in der Software als unwahrscheinlich angesehen werden.
 
 \subsection{Validation}
 Die folgenden Ausführungen zur Validation stammen inhaltlich aus den Büchern PLS-Pfadmodellierung (S.71-87)\cite{bliemel2005handbuch}, A Primer on PLS-SEM (S.95-205)\cite{hair2013primer} und Strukturgleichungsmodellierung (S.325-337).\cite{weiber2010strukturgleichungsmodellierung} Letzteres wird jedoch nicht empfohlen, da dort die Validation reflektiver Messmodelle im PLS Ansatz gleich dem Kovarianzbasierten Ansatz gesetzt wird und Literaturangaben fehlen.
