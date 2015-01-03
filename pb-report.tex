@@ -638,6 +638,24 @@ Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendig
 \end{kframe}
 \end{knitrout}
 Nun können die Beziehung einfach in einem interaktiven Spreadsheet bearbeitet werden.\\
+Eine weitere Alternative stellen die plsmUtils Methoden dar.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlopt{?}\hlstd{plsmUtils}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hinzugefügt oder verändert werden. Diese müssen auf ein Objekt des Typs "plsm" angewendet werden, also in diesem Fall auf die Variable "model".
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#add path from Prei_Leistung to Performance}
+\hlstd{new_model} \hlkwb{<-} \hlkwd{addPath}\hlstd{(model,} \hlkwc{from}\hlstd{=}\hlstr{"Preis_Leistung"}\hlstd{,} \hlkwc{to}\hlstd{=}\hlstr{"Performance"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new_model gespeichert.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -679,7 +697,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \end{alltt}
 \begin{verbatim}
 ## % latex table generated in R 3.0.2 by xtable 1.7-4 package
-## % Fri Jan  2 21:53:46 2015
+## % Sat Jan  3 20:21:56 2015
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrr}
@@ -702,7 +720,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \hlkwd{print}\hlstd{(}\hlkwd{xtable}\hlstd{(}\hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{correlations))}
 \end{alltt}
 \end{kframe}% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Fri Jan  2 21:53:46 2015
+% Sat Jan  3 20:21:56 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -726,8 +744,8 @@ Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werde
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-Die Variable kann nun mit \textbackslash{}Sexpr{x} im Text refernziert werden:\\
-Die Variable x hat den Wert 7.\\
+Die Variable kann nun mit \textbackslash{}Sexpr\{x\} im Text refernziert werden:\\
+Die Variable x hat den Wert 9.\\
 
 \subsection{SmartPLS Modell einlesen}
 
@@ -855,9 +873,9 @@ Zunächst werden die Pakete "psych" und "GPArotation" installiert.
 ## 
 ##  Eigen Values of 
 ##   Original factors Simulated data Original components simulated data
-## 1             4.04           0.75                4.55           1.49
-## 2             0.66           0.31                1.22           1.27
-## 3             0.23           0.20                0.85           1.14
+## 1             4.04           0.78                4.55           1.54
+## 2             0.66           0.32                1.22           1.28
+## 3             0.23           0.18                0.85           1.12
 \end{verbatim}
 \begin{alltt}
 \hlcom{#do factor analysis}
@@ -1432,7 +1450,7 @@ Der korrespondierende R-Code:
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-Hier wird nun das korrigierte $R^{2}$ für die endogene latente Variable Kundenzufriedenheit berechnet. Dies geschieht nach der oben vorgestellten Formel. Erwähnenswert ist hier die Nummer 3 in den eckigen Klammern nach der normalen rSquared() Funktion. Diese ist eigentlich nicht notwendig, da lediglich 1 $R^{2}$ berechnet wurde, falls es jedoch mehrere erklärte (endogene) Variablen gibt wird diese wichtig, da mit der oben Vorgestellten Formel nicht ein kompletter Vektor berechnet werden kann wie bei den Standardfehlern. Dies begründet sich dadurch, dass die Zahl (k) der exogenen, also erklärenden Variablen für jede endogene, erklärte Variable unterschiedlich ist. Somit kann mit den eckigen Klammern wie bei einem Array lediglich das $R^{2}$ der Kundenzufriedenheit angesprochen werden. Kundenzufriedenheit hat 2 erklärende Variablen Performance und Preis\_Leistung, daher beträgt k = 2. Nun fehlt nur noch die Zahl der Beobachtungswerte (n) welches mit 210 ausgewiesen ist. Dies kann entweder nach dem durchführen der sempls() Methode in der Console als Output abgelesen werden (Total number of complete cases: 210) oder durch Subtraktion der nicht validen Fälle von der gesamten Fallzahl (N).\\
+Hier wird nun das korrigierte $R^{2}$ für die endogene latente Variable Kundenzufriedenheit berechnet. Dies geschieht nach der oben vorgestellten Formel. Erwähnenswert ist hier die Nummer 3 in den eckigen Klammern nach der normalen rSquared() Funktion. Diese ist eigentlich nicht notwendig, da lediglich 1 $R^{2}$ berechnet wurde, falls es jedoch mehrere erklärte (endogene) Variablen gibt wird diese wichtig, da mit der oben Vorgestellten Formel nicht ein kompletter Vektor berechnet werden kann wie bei den Standardfehlern. Dies begründet sich dadurch, dass die Zahl (k) der exogenen, also erklärenden Variablen für jede endogene, erklärte Variable unterschiedlich ist. Somit kann mit den eckigen Klammern wie bei einem Array lediglich das $R^{2}$ der Kundenzufriedenheit angesprochen werden. Kundenzufriedenheit hat 2 erklärende Variablen Performance und Preis\_Leistung, daher beträgt k = 2. Nun fehlt nur noch die Zahl der Beobachtungswerte (n) welche mit 210 ausgewiesen sind. Dies kann entweder nach dem durchführen der sempls() Methode in der Console als Output abgelesen werden (Total number of complete cases: 210) oder durch Subtraktion der nicht validen Fälle von der gesamten Fallzahl (N).\\
 Beachte jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern lediglich zum Vergleich mit anders spezifizierten Modellen herangezogen wird. Zur Veranschaulichung wird erneut ein neues Modell spezifiziert, welches die weiteren exogenen Variablen Ambiente und Kenntnisstand beinhaltet, die beide ebenfalls die Kundenzufriedenheit erklären.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1513,28 +1531,186 @@ Beachte jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern
 \end{knitrout}
 Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821, wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet sieht man dass das alte mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche kleine Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
 
-\paragraph{}
+\paragraph{Erklärungsbeitrag}
+Die Effektgröße gibt an, welchen Erklärungsbeitrag eine exogene latente Variable auf eine endogene latente Variable hat. Dies wird über die Änderung des $R^{2}$ der endogenen Variable, bei löschen oder hinzufügen von exogenen Variablen, gemessen.\\
+Diese berechnet sich nach Cohen\cite{cohen1988statistical} wie folgt:
+\begin{equation}
+f^{2} = \frac{R^{2}_{incl}-R^{2}_{excl}}{1-R^{2}_{incl}}
+\end{equation}
+mit:\\
+\begin{tabular}{lll}
+$R^{2}_{incl}$ &= R^{2} inklusive exogene Variable\\
+$R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
+$f^{2}$ &= Effektgröße
+\end{tabular}
+\\
+Effektrgrößen von 0.02, 0.15 und 0.35 deuten auf einen schwachen, moderaten und substanziellen Einfluss der exogenen Variable auf die endogene Variable hin.\cite{cohen1988statistical,chin1998partial}\\
+Der entsprechende R-Code ergibt sich wie folgt:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#calculate model without Preis_Leistung}
+\hlstd{excl_pl_PB_model} \hlkwb{<-} \hlkwd{sempls}\hlstd{(}\hlkwc{model} \hlstd{=} \hlkwd{plsm}\hlstd{(}\hlkwc{data} \hlstd{= CBdata,}
+                \hlkwc{strucmod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlstr{"Performance"}\hlstd{,}
+                                 \hlstr{"Kundenzufriedenheit"}\hlstd{),}
+                \hlkwc{measuremod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Performance"}\hlstd{,}\hlnum{2}\hlstd{),}
+                                     \hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{2}\hlstd{)),}
+                                   \hlkwd{c}\hlstd{(}\hlstr{"SQ079"}\hlstd{,}\hlstr{"SQ080"}\hlstd{,}\hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{)))}
+                \hlstd{,}\hlkwc{data} \hlstd{= CBdata)}
+\end{alltt}
+\begin{verbatim}
+## Data rows: 6, 20, 29, 32, 33, 36, 37, 39, 43, 55, 61, 76, 77, 80, 100, 102, 116, 144, 153, 162, 163, 176, 184, 185, 186, 192, 193, 218, 227, 233, 235, 240, 242, 253, 258, 261 
+## are not taken into acount, due to missings in the manifest variables.
+##  Total number of complete cases: 225 
+## Converged after 7 iterations.
+## Tolerance: 1e-07
+## Scheme: centroid
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show rSquared exlusive Preis_Leistung}
+\hlkwd{rSquared}\hlstd{(excl_pl_PB_model)[}\hlnum{2}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3182
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate fSquared for Preis_Leistung  }
+\hlstd{pl_fSquared} \hlkwb{<-}   \hlstd{(}\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{]}\hlopt{-}\hlkwd{rSquared}\hlstd{(excl_pl_PB_model)[}\hlnum{2}\hlstd{])}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{-}\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{])}
 
+\hlcom{#show fSquared Preis_Leistung}
+\hlstd{pl_fSquared}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.09931
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate model without Performance}
+\hlstd{excl_perf_PB_model} \hlkwb{<-} \hlkwd{sempls}\hlstd{(}\hlkwc{model} \hlstd{=} \hlkwd{plsm}\hlstd{(}\hlkwc{data} \hlstd{= CBdata,}
+                \hlkwc{strucmod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}
+                                 \hlstr{"Kundenzufriedenheit"}\hlstd{),}
+                \hlkwc{measuremod} \hlstd{=} \hlkwd{cbind}\hlstd{(}\hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"Preis_Leistung"}\hlstd{,}\hlnum{3}\hlstd{),}
+                                     \hlkwd{rep}\hlstd{(}\hlstr{"Kundenzufriedenheit"}\hlstd{,}\hlnum{2}\hlstd{)),}
+                                   \hlkwd{c}\hlstd{(}\hlstr{"SQ009"}\hlstd{,}\hlstr{"SQ076"}\hlstd{,}\hlstr{"SQ092"}\hlstd{,}\hlstr{"SQ046"}\hlstd{,}\hlstr{"SQ110"}\hlstd{)))}
+                \hlstd{,}\hlkwc{data} \hlstd{= CBdata)}
+\end{alltt}
+\begin{verbatim}
+## Data rows: 4, 6, 20, 29, 32, 33, 36, 39, 43, 55, 72, 76, 77, 80, 90, 92, 95, 96, 97, 101, 116, 139, 144, 145, 153, 162, 163, 175, 176, 184, 185, 186, 193, 197, 218, 224, 227, 237, 240, 242, 245, 253, 258, 261 
+## are not taken into acount, due to missings in the manifest variables.
+##  Total number of complete cases: 217 
+## Converged after 7 iterations.
+## Tolerance: 1e-07
+## Scheme: centroid
+\end{verbatim}
+\begin{alltt}
+\hlcom{#show rSquared exlusive Performance}
+\hlkwd{rSquared}\hlstd{(excl_perf_PB_model)[}\hlnum{2}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2262
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate fSquared for Performance}
+\hlstd{perf_fSquared} \hlkwb{<-} \hlstd{(}\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{]}\hlopt{-}\hlkwd{rSquared}\hlstd{(excl_perf_PB_model)[}\hlnum{2}\hlstd{])}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{-}\hlkwd{rSquared}\hlstd{(new_PB_model)[}\hlnum{3}\hlstd{])}
 
+\hlcom{#show fSquared Performance}
+\hlstd{perf_fSquared}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2475
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
-Zur Validation des Modells sind folgende Funktionen im semPLS Paket implementiert:
-\begin{itemize}
-\item qSquared()
-\item redundancy()
-\item gof()
-\end{itemize}
+Beschreibung zum Code:\\
+Zunächst wird analog zu den vorherigen Kapiteln ein neues Modell ohne die latente Variable Preis\_Leistung spezifiziert und berechnet. Anschließend wird mit der rSquared() Funktion und den eckigen Klammern der Index 2 ausgewählt, da dort das $R^{2}$ der Kundenzufriedenheit steht. Anschließend wird die oben vorgestellte Formel nach Cohen in R Code übersetzt. Dabei ist zu beachten, dass der Index des alten $R^{2}$ ($R^{2}_{incl}$) auf 3 zu setzten ist, weil in diesem Modell alle 3 Variablen Preis\_Leistung, Performance und Kundenzufriedenheit enthalten sind. Durch PL\_fSquared wird das Ergebnis in die Console geschrieben. Die Berechnung des $f^{2}$ der Variable Performance erfolgt analog.
+\\
+Für die Variable Preis\_Leistung ergibt sich:
+\begin{equation}
+0.09930713 = \frac{0.3797589-0.3181646}{1-0.3797589}
+\end{equation}
+was einem schwachen bis mittleren Effekt entspricht.\\
+\\
+Für die Variable Performance ergibt sich:
+\begin{equation}
+0.247533 = \frac{0.3797589-0.2262288}{1-0.3797589}
+\end{equation}
+was einem mittleren bis starken Effekt entspricht.
 
-Model criteria
-coefficients of determination, R 2 values, for each endogenous LV
-Stone-Geisser’s Q 2 for assessment of predictive relevance
-Dillon-Goldstein’s rho, also referred to as composite reliability
-communality indices for reflectively measured LVs with more than one MV
-redundancy indices for endogenous LVs
-GoF index (geometric mean of average communality and average deter-
-mination coefficient
+\paragraph(Prognoserelevanz)
+Das Stone-Geisser-Kriterium\cite{geisser1974predictive,stone1974cross} dient der Überprüfung der Prognoserelevanz des Modells. Es gibt an wie gut die empirsch erhobenen Daten, also der Datensatz CBdata mit Hilfe des Modells, hier new\_PB\_model und der PLS-Parameter rekonstruiert werden können.\cite{fornell1994partial,chin1998partial} Dies geschieht durch eine Blindfolding-Prozedur, die vereinfacht gesagt in jeder Runde einen Teil des Datensatzes als fehlend betrachtet und diesen anschließend mit Hilfe des Modells schätzt. Dies geschieht so lange bis jede Beobachtung einmal gelöscht und anschließend geschätzt wurde. Für eine ausführlichere Erklärung siehe Fornell \& Cha.\cite{fornell1994partial} \\
+Das Stone-Geisser-Test-Kriterium berechnet sich wie folgt:
+\begin{equation}
+Q^{2}_{j} = 1-\frac{\sum_{k}^{}E_{jk}}{\sum_{k}^{}O_{jk}}>0
+\end{equation}
+mit:\\
+\begin{tabular}{llllll}
+$Q^{2}_{j}$ &= Stone-Geisser-Kriterium\\
+$E_{jk}$ &= Quadratsumme der Prognosefehler\\
+$O_{jk}$ &= Quadratsumme der Differenz von geschätztem Wert und Mittelwert\\ 
+&= der verbleibenden Daten der Blindfolding Prozedur\\
+j &= betrachtetes endogenes Messmodell\\
+i &= Laufindex über alle Indikatoren\\
+\end{tabular}
+\\
+Ein Wert über 0 deutet auf eine hinreichende Prognosefähigkeit. Bei einem Wert von 0 oder niedriger ist die Prognoserelevanz nicht erfüllt.\cite{fornell1994partial,chin1998partial,hahn2002segmentspezifische}\\
+Der korrespondierende R Code lautet:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#calculate qSquared}
+\hlstd{qSquared} \hlkwb{<-} \hlkwd{qSquared}\hlstd{(new_PB_model,} \hlkwc{d}\hlstd{=}\hlnum{9}\hlstd{)}
 
+\hlcom{#show qSquared}
+\hlstd{qSquared}
+\end{alltt}
+\begin{verbatim}
+##                     Q-Squared
+## Performance                 .
+## Preis_Leistung              .
+## Kundenzufriedenheit      0.24
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate qSquared without Performance}
+\hlstd{perf_qSquared} \hlkwb{<-} \hlkwd{qSquared}\hlstd{(excl_perf_PB_model,} \hlkwc{d}\hlstd{=}\hlnum{9}\hlstd{)}
 
+\hlcom{#calculate effect size of Performance}
+\hlstd{perf_qSquared_eff} \hlkwb{<-} \hlstd{(qSquared[}\hlnum{3}\hlstd{]}\hlopt{-}\hlstd{perf_qSquared[}\hlnum{2}\hlstd{])}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{qSquared[}\hlnum{3}\hlstd{])}
+\hlstd{perf_qSquared_eff}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.1125
+\end{verbatim}
+\begin{alltt}
+\hlcom{#calculate qSquared without Preis_Leistung}
+\hlstd{pl_qSquared} \hlkwb{<-} \hlkwd{qSquared}\hlstd{(excl_pl_PB_model,} \hlkwc{d}\hlstd{=}\hlnum{9}\hlstd{)}
 
+\hlcom{#calculate effect size of Preis_Leistung}
+\hlstd{pl_qSquared_eff} \hlkwb{<-} \hlstd{(qSquared[}\hlnum{3}\hlstd{]}\hlopt{-}\hlstd{pl_qSquared[}\hlnum{2}\hlstd{])}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{qSquared[}\hlnum{3}\hlstd{])}
+\hlstd{pl_qSquared_eff}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.0481
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Die Funktion qSquared() dient zur Berechnung des Stone-Geisser-Kriterium. Sie erhält als Parameter das Modell und d=9, was die sogenannte omission distance darstellt. Diese gibt an dass jede neunte Beobachtung gelöscht wird in einer Blindfolding Runde. Die Distanz wurde auf 9 gesetzt, da laut Hair\cite{hair2012assessment} in den meisten Fällen eine Distanz von 5-10 gewählt werden sollte. Hierbei ist zu beachten, dass die Anzahl der validen Beobachtungen, hier 210 (wurde bereits beim Determinationskoeffizient ermittelt) geteilt durch d, also 9 keine ganze Zahl ergeben sollte, damit nicht immer das gleiche Set an Beobachtungen in der Blindfolding Prozedur gelöscht wird. Das $Q^{2}$ der Kundenzufriedenheit beträgt 0.24 und ist somit größer als 0. Die Prognoserelevanz ist somit erfüllt. Anschließend kann noch analog zur Effektgröße $f^{2}$, die Effektgröße $q^{2}$ berechnet werden. Wichtig ist hier auf eine gleiche omission distance (d) bei den Berechnungen zu achten. Es wird ebenfalls gleich wie $q^{2}$ interpretiert. Performance hat eine $q^{2}$ von 0.11, also einen moderaten und Preis\_Leistung 0.048, also schwachen Effekt auf die Kundenzufriedenheit.
+
+\paragraph{Goodness-of-fit Index}
+Der Goodness-of-fit Index nach Tenenhaus et al.\cite{tenenhaus2004global} kann mit der Funktion gof() berechnet werden.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{gof}\hlstd{(new_PB_model)}
+\end{alltt}
+\begin{verbatim}
+##                     Value
+## Average R-squared    0.38
+## Average Communality  0.77
+## GoF                  0.54
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Dieser wurde jedoch von Henseler und Sarstedt konzeptionell und empirisch kritisiert und als kein gutes Kriterium für die Güte eines Modells dargestellt.\cite{henseler2013goodness} 
 
 \newpage
 \section{Resultate}%Unsere Resultate stehen hier. 

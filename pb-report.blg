@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: pb-report.aux
 The style file: plain.bst
 I couldn't open database file literatur.bib
----line 90 of file pb-report.aux
+---line 106 of file pb-report.aux
  : \bibdata{literatur
  :                   }
 I'm skipping whatever remains of this command
@@ -36,9 +36,18 @@ Warning--I didn't find a database entry for "rodgers2003developing"
 Warning--I didn't find a database entry for "backhaus2004industriegutermarketing"
 Warning--I didn't find a database entry for "hair2011pls"
 Warning--I didn't find a database entry for "henseler2009use"
+Warning--I didn't find a database entry for "cohen1988statistical"
+Warning--I didn't find a database entry for "chin1998partial"
+Warning--I didn't find a database entry for "geisser1974predictive"
+Warning--I didn't find a database entry for "stone1974cross"
+Warning--I didn't find a database entry for "fornell1994partial"
+Warning--I didn't find a database entry for "hahn2002segmentspezifische"
+Warning--I didn't find a database entry for "hair2012assessment"
+Warning--I didn't find a database entry for "tenenhaus2004global"
+Warning--I didn't find a database entry for "henseler2013goodness"
 You've used 0 entries,
             2118 wiz_defined-function locations,
-            527 strings with 4579 characters,
+            536 strings with 4750 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
