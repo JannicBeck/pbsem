@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: pb-report.aux
 The style file: plain.bst
 I couldn't open database file literatur.bib
----line 88 of file pb-report.aux
+---line 90 of file pb-report.aux
  : \bibdata{literatur
  :                   }
 I'm skipping whatever remains of this command

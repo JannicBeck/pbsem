@@ -17,9 +17,11 @@
 \contentsline {paragraph}{Indikatorreliabilit\IeC {\"a}t}{36}{section*.4}
 \contentsline {paragraph}{Konstruktreliabilit\IeC {\"a}t}{38}{section*.5}
 \contentsline {paragraph}{Diskriminanzvalidit\IeC {\"a}t}{39}{section*.6}
+\contentsline {subsubsection}{\numberline {4.4.2}Strukturmodell}{41}{subsubsection.4.4.2}
 \contentsline {paragraph}{Pfadkoeffizienten}{41}{section*.7}
 \contentsline {paragraph}{Bootstrapping}{42}{section*.8}
 \contentsline {paragraph}{Determinationskoeffizient}{49}{section*.9}
+\contentsline {paragraph}{}{53}{section*.10}
 \contentsline {section}{\numberline {5}Resultate}{54}{section.5}
 \contentsline {subsection}{\numberline {5.1}Eigenes Modell nach Bukrhardt}{54}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Nachbildung Modell Seiler}{56}{subsection.5.2}

@@ -679,7 +679,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \end{alltt}
 \begin{verbatim}
 ## % latex table generated in R 3.0.2 by xtable 1.7-4 package
-## % Fri Jan  2 16:36:09 2015
+## % Fri Jan  2 21:53:46 2015
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrr}
@@ -702,7 +702,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \hlkwd{print}\hlstd{(}\hlkwd{xtable}\hlstd{(}\hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{correlations))}
 \end{alltt}
 \end{kframe}% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Fri Jan  2 16:36:09 2015
+% Fri Jan  2 21:53:46 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -726,8 +726,8 @@ Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werde
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-Die Variable kann nun mit \lstinline!2! im Text refernziert werden:\\
-Die Variable x hat den Wert 2.\\
+Die Variable kann nun mit \textbackslash{}Sexpr{x} im Text refernziert werden:\\
+Die Variable x hat den Wert 7.\\
 
 \subsection{SmartPLS Modell einlesen}
 
@@ -855,9 +855,9 @@ Zunächst werden die Pakete "psych" und "GPArotation" installiert.
 ## 
 ##  Eigen Values of 
 ##   Original factors Simulated data Original components simulated data
-## 1             4.04           0.68                4.55           1.49
-## 2             0.66           0.31                1.22           1.26
-## 3             0.23           0.19                0.85           1.14
+## 1             4.04           0.75                4.55           1.49
+## 2             0.66           0.31                1.22           1.27
+## 3             0.23           0.20                0.85           1.14
 \end{verbatim}
 \begin{alltt}
 \hlcom{#do factor analysis}
@@ -1169,7 +1169,7 @@ Hier sollten die Ladungen der Indikatoren auf das im Modell entsprechend zugeord
 \\
 Damit sind alle Kriterien an das reflektive Messmodell erfüllt. Bei komplexen Modellen sind diese Kennzahlen nicht immer alle erfüllt, jedoch liefern sie wertvolle Maßzahlen an denen sich Ersteller des Modells bei der Spezifikation orientieren kann. Am Ende sollte der Ersteller sich allerdings nicht  ausschließlich auf diese Kennzahlen verlassen und jegliche Logik ausschalten, sondern diese auch kritisch hinterfragen, sowie das Gesamtmodell im Auge behalten. So könnte z.B. durch reine Beachtung der Kennzahlen ein Modell, welches diese perfekt erfüllt erstellt werden, jedoch am Ende die für den Ersteller eigentlich wichtigen latenten Variablen gar nicht oder nur schlecht erklärt.
 
-\subsubection{Strukturmodell}
+\subsubsection{Strukturmodell}
 
 \paragraph{Pfadkoeffizienten}
 
@@ -1512,6 +1512,9 @@ Beachte jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern
 \end{kframe}
 \end{knitrout}
 Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821, wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet sieht man dass das alte mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche kleine Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
+
+\paragraph{}
+
 
 
 Zur Validation des Modells sind folgende Funktionen im semPLS Paket implementiert:

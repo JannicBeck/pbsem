@@ -382,6 +382,16 @@ Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendig
 data.entry(CB_inner_model)
 @
 Nun können die Beziehung einfach in einem interaktiven Spreadsheet bearbeitet werden.\\
+Eine weitere Alternative stellen die plsmUtils Methoden dar.
+<<>>=
+?plsmUtils
+@
+Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hinzugefügt oder verändert werden. Diese müssen auf ein Objekt des Typs "plsm" angewendet werden, also in diesem Fall auf die Variable "model".
+<<>>=
+#add path from Prei_Leistung to Performance
+new_model <- addPath(model, from="Preis_Leistung", to="Performance")
+@
+Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new_model gespeichert.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -418,7 +428,7 @@ Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werde
 <<>>=
 x <- sample(1:10, 1)
 @
-Die Variable kann nun mit \lstinline!\Sexpr{x}! im Text refernziert werden:\\
+Die Variable kann nun mit \textbackslash{}Sexpr\{x\} im Text refernziert werden:\\
 Die Variable x hat den Wert \Sexpr{x}.\\
 
 \subsection{SmartPLS Modell einlesen}
@@ -758,7 +768,76 @@ adjrSquared
 @
 Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821, wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet sieht man dass das alte mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche kleine Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
 
-\paragraph{}
+\paragraph{Erklärungsbeitrag}
+Die Effektgröße gibt an, welchen Erklärungsbeitrag eine exogene latente Variable auf eine endogene latente Variable hat. Dies wird über die Änderung des $R^{2}$ der endogenen Variable, bei löschen oder hinzufügen von exogenen Variablen, gemessen.\\
+Diese berechnet sich nach Cohen\cite{cohen1988statistical} wie folgt:
+\begin{equation}
+f^{2} = \frac{R^{2}_{incl}-R^{2}_{excl}}{1-R^{2}_{incl}}
+\end{equation}
+mit:\\
+\begin{tabular}{lll}
+$R^{2}_{incl}$ &= R^{2} inklusive exogene Variable\\
+$R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
+$f^{2}$ &= Effektgröße
+\end{tabular}
+\\
+Effektrgrößen von 0.02, 0.15 und 0.35 deuten auf einen schwachen, moderaten und substanziellen Einfluss der exogenen Variable auf die endogene Variable hin.\cite{cohen1988statistical,chin1998partial}\\
+Der entsprechende R-Code ergibt sich wie folgt:
+<<>>=
+#calculate model without Preis_Leistung
+excl_pl_PB_model <- sempls(model = plsm(data = CBdata, 
+                strucmod = cbind("Performance",
+                                 "Kundenzufriedenheit"), 
+                measuremod = cbind(c(rep("Performance",2),
+                                     rep("Kundenzufriedenheit",2)),
+                                   c("SQ079","SQ080","SQ046","SQ110")))
+                ,data = CBdata)
+
+#show rSquared exlusive Preis_Leistung
+rSquared(excl_PL_PB_model)[2]
+
+#calculate fSquared for Preis_Leistung  
+PL_fSquared <-   (rSquared(new_PB_model)[3]-rSquared(excl_PL_PB_model)[2])/(1-rSquared(new_PB_model)[3])
+
+#show fSquared Preis_Leistung
+PL_fSquared
+
+#calculate model without Performance
+excl_perf_PB_model <- sempls(model = plsm(data = CBdata, 
+                strucmod = cbind("Preis_Leistung",
+                                 "Kundenzufriedenheit"), 
+                measuremod = cbind(c(rep("Preis_Leistung",3),
+                                     rep("Kundenzufriedenheit",2)),
+                                   c("SQ009","SQ076","SQ092","SQ046","SQ110")))
+                ,data = CBdata)
+
+#show rSquared exlusive Performance
+rSquared(excl_perf_PB_model)[2]
+
+#calculate fSquared for Performance
+perf_fSquared <- (rSquared(new_PB_model)[3]-rSquared(excl_perf_PB_model)[2])/(1-rSquared(new_PB_model)[3])
+  
+#show fSquared Performance
+perf_fSquared
+
+@
+
+Beschreibung zum Code:\\
+Zunächst wird analog zu den vorherigen Kapiteln ein neues Modell ohne die latente Variable Preis_Leistung spezifiziert und berechnet. Anschließend wird mit der rSquared() Funktion und den eckigen Klammern der Index 2 ausgewählt, da dort das $R^{2}$ der Kundenzufriedenheit steht. Anschließend wird die oben vorgestellte Formel nach Cohen in R Code übersetzt. Dabei ist zu beachten, dass der Index des alten $R^{2}$ ($R^{2}_{incl}$) auf 3 zu setzten ist, weil in diesem Modell alle 3 Variablen Preis\_Leistung, Performance und Kundenzufriedenheit enthalten sind. Durch PL\_fSquared wird das Ergebnis in die Console geschrieben. Die Berechnung des $f^{2}$ der Variable Performance erfolgt analog.
+\\
+Für die Variable Preis_Leistung ergibt sich:
+\begin{equation}
+0.09930713 = \frac{0.3797589-0.3181646}{1-0.3797589}
+\end{equation}
+was einem schwachen bis mittleren Effekt entspricht.\\
+\\
+Für die Variable Performance ergibt sich:
+\begin{equation}
+0.247533 = \frac{0.3797589-0.2262288}{1-0.3797589}
+\end{equation}
+was einem mittleren bis starken Effekt entspricht.
+
+\paragraph(Prognoserelevanz)
 
 
 
