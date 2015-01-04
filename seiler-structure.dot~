@@ -1,0 +1,59 @@
+digraph "seiler_model" {
+  rankdir=LR;
+  size="8,8";
+  node [fontname="Helvetica" fontsize=14 shape=box];
+  edge [fontname="Helvetica" fontsize=10];
+  center=1;
+  "Anlagevorschlag" [shape=ellipse]
+  "Performance" [shape=ellipse]
+  "Produktangebot" [shape=ellipse]
+  "Berater" [shape=ellipse]
+  "Erreichbarkeit" [shape=ellipse]
+  "PreisLeistung" [shape=ellipse, label="PreisLeistung\n0.536"]
+  "Raeumlichkeiten" [shape=ellipse]
+  "Reporting" [shape=ellipse]
+  "Kundenzufriedenheit" [shape=ellipse, label="Kundenzufriedenheit\n0.72",pos = "10,10!"]
+  "Kundenloyalitaet" [shape=ellipse, label="Kundenloyalitaet\n0.625"]
+ "Anlagevorschlag" -> "SQ069" [label="lam_1_1=0.795"];
+  "Anlagevorschlag" -> "SQ074" [label="lam_1_2=0.847"];
+  "Anlagevorschlag" -> "SQ075" [label="lam_1_3=0.749"];
+  "Performance" -> "SQ079" [label="lam_2_1=0.921"];
+  "Performance" -> "SQ080" [label="lam_2_2=0.924"];
+  "Produktangebot" -> "SQ008" [label="lam_3_1=0.887"];
+  "Produktangebot" -> "SQ078" [label="lam_3_2=0.851"];
+  "Berater" -> "SQ004" [label="lam_4_1=0.497"];
+  "Berater" -> "SQ005" [label="lam_4_2=0.784"];
+  "Berater" -> "SQ011" [label="lam_4_3=0.707"];
+  "Berater" -> "SQ046" [label="lam_4_4=0.8"];
+  "Berater" -> "SQ059" [label="lam_4_5=0.758"];
+  "Berater" -> "SQ067" [label="lam_4_6=0.786"];
+  "Erreichbarkeit" -> "SQ015" [label="lam_5_1=0.855"];
+  "Erreichbarkeit" -> "SQ016" [label="lam_5_2=0.836"];
+  "PreisLeistung" -> "SQ062" [label="lam_6_1=0.87"];
+  "PreisLeistung" -> "SQ076" [label="lam_6_2=0.842"];
+  "Raeumlichkeiten" -> "SQ020" [label="lam_7_1=0.829"];
+  "Raeumlichkeiten" -> "SQ021" [label="lam_7_2=0.909"];
+  "Raeumlichkeiten" -> "SQ022" [label="lam_7_3=0.868"];
+  "Reporting" -> "SQ081" [label="lam_8_1=0.881"];
+  "Reporting" -> "SQ082" [label="lam_8_2=0.925"];
+  "Kundenzufriedenheit" -> "SQ044" [label="lam_9_1=0.868"];
+  "Kundenzufriedenheit" -> "SQ061" [label="lam_9_2=0.876"];
+  "Kundenzufriedenheit" -> "SQ110" [label="lam_9_3=0.879"];
+  "Kundenloyalitaet" -> "SQ001" [label="lam_10_1=-0.759"];
+  "Kundenloyalitaet" -> "SQ104" [label="lam_10_2=0.902"];
+  "Kundenloyalitaet" -> "SQ105" [label="lam_10_3=0.876"];
+  "Anlagevorschlag" -> "PreisLeistung" [label="beta_1_6=0.403"];
+  "Performance" -> "PreisLeistung" [label="beta_2_6=0.055"];
+  "Produktangebot" -> "PreisLeistung" [label="beta_3_6=0.374"];
+  "Anlagevorschlag" -> "Kundenzufriedenheit" [label="beta_1_9=0.109"];
+  "Performance" -> "Kundenzufriedenheit" [label="beta_2_9=0.189"];
+  "Produktangebot" -> "Kundenzufriedenheit" [label="beta_3_9=0.129"];
+  "Berater" -> "Kundenzufriedenheit" [label="beta_4_9=0.575"];
+  "Erreichbarkeit" -> "Kundenzufriedenheit" [label="beta_5_9=0.076"];
+  "PreisLeistung" -> "Kundenzufriedenheit" [label="beta_6_9=-0.015"];
+  "Raeumlichkeiten" -> "Kundenzufriedenheit" [label="beta_7_9=0.01"];
+  "Reporting" -> "Kundenzufriedenheit" [label="beta_8_9=-0.048"];
+  "Performance" -> "Kundenloyalitaet" [label="beta_2_10=0.367"];
+  "Berater" -> "Kundenloyalitaet" [label="beta_4_10=0.314"];
+  "Kundenzufriedenheit" -> "Kundenloyalitaet" [label="beta_9_10=0.26"];
+}

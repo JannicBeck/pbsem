@@ -6,7 +6,7 @@ digraph "PB_model" {
   center=1;
   "Performance" [shape=ellipse]
   "Preis_Leistung" [shape=ellipse]
-  "Kundenzufriedenheit" [shape=ellipse]
+  "Kundenzufriedenheit" [shape=ellipse, label="Kundenzufriedenheit\n0.42"]
  "Performance" -> "SQ079" [label="lam_1_1=0.929"];
   "Performance" -> "SQ080" [label="lam_1_2=0.934"];
   "Preis_Leistung" -> "SQ009" [label="lam_2_1=0.843"];

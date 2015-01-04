@@ -2,88 +2,53 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: pb-report.aux
 The style file: plain.bst
-I couldn't open database file literatur.bib
----line 106 of file pb-report.aux
- : \bibdata{literatur
- :                   }
-I'm skipping whatever remains of this command
-I found no database files---while reading file pb-report.aux
-Warning--I didn't find a database entry for "seiler2009kundenzufriedenheit"
-Warning--I didn't find a database entry for "sanchez2013pls"
-Warning--I didn't find a database entry for "semPLS"
-Warning--I didn't find a database entry for "noonan1982pls"
-Warning--I didn't find a database entry for "lmucs-papers:Leisch:2002"
-Warning--I didn't find a database entry for "xie2013dynamic"
-Warning--I didn't find a database entry for "bliemel2005handbuch"
-Warning--I didn't find a database entry for "hair2013primer"
-Warning--I didn't find a database entry for "weiber2010strukturgleichungsmodellierung"
-Warning--I didn't find a database entry for "hildebrandt1984kausalanalytische"
-Warning--I didn't find a database entry for "vinzi2003pls"
-Warning--I didn't find a database entry for "horn1965rationale"
-Warning--I didn't find a database entry for "dinno2009exploring"
-Warning--I didn't find a database entry for "hayton2004factor"
-Warning--I didn't find a database entry for "hair2006multivariate"
-Warning--I didn't find a database entry for "joreskog1986prelis"
-Warning--I didn't find a database entry for "zwick1986comparison"
-Warning--I didn't find a database entry for "mulaik1972foundations"
-Warning--I didn't find a database entry for "carmines1979reliability"
-Warning--I didn't find a database entry for "hulland1999use"
-Warning--I didn't find a database entry for "fornell1981structural"
-Warning--I didn't find a database entry for "nunnally1978c"
-Warning--I didn't find a database entry for "bagozzi1988evaluation"
-Warning--I didn't find a database entry for "homburg1996konzeptualisierung"
-Warning--I didn't find a database entry for "rodgers2003developing"
-Warning--I didn't find a database entry for "backhaus2004industriegutermarketing"
-Warning--I didn't find a database entry for "hair2011pls"
-Warning--I didn't find a database entry for "henseler2009use"
-Warning--I didn't find a database entry for "cohen1988statistical"
-Warning--I didn't find a database entry for "chin1998partial"
-Warning--I didn't find a database entry for "geisser1974predictive"
-Warning--I didn't find a database entry for "stone1974cross"
-Warning--I didn't find a database entry for "fornell1994partial"
-Warning--I didn't find a database entry for "hahn2002segmentspezifische"
-Warning--I didn't find a database entry for "hair2012assessment"
-Warning--I didn't find a database entry for "tenenhaus2004global"
-Warning--I didn't find a database entry for "henseler2013goodness"
-You've used 0 entries,
+Database file #1: literature.bib
+Warning--I'm ignoring noonan1982pls's extra "pages" field
+--line 66 of file literature.bib
+Name 1 in "Fornell, C., and Cha, J." has a comma at the end for entry fornell1994partial
+while executing---line 1049 of file plain.bst
+Warning--empty journal in carmines1979reliability
+Name 1 in "Fornell, C., and Cha, J." has a comma at the end for entry fornell1994partial
+while executing---line 1090 of file plain.bst
+You've used 37 entries,
             2118 wiz_defined-function locations,
-            536 strings with 4750 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            726 strings with 10543 characters,
+and the built_in function-call counts, 11325 in all, are:
+= -- 1108
+> -- 475
+< -- 14
++ -- 195
+- -- 150
+* -- 691
+:= -- 1881
+add.period$ -- 112
+call.type$ -- 37
+change.case$ -- 176
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 38
+duplicate$ -- 492
+empty$ -- 920
+format.name$ -- 150
+if$ -- 2407
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 37
+missing$ -- 42
+newline$ -- 187
+num.names$ -- 76
+pop$ -- 217
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 148
 quote$ -- 0
-skip$ -- 1
+skip$ -- 357
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 596
+swap$ -- 117
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
+type$ -- 132
+warning$ -- 1
+while$ -- 116
+width$ -- 39
+write$ -- 399
 (There were 2 error messages)

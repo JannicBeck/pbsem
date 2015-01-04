@@ -1,3 +1,222 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{backhaus2004industriegutermarketing}
+Klaus Backhaus, Dipl-Kfm~Tizian Bonus, and Dipl-Kffr~Tatjana S{\"a}bel.
+\newblock Industrieg{\"u}termarketing im spiegel der internationalen
+  lehrbuchliteratur.
+\newblock In {\em Handbuch Industrieg{\"u}termarketing}, page~96. Springer,
+  2004.
+
+\bibitem{bagozzi1988evaluation}
+Richard~P Bagozzi and Youjae Yi.
+\newblock On the evaluation of structural equation models.
+\newblock {\em Journal of the academy of marketing science}, 16(1):82, 1988.
+
+\bibitem{bliemel2005handbuch}
+Friedhelm~W Bliemel, Andreas Eggert, Georg Fassott, and J{\"o}rg Henseler.
+\newblock {\em Handbuch PLS-Pfadmodellierung. Methode, Anwendung,
+  Praxisbeispiele}.
+\newblock Stuttgart: Sch{\"a}ffer-Poeschel, 2005.
+
+\bibitem{carmines1979reliability}
+Edward~G Carmines and Richard~A Zeller.
+\newblock Reliability and validity assessment (quantitative applications in the
+  social sciences) author: Edward g. carmines, richard.
+\newblock page~27, 1979.
+
+\bibitem{chin1998partial}
+Wynne~W Chin.
+\newblock The partial least squares approach to structural equation modeling.
+\newblock {\em Modern methods for business research}, 295(2):295--336, 1998.
+
+\bibitem{cohen1988statistical}
+Jacob Cohen.
+\newblock {\em Statistical power analysis for the behavioral sciences, second
+  edition}.
+\newblock Lawrence Erlbaum Assoc Inc, 1988.
+
+\bibitem{dinno2009exploring}
+Alexis Dinno.
+\newblock Exploring the sensitivity of horn's parallel analysis to the
+  distributional form of random data.
+\newblock {\em Multivariate behavioral research}, 44(3):362, 2009.
+
+\bibitem{fornell1994partial}
+C.~Fornell and J.~Cha.
+\newblock Partial least squares.
+\newblock {\em Bagozzie, R., (Ed.), Advanced Methods in Market Research}, page
+  71ff., 1994.
+
+\bibitem{fornell1981structural}
+Claes Fornell and David~F Larcker.
+\newblock Structural equation models with unobservable variables and
+  measurement error: Algebra and statistics.
+\newblock {\em Journal of marketing research}, page~45, 1981.
+
+\bibitem{geisser1974predictive}
+Seymour Geisser.
+\newblock A predictive approach to the random effect model.
+\newblock {\em Biometrika}, 61(1):101--107, 1974.
+
+\bibitem{hahn2002segmentspezifische}
+Carsten~H Hahn.
+\newblock {\em Segmentspezifische Kundenzufriedenheitsanalyse: Neue Ans{\"a}tze
+  zur Segmentierung von M{\"a}rkten}.
+\newblock Springer DE, 2002.
+
+\bibitem{hair2011pls}
+Joe~F Hair, Christian~M Ringle, and Marko Sarstedt.
+\newblock Pls-sem: Indeed a silver bullet.
+\newblock {\em The Journal of Marketing Theory and Practice}, 19(2):139--152,
+  2011.
+
+\bibitem{hair2012assessment}
+Joe~F Hair, Marko Sarstedt, Christian~M Ringle, and Jeannette~A Mena.
+\newblock An assessment of the use of partial least squares structural equation
+  modeling in marketing research.
+\newblock {\em Journal of the Academy of Marketing Science}, 40(3):414--433,
+  2012.
+
+\bibitem{hair2006multivariate}
+Joseph~F Hair, Ronald~L Tatham, Rolph~E Anderson, and William Black.
+\newblock {\em Multivariate data analysis}, volume~6.
+\newblock Pearson Prentice Hall Upper Saddle River, NJ, 2006.
+
+\bibitem{hair2013primer}
+Joseph~F Hair~Jr, G~Tomas~M Hult, Christian Ringle, and Marko Sarstedt.
+\newblock {\em A primer on partial least squares structural equation modeling
+  (PLS-SEM)}.
+\newblock SAGE Publications, Incorporated, 2013.
+
+\bibitem{hayton2004factor}
+James~C Hayton, David~G Allen, and Vida Scarpello.
+\newblock Factor retention decisions in exploratory factor analysis: A tutorial
+  on parallel analysis.
+\newblock {\em Organizational research methods}, 7(2):191--205, 2004.
+
+\bibitem{henseler2009use}
+J{\"o}rg Henseler, Christian~M Ringle, and Rudolf~R Sinkovics.
+\newblock The use of partial least squares path modeling in international
+  marketing.
+\newblock {\em Advances in international marketing}, 20:277--319, 2009.
+
+\bibitem{henseler2013goodness}
+J{\"o}rg Henseler and Marko Sarstedt.
+\newblock Goodness-of-fit indices for partial least squares path modeling.
+\newblock {\em Computational Statistics}, 28(2):565--580, 2013.
+
+\bibitem{hildebrandt1984kausalanalytische}
+Lutz Hildebrandt.
+\newblock Kausalanalytische validierung in der marketingforschung.
+\newblock {\em Marketing: Zeitschrift f{\"u}r Forschung und Praxis}, page~42,
+  1984.
+
+\bibitem{homburg1996konzeptualisierung}
+Christian Homburg and Annette Giering.
+\newblock Konzeptualisierung und operationalisierung komplexer konstrukte: ein
+  leitfaden f{\"u}r die marketingforschung.
+\newblock {\em Marketing: Zeitschrift f{\"u}r Forschung und Praxis}, page~12,
+  1996.
+
+\bibitem{horn1965rationale}
+John~L Horn.
+\newblock A rationale and test for the number of factors in factor analysis.
+\newblock {\em Psychometrika}, 30(2):179--185, 1965.
+
+\bibitem{hulland1999use}
+John Hulland.
+\newblock Use of partial least squares (pls) in strategic management research:
+  a review of four recent studies.
+\newblock {\em Strategic management journal}, 20(2):198, 1999.
+
+\bibitem{joreskog1986prelis}
+KG~J{\"o}reskog and D~S{\"o}rbom.
+\newblock Prelis, a program for multivariate data screening and data
+  summarization. a preprocessor for lisrel. mooresville, in: Scientific
+  software, 1986.
+
+\bibitem{lmucs-papers:Leisch:2002}
+Friedrich Leisch.
+\newblock Sweave: Dynamic generation of statistical reports using literate data
+  analysis.
+\newblock In Wolfgang H{\"a}rdle and Bernd R{\"o}nz, editors, {\em Compstat
+  2002 --- Proceedings in Computational Statistics}, pages 575--580. Physica
+  Verlag, Heidelberg, 2002.
+\newblock ISBN 3-7908-1517-9.
+
+\bibitem{semPLS}
+Armin Monecke and Friedrich Leisch.
+\newblock {semPLS}: Structural equation modeling using partial least squares.
+\newblock {\em Journal of Statistical Software}, 48(3):1--32, 2012.
+
+\bibitem{mulaik1972foundations}
+Stanley~A Mulaik and CRC Press.
+\newblock {\em The foundations of factor analysis}, volume~88.
+\newblock McGraw-Hill New York, 1972.
+
+\bibitem{noonan1982pls}
+Richard Noonan and Herman Wold.
+\newblock Pls path modeling with indirectly observed variables: a comparison of
+  alternative estimates for the latent variable.
+\newblock {\em J oreskog, KG, Wold, H.(Eds.), Systems under Indirect
+  Observation. North-Holland, Amsterdam}, pages 75--94, 1982.
+
+\bibitem{nunnally1978c}
+Jum Nunnally.
+\newblock C.(1978). psychometric theory, 1978.
+
+\bibitem{rodgers2003developing}
+W~Rodgers and P~Pavlou.
+\newblock Developing a predictive model: a comparative study of the partial
+  least squares vs. maximum likelihood techniques.
+\newblock {\em Arbeitspapiere der Graduate School of Management/University of
+  California, CA/USA}, page~25, 2003.
+
+\bibitem{sanchez2013pls}
+Gaston Sanchez.
+\newblock Pls path modeling with r.
+\newblock {\em Online, January}, 2013.
+
+\bibitem{seiler2009kundenzufriedenheit}
+Volker Seiler.
+\newblock {\em Kundenzufriedenheit im Private Banking}.
+\newblock PhD thesis, Dissertation, WHU-Otto Beisheim School of Management,
+  Vallendar, 2009.
+
+\bibitem{stone1974cross}
+Mervyn Stone.
+\newblock Cross-validatory choice and assessment of statistical predictions.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, pages 111--147, 1974.
+
+\bibitem{tenenhaus2004global}
+Michel Tenenhaus, Silvano Amato, and V~Esposito~Vinzi.
+\newblock A global goodness-of-fit index for pls structural equation modelling.
+\newblock In {\em Proceedings of the XLII SIS scientific meeting}, volume~1,
+  pages 739--742, 2004.
+
+\bibitem{vinzi2003pls}
+Vincenzo~Esposito Vinzi, Carlo Lauro, and Michel Tenenhaus.
+\newblock Pls path modeling.
+\newblock In {\em PLS and related methods. Proceedings of the PLS03
+  International Symposium}, 2003.
+
+\bibitem{weiber2010strukturgleichungsmodellierung}
+Rolf Weiber and Daniel M{\"u}hlhaus.
+\newblock {\em Strukturgleichungsmodellierung: eine anwendungsorientierte
+  Einf{\"u}hrung in die Kausalanalyse mit Hilfe von AMOS, SmartPLS und
+  SPSS;[Extras im Web]}.
+\newblock Springer-Verlag, 2010.
+
+\bibitem{xie2013dynamic}
+Yihui Xie.
+\newblock {\em Dynamic Documents with R and knitr}.
+\newblock CRC Press, 2013.
+
+\bibitem{zwick1986comparison}
+William~R Zwick and Wayne~F Velicer.
+\newblock Comparison of five rules for determining the number of components to
+  retain.
+\newblock {\em Psychological bulletin}, 99(3):432, 1986.
 
 \end{thebibliography}

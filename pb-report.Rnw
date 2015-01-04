@@ -110,11 +110,8 @@ Beginnend mit einer kurzen Einleitung und endend mit einem Verzicht auf Anonymit
 Berater, Zufriedenheit, Konkurrenz, die Capital Bank allgemein und die Kundenbindung erschienen uns als die 5 wichtigsten Kategorien. Was uns jedoch sehr schnell auffiel ist, dass es zu jeder Kategorie sehr viele einzelne Fragen gibt, die inhaltlich nicht sehr große Unterschiede aufweisen. Generell haben fast alle Fragen die gleiche Form einer Ordinaten Skala mit 5 Punkten, was bei dem Betrachter sehr schnell ein Gefühl von Monotonie und Langeweile aufkommen lassen kann. Dadurch, dass die einzelnen Kategorie-Blöcke außerdem nicht zusammenhängend, sondern teilweise sehr verteilt aufkommen, kann man sich schlecht auf ein Thema konzentrieren und es erweckt den Eindruck, als würden sich Fragen wiederholen. Abbildung \ref{fragebogen} zeigt den Fragebogen zu Beginn unserer Arbeit in Form einer Mindmap aufgegliedert in Kategorien.\\
 
 
-
-\includepdf[pages={1}]{Grafiken/fragebogen.pdf}
+\includepdf[pages={1}]{figure/fragebogen.pdf}
 \label{fragebogen}
-
-
 
 
 Unserer Meinung nach wäre es angebracht, eine Kürzung des Fragebogens vorzunehmen. Dazu haben wir im Anschluss durch Berechnungen mit den Programmen R und Smart PLS erfolgreich insgesamt 51 Fragen kürzen können, ohne den Fragebogen in seiner Zielsetzung zu beeinflussen.\\
@@ -150,7 +147,7 @@ Nach der Überarbeitung des Fragebogens beinhaltet dieser nun noch 63 Fragen. Ab
 %\end{figure}
 
 
-\includepdf[landscape=true]{Grafiken/fragebogenfertig.pdf}
+\includepdf[landscape=true]{figure/fragebogenfertig.pdf}
 \label{fragebogenfertig}
 
 
@@ -208,7 +205,8 @@ Kundenzufriedenheit <- c(1,1,0)
 
 #create matrix by row binding
 CB_inner_model <- rbind(Preis_Leistung, 
-                        Performance, Kundenzufriedenheit)
+                        Performance, 
+                        Kundenzufriedenheit)
 
 #add column names 
 colnames(CB_inner_model) <- rownames(CB_inner_model)
@@ -217,15 +215,16 @@ colnames(CB_inner_model) <- rownames(CB_inner_model)
 innerplot(CB_inner_model)
 
 #specify outer model
-CB_outer_model <- list(c("SQ060","SQ062","SQ096","SQ076"),
-                       c("SQ079","SQ080"),c("SQ046","SQ044"))
+CB_outer_model <- list(c("SQ092","SQ096","SQ101","SQ009","SQ076"),
+                       c("SQ079","SQ080"),
+                       c("SQ046","SQ110"))
 
 #all variables are measured in a reflective way
 #to measure formative type change character to "B"
 CB_modes <- c("A","A","A")
 
 #set all scaling to numeric
-CB_scaling = list(c("NUM", "NUM","NUM", "NUM"),
+CB_scaling = list(c("NUM", "NUM","NUM", "NUM", "NUM"),
                   c("NUM", "NUM"),
                   c("NUM", "NUM")
 )
@@ -245,13 +244,13 @@ install.packages("zoo")
 library(zoo)
 
 #interpolate missing values
-CBdata_new <- CBdata
+CBdata_zoo <- CBdata
 idx <- colSums(!is.na(CBdata)) > 1
-CBdata_new[ , idx] <- round(na.approx(CBdata_new[ , idx]))
-CBdata_new <- CBdata_new[-261,]
+CBdata_zoo[ , idx] <- round(na.approx(CBdata_zoo[ , idx]))
+CBdata_zoo <- CBdata_zoo[-261,]
 
 #run plspm function with interpolated dataset
-CB_PLS <- plspm(CBdata_new,CB_inner_model,CB_outer_model,
+CB_PLS <- plspm(CBdata_zoo,CB_inner_model,CB_outer_model,
                 modes = CB_modes, scaling = CB_scaling)
 
 #get a summary of the estimated model
@@ -262,6 +261,7 @@ plot(CB_PLS)
 
 #plot the outer model
 outerplot(CB_PLS)
+
 @
 
 Beschreibung zum Code:\\
@@ -336,9 +336,9 @@ CB_outer_model <- matrix(c(latentvar,indicators),length(latentvar))
 colnames(CB_outer_model) <- c("source","target")
 
 #create structural model
-x <- c("Preis_Leistung","Performance")                      
-y <- c("Kundenzufriedenheit","Kundenzufriedenheit")                         
-CB_inner_model <- matrix(c(x,y),length(x))
+exogenous <- c("Preis_Leistung","Performance")                      
+endogenous <- c("Kundenzufriedenheit","Kundenzufriedenheit")                         
+CB_inner_model <- matrix(c(exogenous,endogenous),length(exogenous))
 colnames(CB_inner_model) <- c("source","target")
 
 #create plsm object 
@@ -363,10 +363,13 @@ PB_model$iterations
 #load the Rgraphviz Package
 library(Rgraphviz)
 
+#get rSquared
+PB_rSquared <- rSquared(PB_model)
+
 #visualize model with dot 
 #graphviz required
 pathDiagram(PB_model, file = "PB-structure", edge.labels = "both",
-           output.type = "graphics", digits = 3)
+           output.type = "graphics", digits = 3, rSquared=PB_rSquared)
 
 #show workspace
 getwd()
@@ -381,22 +384,23 @@ PBcom <- agread(PBdot, layoutType="dot")
 plot(PBcom, main="Path model")
 @
 Beschreibung zum Code:\\
-Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
+Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. \\
+Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Ein weiterer wichtiger Parameter ist rSquared, welcher eine Matrix erwartet, die mit der rSquared() Funktion erzeugt werden kann. Die rSquared() Funktion wird später noch ausführlicher erläutert. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
 Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendiger als die Drag \& Drop Logik in SmartPLS. Allerdings können die Modelle aus SmartPLS mit dem semPLS Paket eingelesen werden. Somit kann das Modell in SmartPLS spezifiziert werden und weitere Berechnungen in R erfolgen. Alternativ kann die Spezifizierung in interaktiven Spreadsheets erfolgen. Nehmen wir z.B. die Matrix des Strukturmodells und führen folgenden Code aus:
 <<entry, eval=FALSE>>=
 data.entry(CB_inner_model)
 @
 Nun können die Beziehung einfach in einem interaktiven Spreadsheet bearbeitet werden.\\
 Eine weitere Alternative stellen die plsmUtils Methoden dar.
-<<>>=
+<<utils>>=
 ?plsmUtils
 @
 Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hinzugefügt oder verändert werden. Diese müssen auf ein Objekt des Typs "plsm" angewendet werden, also in diesem Fall auf die Variable "model".
-<<>>=
+<<addpath>>=
 #add path from Prei_Leistung to Performance
 new_model <- addPath(model, from="Preis_Leistung", to="Performance")
 @
-Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new_model gespeichert.
+Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -430,7 +434,7 @@ print(xtable(summary(CB_PLS)$correlations))
 Der Parameter results='asis' wird verwendet, da die Funktion xtable direkten LaTeX Code liefert und dieser so wie er ist kompiliert werden soll um die Tabelle im Bericht darzustellen anstatt des LaTeX Code. In der finalen Version sollte ebenfalls echo=FALSE verwendet werden, um den Befehl print xtable zu unterdrücken, da dieser lediglich zur Erzeugung einer ansprechenderen Tabelle dient und dem Leser sogesehen keinen zusätzlichen Nutzen bringt.\\
 \\
 Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werden, sodass diese zunächst berechnet und anschließend die Variable durch den Wert ersetzt wird. Der folgende R Code wählt beispielsweise eine Zahl von 1-10 zufällig aus und schreibt diese in die Variable x.
-<<>>=
+<<sample>>=
 x <- sample(1:10, 1)
 @
 Die Variable kann nun mit \textbackslash{}Sexpr\{x\} im Text refernziert werden:\\
@@ -493,19 +497,55 @@ Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berech
 \\
 
 \subsection{Vergleich smartPLS und R}
-Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Zunächst wird noch einmal das Modell in R geplotted um diese direkt vergleichen zu können. Anschließend wird mit der rSquared() Funktion noch das $R^{2}$, welches in SmartPLS in der latenten Variable "Kundenzufriedenheit" steht, in die Console geschrieben. Dieses wird jedoch noch ausführlicher im nächsten Kapitel erläutert, hier sollen nur die Differenz der Werte interessieren.
+Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (casewise deletion) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
 
+\begin{figure}[h!]
+\centering
+\hspace*{-3cm}\includegraphics[scale=0.8]{PB-structure.pdf}
+\caption{PB\_model in R with semPLS}
+\label{PB_model_R}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\hspace*{-2cm}\includegraphics[scale=0.6]{figure/PB_model_smartpls.pdf}
+\caption{PB\_model in SmartPLS}
+\label{PB_model_smartpls}
+\end{figure}
+
+
+
+Wie gut zu sehen ist, sind die Pfadkoeffizienten, äußeren Ladungen und das $R^{2}$ exakt gleich. Somit kann ein Fehler in der Software als unwahrscheinlich angesehen werden.\\
+\\
+Vergleicht man anschließend noch das semPLS Paket mit dem plspm Paket, indem man das Modell mit dem interpolierten Datensatz CBdata\_zoo mit der sempls() Funktion berechnet:
 <<>>=
-#plot the R model
-plot(PBcom, main="Path model in R")
+#calculate model with interpolated zoo dataset
+PB_model_zoo <- sempls(model = model,data = CBdata_zoo)
 
-#show 
-rSquared(PB_model)
+#diagram zoo model
+pathDiagram(PB_model_zoo, file = "PB-structure-zoo", edge.labels = "both",
+           output.type = "graphics", digits = 4, rSquared=rSquared(PB_model_zoo))
+
+#plot the inner plspm model
+innerplot(CB_PLS, main ="PB_model_zoo in R with plspm")
+
+#plot the outer plspm model
+outerplot(CB_PLS)
+
+#get the rSquared Value
+summary(CB_PLS)$inner_summary$R2[3]
 @
 
-\includegraphics{Grafiken/PB_model_smartpls}
+\begin{figure}[h!]
+\centering
+\hspace*{-3cm}\includegraphics[scale=0.8]{PB-structure-zoo.pdf}
+\caption{PB\_model\_zoo in R with semPLS}
+\label{PB_model_R_zoo}
+\end{figure}
 
-Wie gut zu sehen ist, sind die Pfadkoeffizienten, äußeren Ladungen und das $R^{2}$ exakt gleich. Somit kann ein Fehler in der Software als unwahrscheinlich angesehen werden.
+kann ein Fehler aufgrund der verwendeten Software fast ausgeschlossen werden.
+
+\newpage
 
 \subsection{Validation}
 Die folgenden Ausführungen zur Validation stammen inhaltlich aus den Büchern PLS-Pfadmodellierung (S.71-87)\cite{bliemel2005handbuch}, A Primer on PLS-SEM (S.95-205)\cite{hair2013primer} und Strukturgleichungsmodellierung (S.325-337).\cite{weiber2010strukturgleichungsmodellierung} Letzteres wird jedoch nicht empfohlen, da dort die Validation reflektiver Messmodelle im PLS Ansatz gleich dem Kovarianzbasierten Ansatz gesetzt wird und Literaturangaben fehlen.
@@ -587,6 +627,8 @@ PB_model
 
 #show new model
 new_PB_model
+
+
 @
 Der Code wurde hier auf das nötigste reduziert, da dieser bereits im Kapitel semPLS ausführlicher dargestellt wurde. Auf die Konstruktreliabilität wird im nächsten Abschnitt eingegangen. Neben den verbesserten Ladungen und damit der Konstruktreliabilität durch das Löschen ist jedoch auch zu sehen, dass der Pfadkoeffizient von Preis\_Leistung zu Kundenzufriedenheit von 0.34 auf 0.29 gesunken ist. Hier müssen also die Vor- und Nachteile wie bereits erwähnt abgewogen werden. Im Idealfall lässt sich ein anderer Indikator finden, welcher beide Werte verbessert. Da das Modell jedoch nur zur Demonstration dient, wird dies an dieser Stelle jedoch unterlassen.
 
@@ -723,7 +765,7 @@ t_values <- new_PB_model_boot$t0/stderr
 #show t_values
 t_values
 @
-Zunächst wird ein Vektor mit den Standardfehlern erstellt, welche durch das Speichern des summary() Outputs in der Variable "s" mit dem \$ Operator angesteuert werden können. Die "originalen" Koeffizienten können einfacher durch new\_PB\_model\_boot\$t0 abgerufen werden. Nun wird ein neuer Vektor t\_values durch Division der "originalen" Werte durch die jeweiligen Standardfehler erstellt. Liegt nun ein t-Wert über einem festgelegten kritischen Wert von bspw. 2.57 (Signifikanzniveau = 1\%), ist die korrespondierende Beziehung signifikant mit einer Irrtumswahrscheinlichkeit von 1\%. Das Signifikanzniveau hängt dabei vom Forschungsgebiet ab. Im Marketing ist ein Signifikanzniveau von 5\% üblich, was einem kritischen Wert von 1.96 entspricht. Da jedoch alle ermittelten t-Werte über 4 liegen, erfüllen diese alle gebräuchlichen Signifikanzniveaus und können somit auch als signifikant angesehen werden.\\
+Zunächst wird ein Vektor mit den Standardfehlern erstellt, welche durch das Speichern des summary() Outputs in der Variable "s" mit dem \$ Operator angesteuert werden können. Die "originalen" Koeffizienten können einfacher durch new\_PB\_model\_boot\$t0 abgerufen werden. Nun wird ein neuer Vektor t\_values durch Division der "originalen" Werte durch die jeweiligen Standardfehler erstellt. Liegt nun ein t-Wert über einem festgelegten kritischen Wert von bspw. 2.57 (Signifikanzniveau = 1\%), ist die korrespondierende Beziehung signifikant mit einer Irrtumswahrscheinlichkeit von 1\%. Das Signifikanzniveau hängt dabei vom Forschungsgebiet ab. Im Marketing ist ein Signifikanzniveau von 5\% üblich, was einem kritischen Wert von 1.96 entspricht. Da jedoch alle ermittelten t-Werte über oder mit 3.911 nahe an 4 liegen, erfüllen diese alle gebräuchlichen Signifikanzniveaus und können somit auch als signifikant angesehen werden.\\
 
 \paragraph{Determinationskoeffizient}
 
@@ -914,6 +956,17 @@ gof(new_PB_model)
 @
 Dieser wurde jedoch von Henseler und Sarstedt konzeptionell und empirisch kritisiert und als kein gutes Kriterium für die Güte eines Modells dargestellt.\cite{henseler2013goodness} 
 
+
+
+
+<<>>=
+CB_data_F<- subset(CB_data, F040 == "F")
+CB_data_M<- subset(CB_data, F040 == "M")
+@
+
+
+
+
 \newpage
 \section{Resultate}%Unsere Resultate stehen hier. 
 \subsection{Eigenes Modell nach Bukrhardt}
@@ -922,7 +975,7 @@ Dieser wurde jedoch von Henseler und Sarstedt konzeptionell und empirisch kritis
 
 \begin{figure}[h!]
 \centering
-\hspace*{-4.8cm}\includegraphics[scale = 0.8]{Grafiken/ausgangsmodell}
+\hspace*{-4.8cm}\includegraphics[scale = 0.8]{figure/ausgangsmodell}
 \caption{Altes Modell CB EMPF 15}
 \label{ausgangsmodell}
 \end{figure}
@@ -933,7 +986,7 @@ Ausgehend von Modell \ref{ausgangsmodell} haben wir uns zunächst intensiv mit d
 
 \begin{figure}[h!]
 \centering
-\hspace*{-4.8cm}\includegraphics[scale = 0.8]{Grafiken/erstesmodell}
+\hspace*{-4.8cm}\includegraphics[scale = 0.8]{figure/erstesmodell}
 \caption{Altes Modell CB EMPF 15}
 \label{erstesmodell}
 \end{figure}
@@ -947,7 +1000,7 @@ Bei der Berechnung des Modells ist jedoch deutlich geworden, dass das Modell nic
 Nachdem es uns nicht geglückt ist, die Indikatoren frei nach dem Fragebogen den Konstrukten zuzuordnen, haben wir uns dazu entschieden, das Modell von Seiler nachzubilden. Dazu nahmen wir seine gewählten Konstrukte und versuchten seine Indikatoren mit dem uns vorliegenden Fragebogen abzugleichen. Dabei entstand das folgende Modell.
 
 
-\hspace*{-4.8cm}\includegraphics[scale = 0.882]{Grafiken/zweitesmodell}
+\hspace*{-4.8cm}\includegraphics[scale = 0.882]{figure/zweitesmodell}
 
 
 Bei der Abgleichung der Indikatoren von Seiler mit den Fragen aus unserem Fragebogen gab es nicht immer inhaltliche Übereinstimmungen. Zum besseren Verständnis haben wir unsere Zuweisungen im Folgenden aufgeführt:
@@ -960,7 +1013,7 @@ Bei der Bildung des neuen Strukturmodells haben wir uns primär an Herrn Seiler'
 Dazu wurden die Konstrukte von dem alten Modell am Anfang vereinfacht und zu verschiedenen Konstrukten zusammengefasst. Dafür fügten wir die Konstrukte Empfehlungsneigung, Kundenbindung, Ergebnisqualität sowie Performance und ihre zuvor ermittelten Indikatoren zum Konstrukt Zufriedenheit zu. Wie in Abbildung 1 zu sehen ist, kamen wir zu insgesamt 11 Konstrukten:\\
 
 
-\hspace*{-4.8cm}\includegraphics[scale = 0.83]{Grafiken/finalesmodell}
+\hspace*{-4.8cm}\includegraphics[scale = 0.83]{figure/finalesmodell}
 
 
 %insert LIST here
@@ -969,17 +1022,15 @@ Dazu wurden die Konstrukte von dem alten Modell am Anfang vereinfacht und zu ver
 \section{Diskussion}%Eine Diskussion über die Resultate findet sich hier.
 Nach Aufstellung des Modells muss nun die Bewertung erfolgen. Diese erfolgt in folgenden Schritten:
 
-\includegraphics[width = 1\textwidth]{Grafiken/beurteilung}
+\includegraphics[width = 1\textwidth]{figure/beurteilung}
 
 Wir beurteilen ausschließlich das reflektive Messmodell, da bei unserem Strukturmodell die Richtung der Korrespondenzregeln vom Konstrukt zum Indikator führen, was letztendlich bedeutet, dass die Indikatoren von den Konstrukten beeinflusst werden. Um das reflektive Messmodell zu bewerten, müssen folgende Berechnungen durchgeführt werden: Indikatorreliabilität, Konstruktreliabilität, Durchschnittlich erfasste Varianz sowie die Diskriminanzvalidität.
 
 \section{Ausblick}%Zum Schluss folgt ein Ausblick auf künftige Arbeiten. 
 
 
-
-
 \bibliographystyle{plain} %Stil der Bibliothek
-\bibliography{literatur} %Literaturverzeichnis erzeugen
+\bibliography{literature} %Literaturverzeichnis erzeugen
 
 \appendix
 
