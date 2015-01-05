@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.9)  4 JAN 2015 15:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.5)  5 JAN 2015 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **pb-report.tex
 (./pb-report.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 7 languages loaded.
+Babel <3.9h> and hyphenation patterns for 9 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -302,8 +302,6 @@ File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen109
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -692,8 +690,7 @@ Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
 Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
-))
-No file pb-report.aux.
+)) (./pb-report.aux)
 \openout1 = `pb-report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -712,6 +709,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -759,6 +757,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 66.
 LaTeX Info: Redefining \pageref on input line 66.
 LaTeX Info: Redefining \nameref on input line 66.
+
+(./pb-report.out) (./pb-report.out)
 \@outlinefile=\write3
 \openout3 = `pb-report.out'.
 
@@ -784,37 +784,21 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 101.
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pb-report.toc)
 \tf@toc=\write4
 \openout4 = `pb-report.toc'.
 
-[2]
-
-LaTeX Warning: Citation `seiler2009kundenzufriedenheit' on page 1 undefined on 
-input line 119.
-
-
-LaTeX Warning: Citation `seiler2009kundenzufriedenheit' on page 1 undefined on 
-input line 119.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
+ [2]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.141 \item E
              indruck [1]
-
-LaTeX Warning: Reference `fragebogen' on page 2 undefined on input line 155.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-<figure/fragebogen.pdf, id=30, 2195.20125pt x 4182.62625pt>
+<figure/fragebogen.pdf, id=139, 2195.20125pt x 4182.62625pt>
 File: figure/fragebogen.pdf Graphic file (type pdf)
 
 <use figure/fragebogen.pdf>
@@ -830,7 +814,7 @@ been already used, duplicate ignored
                    \relax 
 l.158 ...ludepdf[pages={1}]{figure/fragebogen.pdf}
                                                    [2]
-<figure/fragebogen.pdf, id=36, page=1, 2195.20125pt x 4182.62625pt>
+<figure/fragebogen.pdf, id=145, page=1, 2195.20125pt x 4182.62625pt>
 File: figure/fragebogen.pdf Graphic file (type pdf)
 
 <use figure/fragebogen.pdf, page 1>
@@ -866,12 +850,7 @@ Overfull \hbox (21.02786pt too wide) in paragraph at lines 174--175
 d Empfehlungsnei-
  []
 
-[4]
-
-LaTeX Warning: Reference `fragebogenfertig' on page 5 undefined on input line 1
-85.
-
-<figure/fragebogenfertig.pdf, id=66, 1983.41pt x 1848.9075pt>
+[4] <figure/fragebogenfertig.pdf, id=177, 1983.41pt x 1848.9075pt>
 File: figure/fragebogenfertig.pdf Graphic file (type pdf)
 
 <use figure/fragebogenfertig.pdf>
@@ -882,7 +861,7 @@ File: figure/fragebogenfertig.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/fragebogenfertig.pdf used on input line 195.
 (pdftex.def)             Requested size: 1983.40518pt x 1848.903pt.
  [5]
-<figure/fragebogenfertig.pdf, id=74, page=1, 1983.41pt x 1848.9075pt>
+<figure/fragebogenfertig.pdf, id=185, page=1, 1983.41pt x 1848.9075pt>
 File: figure/fragebogenfertig.pdf Graphic file (type pdf)
 
 <use figure/fragebogenfertig.pdf, page 1>
@@ -923,20 +902,12 @@ LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 216
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-
-LaTeX Warning: Citation `sanchez2013pls' on page 7 undefined on input line 223.
-
-
 Package color Info: Redefining color shadecolor on input line 225.
 
 Overfull \hbox (3.01688pt too wide) in paragraph at lines 223--225
 \T1/cmr/m/n/10 Rus-so-lillo er-stellt. Die Web-seiten []gas-ton-sanchez.com[] u
 nd []plsmod-el-ing.com[] geben
  []
-
-
-LaTeX Warning: Citation `sanchez2013pls' on page 7 undefined on input line 236.
-
 
 [7]
 Package color Info: Redefining color shadecolor on input line 240.
@@ -950,7 +921,7 @@ Overfull \hbox (43.40515pt too wide) in paragraph at lines 247--247
 Overfull \vbox (0.29816pt too high) detected at line 272
  []
 
-[8] <figure/plspm.pdf, id=120, 505.89pt x 505.89pt>
+[8] <figure/plspm.pdf, id=230, 505.89pt x 505.89pt>
 File: figure/plspm.pdf Graphic file (type pdf)
  <use figure/plspm.pdf>
 Package pdftex.def Info: figure/plspm.pdf used on input line 273.
@@ -1136,13 +1107,13 @@ Underfull \vbox (badness 10000) detected at line 430
 Underfull \vbox (badness 10000) detected at line 430
  []
 
-[12] <figure/zoo1.pdf, id=148, 505.89pt x 505.89pt>
+[12] <figure/zoo1.pdf, id=257, 505.89pt x 505.89pt>
 File: figure/zoo1.pdf Graphic file (type pdf)
  <use figure/zoo1.pdf>
 Package pdftex.def Info: figure/zoo1.pdf used on input line 431.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-<figure/zoo2.pdf, id=149, 505.89pt x 505.89pt>
+<figure/zoo2.pdf, id=258, 505.89pt x 505.89pt>
 File: figure/zoo2.pdf Graphic file (type pdf)
  <use figure/zoo2.pdf>
 Package pdftex.def Info: figure/zoo2.pdf used on input line 437.
@@ -1150,13 +1121,13 @@ Package pdftex.def Info: figure/zoo2.pdf used on input line 437.
  [13 <./figure/zoo1.pdf>]
 Package color Info: Redefining color shadecolor on input line 444.
  [14 <./figure/zoo2.pdf>]
-<figure/mis1.pdf, id=178, 505.89pt x 505.89pt>
+<figure/mis1.pdf, id=287, 505.89pt x 505.89pt>
 File: figure/mis1.pdf Graphic file (type pdf)
  <use figure/mis1.pdf>
 Package pdftex.def Info: figure/mis1.pdf used on input line 457.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
  [15]
-<figure/mis2.pdf, id=183, 505.89pt x 505.89pt>
+<figure/mis2.pdf, id=292, 505.89pt x 505.89pt>
 File: figure/mis2.pdf Graphic file (type pdf)
  <use figure/mis2.pdf>
 Package pdftex.def Info: figure/mis2.pdf used on input line 470.
@@ -1173,10 +1144,7 @@ ram-e-ter übergeben
  []
 
 
-LaTeX Warning: Citation `semPLS' on page 18 undefined on input line 485.
-
-
-Overfull \hbox (8.48312pt too wide) in paragraph at lines 485--487
+Overfull \hbox (13.05145pt too wide) in paragraph at lines 485--487
 \T1/cmr/m/n/10 Das Paket semPLS[[]] wurde von []Armin Mo-n-ecke[] und []Friedri
 ch Leisch[] geschrieben.
  []
@@ -1218,7 +1186,7 @@ Overfull \hbox (1.4154pt too wide) in paragraph at lines 534--534
  []LVs[] []=[] []"Kundenzufriedenheit"[][])[][] 
  []
 
-[18] <figure/semPLS1.pdf, id=229, 505.89pt x 505.89pt>
+[18] <figure/semPLS1.pdf, id=340, 505.89pt x 505.89pt>
 File: figure/semPLS1.pdf Graphic file (type pdf)
 
 <use figure/semPLS1.pdf>
@@ -1252,17 +1220,13 @@ Overfull \hbox (22.41028pt too wide) in paragraph at lines 617--617
  []
 
 [20 <./figure/semPLS1.pdf>] [21]
-<figure/semPLS2.pdf, id=248, 505.89pt x 505.89pt>
+<figure/semPLS2.pdf, id=359, 505.89pt x 505.89pt>
 File: figure/semPLS2.pdf Graphic file (type pdf)
  <use figure/semPLS2.pdf>
 Package pdftex.def Info: figure/semPLS2.pdf used on input line 640.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
 [22]
-
-LaTeX Warning: Citation `noonan1982pls' on page 23 undefined on input line 644.
-
-
 Package color Info: Redefining color shadecolor on input line 648.
 
 Overfull \hbox (21.88727pt too wide) in paragraph at lines 643--648
@@ -1280,87 +1244,81 @@ reis_Leistung"[][],[] []to[][]=[][]"Performance"[][])[][]
  []
 
 [24]
+Package color Info: Redefining color shadecolor on input line 675.
+Package color Info: Redefining color shadecolor on input line 693.
+ [25]
+Package color Info: Redefining color shadecolor on input line 704.
 
-LaTeX Warning: Citation `lmucs-papers:Leisch:2002' on page 25 undefined on inpu
-t line 675.
-
-
-LaTeX Warning: Citation `xie2013dynamic' on page 25 undefined on input line 676
-.
-
-Package color Info: Redefining color shadecolor on input line 679.
-Package color Info: Redefining color shadecolor on input line 690.
-
-Underfull \hbox (badness 10000) in paragraph at lines 685--690
+Underfull \hbox (badness 10000) in paragraph at lines 699--704
 
  []
 
-[25]
-Package color Info: Redefining color shadecolor on input line 698.
-Package color Info: Redefining color shadecolor on input line 707.
-
-Overfull \hbox (6.37042pt too wide) in paragraph at lines 740--749
+Package color Info: Redefining color shadecolor on input line 712.
+Package color Info: Redefining color shadecolor on input line 721.
+[26]
+Overfull \hbox (6.37042pt too wide) in paragraph at lines 754--763
  [][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 755.
-
-Underfull \hbox (badness 10000) in paragraph at lines 751--755
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 761--763
-
- []
-
 Package color Info: Redefining color shadecolor on input line 769.
-Package color Info: Redefining color shadecolor on input line 779.
-Package color Info: Redefining color shadecolor on input line 787.
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 792--792
+Underfull \hbox (badness 10000) in paragraph at lines 765--769
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 775--777
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 783.
+Package color Info: Redefining color shadecolor on input line 793.
+[27]
+Package color Info: Redefining color shadecolor on input line 801.
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 806--806
 [][]\T1/cmtt/m/n/10 dataPath[] []<-[] []"/home/jannic/Schreibtisch/PB/Data/2014
 _08_30-CB_Alle_R.csv"[][] 
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 911--911
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ## [1] "Performance"         "Preis_Leistung"      "Kundenzuf
 riedenheit"[] 
  []
 
 
-Overfull \hbox (64.40002pt too wide) in paragraph at lines 911--911
+Overfull \hbox (64.40002pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ## [1] "SQ079" "SQ080" "SQ009" "SQ076" "SQ092" "SQ096" "SQ101
 " "SQ046" "SQ110"[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 911--911
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
 edenheit[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 911--911
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ## Performance                   0              0            
        1[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 911--911
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
        1[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 911--911
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 925--925
 []\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
        0[] 
  []
 
 
-Overfull \hbox (1292.6001pt too wide) in paragraph at lines 923--923
+Overfull \hbox (1292.6001pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 ## Data rows: 4, 6, 15, 20, 21, 29, 32, 33, 34, 36, 37, 39, 4
 3, 55, 58, 61, 72, 75, 76, 77, 80, 85, 90, 92, 95, 96, 97, 98, 100, 101, 102, 1
 16, 128, 139, 144, 145, 153, 162, 163, 175, 176, 180, 184, 185, 186, 191, 192, 
@@ -1369,315 +1327,236 @@ Overfull \hbox (1292.6001pt too wide) in paragraph at lines 923--923
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 923--923
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 ## are not taken into acount, due to missings in the manifest
  variables.[] 
  []
 
-[27]
-Underfull \vbox (badness 10000) detected at line 960
- []
-
-
-Underfull \vbox (badness 10000) detected at line 960
- []
-
 [28]
-Underfull \vbox (badness 10000) detected at line 960
+Underfull \vbox (badness 10000) detected at line 974
  []
 
 
-Underfull \vbox (badness 10000) detected at line 960
+Underfull \vbox (badness 10000) detected at line 974
  []
 
 [29] [30]
-Overfull \hbox (2.05414pt too wide) in paragraph at lines 969--977
+Overfull \hbox (2.05414pt too wide) in paragraph at lines 983--991
 \T1/cmr/m/n/10 Datei mit den Spal-tenna-men SQ001 zu be-nutzen (2014_08_30-CB_A
 lle_R.csv)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 969--977
+Underfull \hbox (badness 10000) in paragraph at lines 983--991
 
  []
 
-[31] <PB-structure.pdf, id=308, 650.43pt x 486.81876pt>
+[31] [32] <PB-structure.pdf, id=427, 650.43pt x 486.81876pt>
 File: PB-structure.pdf Graphic file (type pdf)
- <use PB-structure.pdf>
-Package pdftex.def Info: PB-structure.pdf used on input line 983.
+
+<use PB-structure.pdf>
+Package pdftex.def Info: PB-structure.pdf used on input line 998.
 (pdftex.def)             Requested size: 520.3447pt x 389.45554pt.
 
-Overfull \hbox (89.98643pt too wide) in paragraph at lines 983--984
+Overfull \hbox (89.98643pt too wide) in paragraph at lines 998--999
  []| [] 
  []
 
-<figure/PB_model_smartpls.pdf, id=309, 788.9475pt x 758.835pt>
+<figure/PB_model_smartpls.pdf, id=428, 788.9475pt x 758.835pt>
 File: figure/PB_model_smartpls.pdf Graphic file (type pdf)
 
 <use figure/PB_model_smartpls.pdf>
-Package pdftex.def Info: figure/PB_model_smartpls.pdf used on input line 990.
+Package pdftex.def Info: figure/PB_model_smartpls.pdf used on input line 1005.
 (pdftex.def)             Requested size: 473.37215pt x 455.30452pt.
 
-Overfull \hbox (71.46664pt too wide) in paragraph at lines 990--991
+Overfull \hbox (71.46664pt too wide) in paragraph at lines 1005--1006
  []| [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package color Info: Redefining color shadecolor on input line 1001.
-
-Underfull \hbox (badness 10000) in paragraph at lines 997--1001
+[33 <./PB-structure.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
 
  []
 
-[32 <./PB-structure.pdf>] [33 <./figure/PB_model_smartpls.pdf>]
-Overfull \hbox (43.40515pt too wide) in paragraph at lines 1014--1014
-[][]\T1/cmtt/m/n/10 pathDiagram[][](PB_model_zoo,[] []file[] []=[] []"PB-struct
-ure-zoo"[][],[] []edge.labels[] []=[] []"both"[][],[][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
+
  []
 
+[34 <./figure/PB_model_smartpls.pdf>]
+Package color Info: Redefining color shadecolor on input line 1018.
 
-Overfull \hbox (80.14618pt too wide) in paragraph at lines 1015--1015
-[]           []\T1/cmtt/m/n/10 output.type[] []=[] []"graphics"[][],[] []digits
-[] []=[] []4[][],[] []rSquared[][]=[][]rSquared[][](PB_model_zoo))[][] 
- []
+<figure/unnamed-chunk-21.pdf, id=460, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-21.pdf Graphic file (type pdf)
 
-
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1019--1019
-[]\T1/cmtt/m/n/10 ## Running  dot -Tpdf -o PB-structure-zoo.pdf  PB-structure-z
-oo.dot[] 
- []
-
-<figure/unnamed-chunk-11.pdf, id=341, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-11.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-11.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-11.pdf used on input line 1025.
+<use figure/unnamed-chunk-21.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-21.pdf used on input line 1034.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
- [34 <./figure/unnamed-chunk-11.pdf>]
-<figure/unnamed-chunk-12.pdf, id=356, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-12.pdf Graphic file (type pdf)
+ [35 <./figure/unnamed-chunk-21.pdf>]
+<figure/unnamed-chunk-22.pdf, id=476, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-22.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-12.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-12.pdf used on input line 1031.
+<use figure/unnamed-chunk-22.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-22.pdf used on input line 1040.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-<PB-structure-zoo.pdf, id=357, 650.43pt x 478.78876pt>
+<PB-structure-zoo.pdf, id=477, 650.43pt x 478.78876pt>
 File: PB-structure-zoo.pdf Graphic file (type pdf)
 
 <use PB-structure-zoo.pdf>
-Package pdftex.def Info: PB-structure-zoo.pdf used on input line 1044.
+Package pdftex.def Info: PB-structure-zoo.pdf used on input line 1053.
 (pdftex.def)             Requested size: 520.3447pt x 383.03152pt.
 
-Overfull \hbox (89.98643pt too wide) in paragraph at lines 1044--1045
+Overfull \hbox (89.98643pt too wide) in paragraph at lines 1053--1054
  []| [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35 <./figure/unnamed-chunk-12.pdf>]
-
-LaTeX Warning: Citation `bliemel2005handbuch' on page 36 undefined on input lin
-e 1054.
-
-
-LaTeX Warning: Citation `hair2013primer' on page 36 undefined on input line 105
-4.
+[36 <./figure/unnamed-chunk-22.pdf>] [37 <./PB-structure-zoo.pdf>]
+Overfull \hbox (5.02563pt too wide) in paragraph at lines 1065--1066
+\T1/cmr/m/n/10 Struk-tur-gle-ichungsmod-el-lierung (S.325-337).[[]] Let-zteres 
+wird je-doch nicht emp-
+ []
 
 
-LaTeX Warning: Citation `weiber2010strukturgleichungsmodellierung' on page 36 u
-ndefined on input line 1054.
-
-
-LaTeX Warning: Citation `hair2013primer' on page 36 undefined on input line 105
-6.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1057
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1068
 
  []
 
-[36 <./PB-structure-zoo.pdf>]
+Package color Info: Redefining color shadecolor on input line 1073.
 
-LaTeX Warning: Citation `hildebrandt1984kausalanalytische' on page 37 undefined
- on input line 1060.
-
-
-LaTeX Warning: Citation `vinzi2003pls' on page 37 undefined on input line 1060.
-
-
-Package color Info: Redefining color shadecolor on input line 1062.
-
-Overfull \hbox (5.48386pt too wide) in paragraph at lines 1060--1062
+Overfull \hbox (10.05219pt too wide) in paragraph at lines 1071--1073
 \T1/cmr/m/n/10 teko-r-re-la-tio-nen der In-dika-toren eines Kon-strukts auf In-
 haltsva-lid-ität hinweisen.[[]]
  []
 
-Package color Info: Redefining color shadecolor on input line 1070.
+Package color Info: Redefining color shadecolor on input line 1081.
 
-Overfull \hbox (74.89746pt too wide) in paragraph at lines 1076--1076
+Overfull \hbox (74.89746pt too wide) in paragraph at lines 1087--1087
 [][]\T1/cmtt/m/n/10 CBdata[] []<-[] []read.csv[][]([][]"/home/jannic/Schreibtis
 ch/PB/Data/2014_08_30-CB_Alle_R.csv"[][])[][] 
  []
 
-<figure/psych1.pdf, id=386, 505.89pt x 505.89pt>
+<figure/psych1.pdf, id=510, 505.89pt x 505.89pt>
 File: figure/psych1.pdf Graphic file (type pdf)
  <use figure/psych1.pdf>
-Package pdftex.def Info: figure/psych1.pdf used on input line 1087.
+Package pdftex.def Info: figure/psych1.pdf used on input line 1098.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-[37]
-Overfull \hbox (158.87695pt too wide) in paragraph at lines 1090--1090
+[38]
+Overfull \hbox (158.87695pt too wide) in paragraph at lines 1101--1101
 []\T1/cmtt/m/n/10 ## Parallel analysis suggests that the number of factors =  3
   and the number of components =  2[] 
  []
 
-<figure/psych2.pdf, id=393, 505.89pt x 505.89pt>
+<figure/psych2.pdf, id=521, 505.89pt x 505.89pt>
 File: figure/psych2.pdf Graphic file (type pdf)
  <use figure/psych2.pdf>
-Package pdftex.def Info: figure/psych2.pdf used on input line 1102.
+Package pdftex.def Info: figure/psych2.pdf used on input line 1113.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-[38 <./figure/psych1.pdf>]
-Overfull \hbox (158.87695pt too wide) in paragraph at lines 1113--1113
+[39 <./figure/psych1.pdf>]
+Overfull \hbox (158.87695pt too wide) in paragraph at lines 1124--1124
 []\T1/cmtt/m/n/10 ## Parallel analysis suggests that the number of factors =  3
   and the number of components =  1[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1113--1113
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1124--1124
 []\T1/cmtt/m/n/10 ## Call: fa.parallel.poly(x = indicatorset, fa = "fa", global
  = TRUE)[] 
  []
 
 
-Overfull \hbox (158.87695pt too wide) in paragraph at lines 1113--1113
+Overfull \hbox (158.87695pt too wide) in paragraph at lines 1124--1124
 []\T1/cmtt/m/n/10 ## Parallel analysis suggests that the number of factors =  3
   and the number of components =  1[] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1113--1113
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1124--1124
 []\T1/cmtt/m/n/10 ##   Original factors Simulated data Original components simu
 lated data[] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1113--1113
-[]\T1/cmtt/m/n/10 ## 1             4.04           0.82                4.55     
-      1.62[] 
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1124--1124
+[]\T1/cmtt/m/n/10 ## 1             4.04           0.71                4.55     
+      1.53[] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1113--1113
-[]\T1/cmtt/m/n/10 ## 2             0.66           0.30                1.22     
-      1.24[] 
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1124--1124
+[]\T1/cmtt/m/n/10 ## 2             0.66           0.29                1.22     
+      1.25[] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1113--1113
-[]\T1/cmtt/m/n/10 ## 3             0.23           0.20                0.85     
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1124--1124
+[]\T1/cmtt/m/n/10 ## 3             0.23           0.18                0.85     
       1.13[] 
  []
 
 
-Overfull \hbox (64.40002pt too wide) in paragraph at lines 1119--1119
+Overfull \hbox (64.40002pt too wide) in paragraph at lines 1130--1130
 [][]\T1/cmtt/m/n/10 PB_fac_poly[] []<-[] []fa.poly[][](indicatorset,[] []nfacto
 rs[][]=[][]3[][],[] []rotate[][]=[][]"varimax"[][],[][]global[][]=[][]TRUE[][])
 [][] 
  []
 
-[39 <./figure/psych2.pdf>] [40]
-<figure/psych3.pdf, id=419, 505.89pt x 505.89pt>
+[40 <./figure/psych2.pdf>] [41]
+<figure/psych3.pdf, id=547, 505.89pt x 505.89pt>
 File: figure/psych3.pdf Graphic file (type pdf)
  <use figure/psych3.pdf>
-Package pdftex.def Info: figure/psych3.pdf used on input line 1188.
+Package pdftex.def Info: figure/psych3.pdf used on input line 1199.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-[41 <./figure/psych3.pdf>] <figure/psych4.pdf, id=431, 505.89pt x 505.89pt>
+[42 <./figure/psych3.pdf>] <figure/psych4.pdf, id=558, 505.89pt x 505.89pt>
 File: figure/psych4.pdf Graphic file (type pdf)
 
 <use figure/psych4.pdf>
-Package pdftex.def Info: figure/psych4.pdf used on input line 1193.
+Package pdftex.def Info: figure/psych4.pdf used on input line 1204.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-
-LaTeX Warning: Citation `horn1965rationale' on page 42 undefined on input line 
-1198.
-
-
-LaTeX Warning: Citation `dinno2009exploring' on page 42 undefined on input line
- 1198.
-
-
-LaTeX Warning: Citation `hayton2004factor' on page 42 undefined on input line 1
-198.
-
-
-LaTeX Warning: Citation `hair2006multivariate' on page 42 undefined on input li
-ne 1198.
-
-
-LaTeX Warning: Citation `joreskog1986prelis' on page 42 undefined on input line
- 1200.
-
-
-LaTeX Warning: Citation `zwick1986comparison' on page 42 undefined on input lin
-e 1201.
-
-
-LaTeX Warning: Citation `mulaik1972foundations' on page 42 undefined on input l
-ine 1201.
-
-
-LaTeX Warning: Citation `hayton2004factor' on page 42 undefined on input line 1
-201.
-
-
-Overfull \hbox (4.82199pt too wide) in paragraph at lines 1197--1204
+Overfull \hbox (4.82199pt too wide) in paragraph at lines 1208--1215
 \T1/cmr/m/n/10 SQ092, SQ101 und SQ096 auf. Dieser kann also als das Kon-strukt 
 Preis_Leistung
  []
 
-[42 <./figure/psych4.pdf>] [43] [44]
-
-LaTeX Warning: Citation `carmines1979reliability' on page 45 undefined on input
- line 1207.
-
-
-LaTeX Warning: Citation `hulland1999use' on page 45 undefined on input line 120
-7.
-
-Package color Info: Redefining color shadecolor on input line 1209.
-Package color Info: Redefining color shadecolor on input line 1229.
-[45]
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1233--1233
+[43 <./figure/psych4.pdf>] [44] [45]
+Package color Info: Redefining color shadecolor on input line 1220.
+Package color Info: Redefining color shadecolor on input line 1240.
+ [46]
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1244--1244
 []                []\T1/cmtt/m/n/10 strucmod[] []=[] []cbind[][]([][]c[][]([][]
 "Preis_Leistung"[][],[][]"Performance"[][]),[][] 
  []
 
 
-Overfull \hbox (1.4154pt too wide) in paragraph at lines 1234--1234
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 1245--1245
 []                                 []\T1/cmtt/m/n/10 c[][]([][]rep[][]([][]"Kun
 denzufriedenheit"[][],[][]2[][]))),[][] 
  []
 
 
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1237--1237
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1248--1248
 []                                     []\T1/cmtt/m/n/10 rep[][]([][]"Kundenzuf
 riedenheit"[][],[][]2[][])),[][] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1238--1238
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1249--1249
 []                                   []\T1/cmtt/m/n/10 c[][]([][]"SQ009"[][],[]
 []"SQ076"[][],[][]"SQ092"[][],[][]"SQ079"[][],[][] 
  []
 
 
-Overfull \hbox (935.68726pt too wide) in paragraph at lines 1249--1249
+Overfull \hbox (935.68726pt too wide) in paragraph at lines 1260--1260
 []\T1/cmtt/m/n/10 ## Data rows: 4, 6, 20, 29, 32, 33, 36, 37, 39, 43, 55, 61, 7
 2, 76, 77, 80, 90, 92, 95, 96, 97, 100, 101, 102, 116, 139, 144, 145, 153, 162,
  163, 175, 176, 184, 185, 186, 192, 193, 197, 218, 224, 227, 233, 235, 237, 240
@@ -1685,459 +1564,424 @@ Overfull \hbox (935.68726pt too wide) in paragraph at lines 1249--1249
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1249--1249
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1260--1260
 []\T1/cmtt/m/n/10 ## are not taken into acount, due to missings in the manifest
  variables.[] 
  []
 
-[46]
-
-LaTeX Warning: Citation `fornell1981structural' on page 47 undefined on input l
-ine 1290.
-
-Package color Info: Redefining color shadecolor on input line 1304.
-
-LaTeX Warning: Citation `nunnally1978c' on page 47 undefined on input line 1325
-.
-
-
-LaTeX Warning: Citation `bagozzi1988evaluation' on page 47 undefined on input l
-ine 1325.
-
-
-LaTeX Warning: Citation `fornell1981structural' on page 47 undefined on input l
-ine 1329.
-
 [47]
+Package color Info: Redefining color shadecolor on input line 1315.
+ [48]
+Package color Info: Redefining color shadecolor on input line 1353.
 
-LaTeX Warning: Citation `homburg1996konzeptualisierung' on page 48 undefined on
- input line 1339.
-
-
-LaTeX Warning: Citation `rodgers2003developing' on page 48 undefined on input l
-ine 1339.
-
-Package color Info: Redefining color shadecolor on input line 1342.
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1362--1362
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1373--1373
 []\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
 edenheit[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1362--1362
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1373--1373
 []\T1/cmtt/m/n/10 ## Performance                   0              0            
   0.1750[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1362--1362
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1373--1373
 []\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
   0.1165[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1362--1362
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1373--1373
 []\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
   0.0000[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1382--1382
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1393--1393
 []\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
 edenheit[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1382--1382
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1393--1393
 []\T1/cmtt/m/n/10 ## Performance                   0              0            
  0.18424[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1382--1382
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1393--1393
 []\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
  0.08654[] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1382--1382
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1393--1393
 []\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
  0.00000[] 
  []
 
-[48]
-Package color Info: Redefining color shadecolor on input line 1389.
+[49]
+Package color Info: Redefining color shadecolor on input line 1400.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1385--1389
+Underfull \hbox (badness 10000) in paragraph at lines 1396--1400
 
  []
 
 
-Overfull \hbox (16.10626pt too wide) in paragraph at lines 1385--1389
+Overfull \hbox (16.10626pt too wide) in paragraph at lines 1396--1400
 \T1/cmr/m/n/10 Eine weit-ere Meth-ode die Diskrim-i-nanz-va-lid-ität zu über-pr
 üfen stellt das Analysieren
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1420--1423
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1434
 
  []
 
 
-Overfull \hbox (8.74695pt too wide) in paragraph at lines 1420--1423
+Overfull \hbox (8.74695pt too wide) in paragraph at lines 1431--1434
 \T1/cmr/m/n/10 Mod-ellen sind diese Kenn-zahlen nicht im-mer alle er-füllt, je-
 doch liefern sie wertvolle
  []
 
-[49]
-Package color Info: Redefining color shadecolor on input line 1430.
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1439--1439
-[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
-edenheit[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1439--1439
-[]\T1/cmtt/m/n/10 ## Performance                   0              0            
-  0.4183[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1439--1439
-[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
-  0.3414[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1439--1439
-[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
-  0.0000[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1448--1448
-[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
-edenheit[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1448--1448
-[]\T1/cmtt/m/n/10 ## Performance                   0              0            
-  0.4183[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1448--1448
-[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
-  0.3414[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1448--1448
-[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
-  0.0000[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1457--1457
-[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
-edenheit[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1457--1457
-[]\T1/cmtt/m/n/10 ## Performance                   0              0            
-  0.4292[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1457--1457
-[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
-  0.2942[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1457--1457
-[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
-  0.0000[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1466--1466
-[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
-edenheit[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1466--1466
-[]\T1/cmtt/m/n/10 ## Performance                   0              0            
-  0.4292[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1466--1466
-[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
-  0.2942[] 
- []
-
-
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1466--1466
-[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
-  0.0000[] 
- []
-
 [50]
-Package color Info: Redefining color shadecolor on input line 1475.
+Package color Info: Redefining color shadecolor on input line 1441.
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1481--1481
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1450--1450
+[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
+edenheit[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1450--1450
+[]\T1/cmtt/m/n/10 ## Performance                   0              0            
+  0.4183[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1450--1450
+[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
+  0.3414[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1450--1450
+[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
+  0.0000[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1459--1459
+[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
+edenheit[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1459--1459
+[]\T1/cmtt/m/n/10 ## Performance                   0              0            
+  0.4183[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1459--1459
+[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
+  0.3414[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1459--1459
+[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
+  0.0000[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1468--1468
+[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
+edenheit[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1468--1468
+[]\T1/cmtt/m/n/10 ## Performance                   0              0            
+  0.4292[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1468--1468
+[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
+  0.2942[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1468--1468
+[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
+  0.0000[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1477--1477
+[]\T1/cmtt/m/n/10 ##                     Performance Preis_Leistung Kundenzufri
+edenheit[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1477--1477
+[]\T1/cmtt/m/n/10 ## Performance                   0              0            
+  0.4292[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1477--1477
+[]\T1/cmtt/m/n/10 ## Preis_Leistung                0              0            
+  0.2942[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1477--1477
+[]\T1/cmtt/m/n/10 ## Kundenzufriedenheit           0              0            
+  0.0000[] 
+ []
+
+[51]
+Package color Info: Redefining color shadecolor on input line 1486.
+
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1492--1492
 [][]\T1/cmtt/m/n/10 new_PB_model_boot[] []<-[] []bootsempls[][](new_PB_model,[]
  []nboot[][]=[][]200[][],[] []verbose[][]=[][]FALSE[][])[][] 
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Call: bootsempls(object = new_PB_model, nboot = 200, verbo
 se = FALSE)[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ##                                       Estimate     Bias St
 d.Error[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Performance -> SQ079                     0.923  0.00131   
 0.01311[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Performance -> SQ080                     0.918  0.00197   
 0.01724[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Preis_Leistung -> SQ009                  0.860  0.00012   
 0.02546[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Preis_Leistung -> SQ076                  0.897  0.00133   
 0.01508[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Preis_Leistung -> SQ092                  0.799 -0.00265   
 0.03463[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Kundenzufriedenheit -> SQ046             0.793 -0.00402   
 0.06372[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Kundenzufriedenheit -> SQ110             0.942  0.00206   
 0.00925[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Performance -> Kundenzufriedenheit       0.429  0.00832   
 0.07462[] 
  []
 
 
-Overfull \hbox (11.91284pt too wide) in paragraph at lines 1499--1499
+Overfull \hbox (11.91284pt too wide) in paragraph at lines 1510--1510
 []\T1/cmtt/m/n/10 ## Preis_Leistung -> Kundenzufriedenheit    0.294 -0.00181   
 0.07521[] 
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1519--1519
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1530--1530
 []\T1/cmtt/m/n/10 ## Call: bootsempls(object = new_PB_model, nboot = 200, verbo
 se = FALSE)[] 
  []
 
 
-Overfull \hbox (38.15643pt too wide) in paragraph at lines 1519--1519
+Overfull \hbox (38.15643pt too wide) in paragraph at lines 1530--1530
 []\T1/cmtt/m/n/10 ## Lower and upper limits are for the 95 percent perc confide
 nce interval[] 
  []
 
 
-Overfull \hbox (122.13593pt too wide) in paragraph at lines 1538--1538
+Overfull \hbox (122.13593pt too wide) in paragraph at lines 1549--1549
 [][]\T1/cmtt/m/n/10 parallelplot[][](new_PB_model_boot,[] []subset[][]=[][]1[][
 ]:[][]ncol[][](new_PB_model_boot[][]$[][]t),[] []reflinesAt[][]=[][]c[][]([][]-
 [][]1[][],[][]0[][],[][]1[][]))[][] 
  []
 
-[51] <figure/boot1.pdf, id=489, 505.89pt x 505.89pt>
+[52] <figure/boot1.pdf, id=646, 505.89pt x 505.89pt>
 File: figure/boot1.pdf Graphic file (type pdf)
  <use figure/boot1.pdf>
-Package pdftex.def Info: figure/boot1.pdf used on input line 1541.
+Package pdftex.def Info: figure/boot1.pdf used on input line 1552.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-[52 <./figure/boot1.pdf>]
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1544--1544
+[53 <./figure/boot1.pdf>]
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1555--1555
 [][]\T1/cmtt/m/n/10 parallelplot[][](new_PB_model_boot,[] []pattern[][]=[][]"be
 ta"[][],[] []reflinesAt[][]=[][]c[][]([][]-[][]1[][],[][]0[][],[][]1[][]))[][] 
 
  []
 
-<figure/boot2.pdf, id=499, 505.89pt x 505.89pt>
+<figure/boot2.pdf, id=657, 505.89pt x 505.89pt>
 File: figure/boot2.pdf Graphic file (type pdf)
  <use figure/boot2.pdf>
-Package pdftex.def Info: figure/boot2.pdf used on input line 1547.
+Package pdftex.def Info: figure/boot2.pdf used on input line 1558.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1550--1550
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1561--1561
 [][]\T1/cmtt/m/n/10 parallelplot[][](new_PB_model_boot,[] []pattern[][]=[][]"la
 m"[][],[][]reflinesAt[][]=[][]c[][]([][]-[][]1[][],[][]0[][],[][]1[][]))[][] 
  []
 
-<figure/boot3.pdf, id=500, 505.89pt x 505.89pt>
+<figure/boot3.pdf, id=658, 505.89pt x 505.89pt>
 File: figure/boot3.pdf Graphic file (type pdf)
  <use figure/boot3.pdf>
-Package pdftex.def Info: figure/boot3.pdf used on input line 1553.
+Package pdftex.def Info: figure/boot3.pdf used on input line 1564.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
- [53 <./figure/boot2.pdf>] <figure/boot4.pdf, id=511, 505.89pt x 505.89pt>
+ [54 <./figure/boot2.pdf>] <figure/boot4.pdf, id=668, 505.89pt x 505.89pt>
 File: figure/boot4.pdf Graphic file (type pdf)
 
 <use figure/boot4.pdf>
-Package pdftex.def Info: figure/boot4.pdf used on input line 1559.
+Package pdftex.def Info: figure/boot4.pdf used on input line 1570.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
- [54 <./figure/boot3.pdf>]
-<figure/boot5.pdf, id=521, 505.89pt x 505.89pt>
+ [55 <./figure/boot3.pdf>]
+<figure/boot5.pdf, id=678, 505.89pt x 505.89pt>
 File: figure/boot5.pdf Graphic file (type pdf)
  <use figure/boot5.pdf>
-Package pdftex.def Info: figure/boot5.pdf used on input line 1565.
+Package pdftex.def Info: figure/boot5.pdf used on input line 1576.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
- [55 <./figure/boot4.pdf>]
-Overfull \hbox (26.6037pt too wide) in paragraph at lines 1569--1574
+ [56 <./figure/boot4.pdf>]
+Overfull \hbox (26.6037pt too wide) in paragraph at lines 1580--1585
 \T1/cmr/m/n/10 die Berech-nun-gen der äuÿeren Ladun-gen und Pfad-ko-ef-fizien-t
 en, sowie den entsprechen-
  []
 
 
-Overfull \hbox (5.37741pt too wide) in paragraph at lines 1569--1574
+Overfull \hbox (5.37741pt too wide) in paragraph at lines 1580--1585
 \T1/cmr/m/n/10 mod-ells als Pfad-mod-ell. Durch den Be-fehl new_PB_model_boot$f
 itted_model$
  []
 
 
-Overfull \hbox (29.95474pt too wide) in paragraph at lines 1569--1574
+Overfull \hbox (29.95474pt too wide) in paragraph at lines 1580--1585
 \T1/cmr/m/n/10 dargestellt. Diese er-hält als Pa-ram-e-ter das neu er-stellte O
 b-jekt new_PB_model_boot,
  []
 
-[56 <./figure/boot5.pdf>]
-Package color Info: Redefining color shadecolor on input line 1586.
+[57 <./figure/boot5.pdf>]
+Package color Info: Redefining color shadecolor on input line 1597.
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1599--1599
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1610--1610
 []\T1/cmtt/m/n/10 ## [1] 0.9227 0.9180 0.8600 0.8974 0.7993 0.7927 0.9424 0.429
 2 0.2942[] 
  []
 
 
-Overfull \hbox (64.40002pt too wide) in paragraph at lines 1609--1609
+Overfull \hbox (64.40002pt too wide) in paragraph at lines 1620--1620
 []\T1/cmtt/m/n/10 ## [1]  70.371  53.261  33.773  59.506  23.084  12.440 101.84
 9   5.752   3.911[] 
  []
 
-[57]
-Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 1623--1624
 
  []
 
-Package color Info: Redefining color shadecolor on input line 1618.
-[58]
+Package color Info: Redefining color shadecolor on input line 1629.
+[59]
+Package color Info: Redefining color shadecolor on input line 1666.
 
-LaTeX Warning: Citation `backhaus2004industriegutermarketing' on page 59 undefi
-ned on input line 1639.
-
-
-LaTeX Warning: Citation `hair2011pls' on page 59 undefined on input line 1639.
-
-
-LaTeX Warning: Citation `henseler2009use' on page 59 undefined on input line 16
-39.
-
-Package color Info: Redefining color shadecolor on input line 1655.
-
-Overfull \hbox (1.4154pt too wide) in paragraph at lines 1677--1677
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 1688--1688
 [][]\T1/cmtt/m/n/10 adjrSquared[] []<-[] []1[][]-[][]([][]1[][]-[][]rSquared[][
 ](new_PB_model)[[][]3[][]])[][]*[][](([][]210[][]-[][]1[][])[][]/[][]([][]210[]
 []-[][]2[][]-[][]1[][]))[][] 
  []
 
-[59]
-Package color Info: Redefining color shadecolor on input line 1690.
+[60]
+Package color Info: Redefining color shadecolor on input line 1701.
 
-Overfull \hbox (43.40515pt too wide) in paragraph at lines 1694--1694
+Overfull \hbox (43.40515pt too wide) in paragraph at lines 1705--1705
 []                        []\T1/cmtt/m/n/10 strucmod[] []=[] []cbind[][]([][]c[
 ][]([][]"Preis_Leistung"[][],[][]"Performance"[][],[][] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1695--1695
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1706--1706
 []                                           []\T1/cmtt/m/n/10 "Ambiente"[][],[
 ][]"Kenntnisstand"[][]),[][] 
  []
 
 
-Overfull \hbox (43.40515pt too wide) in paragraph at lines 1696--1696
+Overfull \hbox (43.40515pt too wide) in paragraph at lines 1707--1707
 []                                         []\T1/cmtt/m/n/10 c[][]([][]rep[][](
 [][]"Kundenzufriedenheit"[][],[][]4[][]))),[][] 
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 1697--1697
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 1708--1708
 []                        []\T1/cmtt/m/n/10 measuremod[] []=[] []cbind[][]([][]
 c[][]([][]rep[][]([][]"Preis_Leistung"[][],[][]3[][]),[][] 
  []
 
 
-Overfull \hbox (1.4154pt too wide) in paragraph at lines 1698--1698
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 1709--1709
 []                                             []\T1/cmtt/m/n/10 rep[][]([][]"P
 erformance"[][],[][]2[][]),[][] 
  []
 
 
-Overfull \hbox (43.40515pt too wide) in paragraph at lines 1699--1699
+Overfull \hbox (43.40515pt too wide) in paragraph at lines 1710--1710
 []                                             []\T1/cmtt/m/n/10 rep[][]([][]"K
 undenzufriedenheit"[][],[][]2[][]),[][] 
  []
 
 
-Overfull \hbox (38.15643pt too wide) in paragraph at lines 1700--1700
+Overfull \hbox (38.15643pt too wide) in paragraph at lines 1711--1711
 []                                             []\T1/cmtt/m/n/10 "Ambiente"[][]
 ,[][]"Kenntnisstand"[][]),[][] 
  []
 
 
-Overfull \hbox (59.1513pt too wide) in paragraph at lines 1701--1701
+Overfull \hbox (59.1513pt too wide) in paragraph at lines 1712--1712
 []                                           []\T1/cmtt/m/n/10 c[][]([][]"SQ009
 "[][],[][]"SQ076"[][],[][]"SQ092"[][],[][]"SQ079"[][],[][] 
  []
 
 
-Overfull \hbox (116.8872pt too wide) in paragraph at lines 1702--1702
+Overfull \hbox (116.8872pt too wide) in paragraph at lines 1713--1713
 []                                             []\T1/cmtt/m/n/10 "SQ080"[][],[]
 []"SQ046"[][],[][]"SQ110"[][],[][]"SQ021"[][],[][]"SQ024"[][]))),[][] 
  []
 
 
-Overfull \hbox (1313.59497pt too wide) in paragraph at lines 1712--1712
+Overfull \hbox (1313.59497pt too wide) in paragraph at lines 1723--1723
 []\T1/cmtt/m/n/10 ## Data rows: 4, 5, 6, 8, 11, 16, 18, 20, 29, 32, 33, 36, 37,
  39, 43, 55, 61, 72, 76, 77, 80, 86, 90, 92, 95, 96, 97, 100, 101, 102, 111, 11
 6, 117, 121, 124, 132, 139, 144, 145, 153, 155, 162, 163, 165, 175, 176, 184, 1
@@ -2146,348 +1990,204 @@ Overfull \hbox (1313.59497pt too wide) in paragraph at lines 1712--1712
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1712--1712
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1723--1723
 []\T1/cmtt/m/n/10 ## are not taken into acount, due to missings in the manifest
  variables.[] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1749--1749
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1760--1760
 [][]\T1/cmtt/m/n/10 new_adjrSquared[] []<-[] []1[][]-[][]([][]1[][]-[][]rSquare
 d[][](diff_PB_model)[[][]5[][]])[][]*[][](([][]210[][]-[][]1[][])[][]/[][]([][]
 210[][]-[][]5[][]-[][]1[][]))[][] 
  []
 
-[60] [61]
+[61] [62]
+Package color Info: Redefining color shadecolor on input line 1795.
 
-LaTeX Warning: Citation `cohen1988statistical' on page 62 undefined on input li
-ne 1770.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1776 $R^{2}_{incl}$ &= R^
-                           {2} inklusive exogene Variable\\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.1777 $
-        R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1777 $
-        R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1777 $
-        R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1777 $R^{2}_{excl}$ &= R^
-                           {2} exklusive exogene Variable\\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.1778 $
-        f^{2}$ &= EffektgrÃ¶ÃŸe
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1778 $
-        f^{2}$ &= EffektgrÃ¶ÃŸe
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1778 $
-        f^{2}$ &= EffektgrÃ¶ÃŸe
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-LaTeX Warning: Citation `cohen1988statistical' on page 62 undefined on input li
-ne 1781.
-
-
-LaTeX Warning: Citation `chin1998partial' on page 62 undefined on input line 17
-81.
-
-Package color Info: Redefining color shadecolor on input line 1784.
-
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1791--1791
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1802--1802
 []                                     []\T1/cmtt/m/n/10 rep[][]([][]"Kundenzuf
 riedenheit"[][],[][]2[][])),[][] 
  []
 
 
-Overfull \hbox (27.659pt too wide) in paragraph at lines 1792--1792
+Overfull \hbox (27.659pt too wide) in paragraph at lines 1803--1803
 []                                   []\T1/cmtt/m/n/10 c[][]([][]"SQ079"[][],[]
 []"SQ080"[][],[][]"SQ046"[][],[][]"SQ110"[][])))[][] 
  []
 
 
-Overfull \hbox (584.02313pt too wide) in paragraph at lines 1802--1802
+Overfull \hbox (584.02313pt too wide) in paragraph at lines 1813--1813
 []\T1/cmtt/m/n/10 ## Data rows: 6, 20, 29, 32, 33, 36, 37, 39, 43, 55, 61, 76, 
 77, 80, 100, 102, 116, 144, 153, 162, 163, 176, 184, 185, 186, 192, 193, 218, 2
 27, 233, 235, 240, 242, 253, 258, 261[] 
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1802--1802
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1813--1813
 []\T1/cmtt/m/n/10 ## are not taken into acount, due to missings in the manifest
  variables.[] 
  []
 
 
-Overfull \hbox (200.8667pt too wide) in paragraph at lines 1812--1812
+Overfull \hbox (200.8667pt too wide) in paragraph at lines 1823--1823
 [][]\T1/cmtt/m/n/10 pl_fSquared[] []<-[]   []([][]rSquared[][](new_PB_model)[[]
 []3[][]][][]-[][]rSquared[][](excl_pl_PB_model)[[][]2[][]])[][]/[][]([][]1[][]-
 [][]rSquared[][](new_PB_model)[[][]3[][]])[][] 
  []
 
 
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1826--1826
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1837--1837
 []                                     []\T1/cmtt/m/n/10 rep[][]([][]"Kundenzuf
 riedenheit"[][],[][]2[][])),[][] 
  []
 
 
-Overfull \hbox (69.64874pt too wide) in paragraph at lines 1827--1827
+Overfull \hbox (69.64874pt too wide) in paragraph at lines 1838--1838
 []                                   []\T1/cmtt/m/n/10 c[][]([][]"SQ009"[][],[]
 []"SQ076"[][],[][]"SQ092"[][],[][]"SQ046"[][],[][]"SQ110"[][])))[][] 
  []
 
 
-Overfull \hbox (762.47955pt too wide) in paragraph at lines 1837--1837
+Overfull \hbox (762.47955pt too wide) in paragraph at lines 1848--1848
 []\T1/cmtt/m/n/10 ## Data rows: 4, 6, 20, 29, 32, 33, 36, 39, 43, 55, 72, 76, 7
 7, 80, 90, 92, 95, 96, 97, 101, 116, 139, 144, 145, 153, 162, 163, 175, 176, 18
 4, 185, 186, 193, 197, 218, 224, 227, 237, 240, 242, 245, 253, 258, 261[] 
  []
 
 
-Overfull \hbox (32.90771pt too wide) in paragraph at lines 1837--1837
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 1848--1848
 []\T1/cmtt/m/n/10 ## are not taken into acount, due to missings in the manifest
  variables.[] 
  []
 
 
-Overfull \hbox (211.36414pt too wide) in paragraph at lines 1847--1847
+Overfull \hbox (211.36414pt too wide) in paragraph at lines 1858--1858
 [][]\T1/cmtt/m/n/10 perf_fSquared[] []<-[] []([][]rSquared[][](new_PB_model)[[]
 []3[][]][][]-[][]rSquared[][](excl_perf_PB_model)[[][]2[][]])[][]/[][]([][]1[][
 ]-[][]rSquared[][](new_PB_model)[[][]3[][]])[][] 
  []
 
-[62] [63]
-Underfull \hbox (badness 10000) in paragraph at lines 1864--1868
+[63] [64]
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1879
 
  []
 
 
-LaTeX Warning: Citation `geisser1974predictive' on page 64 undefined on input l
-ine 1874.
+Overfull \hbox (8.83026pt too wide) in paragraph at lines 1884--1887
+\T1/cmr/m/n/10 nen Daten, also der Daten-satz CB-data mit Hilfe des Mod-ells, h
+ier new_PB_model
+ []
 
+Package color Info: Redefining color shadecolor on input line 1903.
 
-LaTeX Warning: Citation `stone1974cross' on page 64 undefined on input line 187
-4.
-
-
-LaTeX Warning: Citation `fornell1994partial' on page 64 undefined on input line
- 1874.
-
-
-LaTeX Warning: Citation `chin1998partial' on page 64 undefined on input line 18
-74.
-
-
-LaTeX Warning: Citation `fornell1994partial' on page 64 undefined on input line
- 1874.
-
-
-LaTeX Warning: Citation `fornell1994partial' on page 64 undefined on input line
- 1889.
-
-
-LaTeX Warning: Citation `chin1998partial' on page 64 undefined on input line 18
-89.
-
-
-LaTeX Warning: Citation `hahn2002segmentspezifische' on page 64 undefined on in
-put line 1889.
-
-Package color Info: Redefining color shadecolor on input line 1892.
-
-Overfull \hbox (3.07524pt too wide) in paragraph at lines 1878--1892
+Overfull \hbox (3.07524pt too wide) in paragraph at lines 1889--1903
 [] 
  []
 
 
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 1911--1911
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 1922--1922
 [][]\T1/cmtt/m/n/10 perf_qSquared_eff[] []<-[] [](qSquared[[][]3[][]][][]-[][]p
 erf_qSquared[[][]2[][]])[][]/[][]([][]1[][]-[][]qSquared[[][]3[][]])[][] 
  []
 
-[64]
-
-LaTeX Warning: Citation `hair2012assessment' on page 65 undefined on input line
- 1930.
-
-
-LaTeX Warning: Citation `tenenhaus2004global' on page 65 undefined on input lin
-e 1933.
-
-Package color Info: Redefining color shadecolor on input line 1935.
 [65]
-
-LaTeX Warning: Citation `henseler2013goodness' on page 66 undefined on input li
-ne 1947.
-
-Package color Info: Redefining color shadecolor on input line 1953.
-[66] <figure/ausgangsmodell.jpg, id=596, 770.27776pt x 549.85425pt>
+Package color Info: Redefining color shadecolor on input line 1946.
+ [66]
+Package color Info: Redefining color shadecolor on input line 1964.
+ [67] <figure/ausgangsmodell.jpg, id=782, 770.27776pt x 549.85425pt>
 File: figure/ausgangsmodell.jpg Graphic file (type jpg)
 
 <use figure/ausgangsmodell.jpg>
-Package pdftex.def Info: figure/ausgangsmodell.jpg used on input line 1978.
+Package pdftex.def Info: figure/ausgangsmodell.jpg used on input line 1989.
 (pdftex.def)             Requested size: 616.22304pt x 439.88399pt.
 
-Overfull \hbox (134.64973pt too wide) in paragraph at lines 1978--1979
+Overfull \hbox (134.64973pt too wide) in paragraph at lines 1989--1990
  []| [] 
  []
 
-[67 <./figure/ausgangsmodell.jpg>]
-
-LaTeX Warning: Reference `ausgangsmodell' on page 68 undefined on input line 19
-84.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1984--1985
+[68 <./figure/ausgangsmodell.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1995--1996
 
  []
 
-<figure/erstesmodell.jpg, id=604, 776.30025pt x 538.4115pt>
+<figure/erstesmodell.jpg, id=789, 776.30025pt x 538.4115pt>
 File: figure/erstesmodell.jpg Graphic file (type jpg)
 
 <use figure/erstesmodell.jpg>
-Package pdftex.def Info: figure/erstesmodell.jpg used on input line 1989.
+Package pdftex.def Info: figure/erstesmodell.jpg used on input line 2000.
 (pdftex.def)             Requested size: 621.04105pt x 430.72978pt.
 
-Overfull \hbox (139.46774pt too wide) in paragraph at lines 1989--1990
+Overfull \hbox (139.46774pt too wide) in paragraph at lines 2000--2001
  []| [] 
  []
 
-[68 <./figure/erstesmodell.jpg>]
-<figure/zweitesmodell.jpg, id=610, 698.61pt x 489.62926pt>
+[69 <./figure/erstesmodell.jpg>]
+<figure/zweitesmodell.jpg, id=795, 698.61pt x 489.62926pt>
 File: figure/zweitesmodell.jpg Graphic file (type jpg)
 
 <use figure/zweitesmodell.jpg>
-Package pdftex.def Info: figure/zweitesmodell.jpg used on input line 2003.
+Package pdftex.def Info: figure/zweitesmodell.jpg used on input line 2014.
 (pdftex.def)             Requested size: 616.17516pt x 431.85379pt.
 
-Overfull \hbox (134.60185pt too wide) in paragraph at lines 2003--2004
+Overfull \hbox (134.60185pt too wide) in paragraph at lines 2014--2015
 []| [] 
  []
 
-[69]
-Overfull \hbox (2.36426pt too wide) in paragraph at lines 2012--2014
+[70]
+Overfull \hbox (2.36426pt too wide) in paragraph at lines 2023--2025
 \T1/cmr/m/n/10 Bank, Be-rater und Kunde. Diese beschreiben un-seres Er-acht-ens
  das Grundgerüst
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2012--2014
+Underfull \hbox (badness 10000) in paragraph at lines 2023--2025
 
  []
 
-[70 <./figure/zweitesmodell.jpg>]
-<figure/finalesmodell.png, id=621, 751.00575pt x 443.85825pt>
+[71 <./figure/zweitesmodell.jpg>]
+<figure/finalesmodell.png, id=805, 751.00575pt x 443.85825pt>
 File: figure/finalesmodell.png Graphic file (type png)
 
 <use figure/finalesmodell.png>
-Package pdftex.def Info: figure/finalesmodell.png used on input line 2016.
+Package pdftex.def Info: figure/finalesmodell.png used on input line 2027.
 (pdftex.def)             Requested size: 623.33463pt x 368.40224pt.
 
-Overfull \hbox (141.76132pt too wide) in paragraph at lines 2016--2017
+Overfull \hbox (141.76132pt too wide) in paragraph at lines 2027--2028
 []| [] 
  []
 
-<figure/beurteilung.jpg, id=622, 602.25pt x 301.125pt> [71 <./figure/finalesmod
+<figure/beurteilung.jpg, id=806, 602.25pt x 301.125pt> [72 <./figure/finalesmod
 ell.png>]
 File: figure/beurteilung.jpg Graphic file (type jpg)
  <use figure/beurteilung.jpg>
-Package pdftex.def Info: figure/beurteilung.jpg used on input line 2025.
+Package pdftex.def Info: figure/beurteilung.jpg used on input line 2036.
 (pdftex.def)             Requested size: 345.0pt x 172.50684pt.
- (./pb-report.bbl [72 <./figure/beurteilung.jpg>]
+ (./pb-report.bbl [73 <./figure/beurteilung.jpg>]
 Underfull \hbox (badness 1383) in paragraph at lines 109--113
 []\T1/cmr/m/n/10 Lutz Hilde-brandt.  Kausal-an-a-lytis-che va-li-dierung in der
  mar-ket-ing-
  []
 
-[73] [74])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2037.
- [75]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2037.
+[74] [75])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2048.
+ [76]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2048.
  (./pb-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2037.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2037.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2048.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2048.
 
-
-
-Package rerunfilecheck Warning: File `pb-report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `pb-report.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  283862B00FC9D07136BA43CBC3A3B480;1378.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2037.
+Package rerunfilecheck Info: File `pb-report.out' has not changed.
+(rerunfilecheck)             Checksum: 283862B00FC9D07136BA43CBC3A3B480;1378.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2048.
  ) 
 Here is how much of TeX's memory you used:
- 8431 strings out of 494976
- 120950 string characters out of 6179138
- 223384 words of memory out of 5000000
- 11305 multiletter control sequences out of 15000+600000
+ 8461 strings out of 494935
+ 121398 string characters out of 6178123
+ 223501 words of memory out of 5000000
+ 11333 multiletter control sequences out of 15000+600000
  18920 words of font info for 60 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  39i,18n,45p,2841b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/
 jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcit1000.600pk> </home/jannic/.te
@@ -2495,8 +2195,8 @@ xmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk> </home/jannic/.texmf-var/fo
 nts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/jannic/.texmf-var/fonts/pk/ljf
 our/jknappen/ec/ectt1000.600pk> </home/jannic/.texmf-var/fonts/pk/ljfour/jknapp
 en/ec/tcrm1000.600pk> </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
-1200.600pk> </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk
-> </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/j
+1200.600pk> </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
+> </home/jannic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/j
 annic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/jannic/.tex
 mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jannic/.texmf-var/fon
 ts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/texlive/texmf-dist/fonts/ty
@@ -2508,10 +2208,10 @@ msfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on pb-report.pdf (77 pages, 1288907 bytes).
+Output written on pb-report.pdf (78 pages, 1294948 bytes).
 PDF statistics:
- 1295 PDF objects out of 1440 (max. 8388607)
- 629 compressed objects within 7 object streams
- 167 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1446 PDF objects out of 1728 (max. 8388607)
+ 772 compressed objects within 8 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 347 words of extra memory for PDF output out of 10000 (max. 10000000)
 

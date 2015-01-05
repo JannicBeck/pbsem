@@ -669,7 +669,21 @@ Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hi
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.
+Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.\\
+Eine weitere nützliche Eigenschaft bietet die plsm2sem() Funktion, mit welcher ein plsm Objekt in sem Objekt umgewandelt werden kann. Mit diesem sem Objekt kann dann eine kovarianzbasierte Analyse mit Hilfe des \href{http://cran.r-project.org/web/packages/sem/index.html}{sem} Pakets von John Fox erfolgen. Der Vorteil davon ist, dass das Modell nicht noch einmal mit der Syntax des sem Pakets spezifiziert werden muss. Allerdings muss auf besondere Eigenschaften, welche die beiten Ansätze unterscheiden geachtet werden.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#convert model for covariance based sem}
+\hlstd{sem_model} \hlkwb{<-} \hlkwd{plsm2sem}\hlstd{(model)}
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: sem\\\#\# \\\#\# Attaching package: 'sem'\\\#\# \\\#\# Das folgende Objekt ist maskiert from 'package:semPLS':\\\#\# \\\#\#\ \ \ \  pathDiagram}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: kann aus dieser Verbindung nicht lesen}}\end{kframe}
+\end{knitrout}
+In wie weit dies hilfreich ist wurde in diesem Praktikum nicht untersucht, da sich auf den varianzbasierten PLS Ansatz fokussiert wurde.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -711,7 +725,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \end{alltt}
 \begin{verbatim}
 ## % latex table generated in R 3.0.2 by xtable 1.7-4 package
-## % Sun Jan  4 15:49:57 2015
+## % Mon Jan  5 14:24:06 2015
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrr}
@@ -734,7 +748,7 @@ Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTe
 \hlkwd{print}\hlstd{(}\hlkwd{xtable}\hlstd{(}\hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{correlations))}
 \end{alltt}
 \end{kframe}% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Sun Jan  4 15:49:57 2015
+% Mon Jan  5 14:24:06 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -759,7 +773,7 @@ Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werde
 \end{kframe}
 \end{knitrout}
 Die Variable kann nun mit \textbackslash{}Sexpr\{x\} im Text refernziert werden:\\
-Die Variable x hat den Wert 7.\\
+Die Variable x hat den Wert 2.\\
 
 \subsection{SmartPLS Modell einlesen}
 
@@ -976,7 +990,8 @@ Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berech
 \\
 
 \subsection{Vergleich smartPLS und R}
-Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (Case wise replacement) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
+Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (casewise deletion) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
+\pagebreak
 
 \begin{figure}[h!]
 \centering
@@ -992,10 +1007,12 @@ Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend 
 \label{PB_model_smartpls}
 \end{figure}
 
-
+\pagebreak
 
 Wie gut zu sehen ist, sind die Pfadkoeffizienten, äußeren Ladungen und das $R^{2}$ exakt gleich. Somit kann ein Fehler in der Software als unwahrscheinlich angesehen werden.\\
 \\
+
+
 Vergleicht man anschließend noch das semPLS Paket mit dem plspm Paket, indem man das Modell mit dem interpolierten Datensatz CBdata\_zoo mit der sempls() Funktion berechnet:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1010,25 +1027,17 @@ Vergleicht man anschließend noch das semPLS Paket mit dem plspm Paket, indem ma
 ## Scheme: centroid
 \end{verbatim}
 \begin{alltt}
-\hlcom{#diagram zoo model}
-\hlkwd{pathDiagram}\hlstd{(PB_model_zoo,} \hlkwc{file} \hlstd{=} \hlstr{"PB-structure-zoo"}\hlstd{,} \hlkwc{edge.labels} \hlstd{=} \hlstr{"both"}\hlstd{,}
-           \hlkwc{output.type} \hlstd{=} \hlstr{"graphics"}\hlstd{,} \hlkwc{digits} \hlstd{=} \hlnum{4}\hlstd{,} \hlkwc{rSquared}\hlstd{=}\hlkwd{rSquared}\hlstd{(PB_model_zoo))}
-\end{alltt}
-\begin{verbatim}
-## Running  dot -Tpdf -o PB-structure-zoo.pdf  PB-structure-zoo.dot
-\end{verbatim}
-\begin{alltt}
 \hlcom{#plot the inner plspm model}
 \hlkwd{innerplot}\hlstd{(CB_PLS,} \hlkwc{main} \hlstd{=}\hlstr{"PB_model_zoo in R with plspm"}\hlstd{)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-11} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-21} 
 \begin{kframe}\begin{alltt}
 \hlcom{#plot the outer plspm model}
 \hlkwd{outerplot}\hlstd{(CB_PLS)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-12} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-22} 
 \begin{kframe}\begin{alltt}
 \hlcom{#get the rSquared Value}
 \hlkwd{summary}\hlstd{(CB_PLS)}\hlopt{$}\hlstd{inner_summary}\hlopt{$}\hlstd{R2[}\hlnum{3}\hlstd{]}
@@ -1045,6 +1054,8 @@ Vergleicht man anschließend noch das semPLS Paket mit dem plspm Paket, indem ma
 \caption{PB\_model\_zoo in R with semPLS}
 \label{PB_model_R_zoo}
 \end{figure}
+
+\pagebreak
 
 kann ein Fehler aufgrund der verwendeten Software fast ausgeschlossen werden.
 
@@ -1107,9 +1118,9 @@ Zunächst werden die Pakete "psych" und "GPArotation" installiert.
 ## 
 ##  Eigen Values of 
 ##   Original factors Simulated data Original components simulated data
-## 1             4.04           0.82                4.55           1.62
-## 2             0.66           0.30                1.22           1.24
-## 3             0.23           0.20                0.85           1.13
+## 1             4.04           0.71                4.55           1.53
+## 2             0.66           0.29                1.22           1.25
+## 3             0.23           0.18                0.85           1.13
 \end{verbatim}
 \begin{alltt}
 \hlcom{#do factor analysis}
@@ -1773,8 +1784,8 @@ f^{2} = \frac{R^{2}_{incl}-R^{2}_{excl}}{1-R^{2}_{incl}}
 \end{equation}
 mit:\\
 \begin{tabular}{lll}
-$R^{2}_{incl}$ &= R^{2} inklusive exogene Variable\\
-$R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
+$R^{2}_{incl}$ &= $R^{2}$ inklusive exogene Variable\\
+$R^{2}_{excl}$ &= $R^{2}$ exklusive exogene Variable\\
 $f^{2}$ &= Effektgröße
 \end{tabular}
 \\

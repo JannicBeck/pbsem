@@ -385,7 +385,7 @@ plot(PBcom, main="Path model")
 @
 Beschreibung zum Code:\\
 Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. \\
-Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Ein weiterer wichtiger Parameter ist rSquared, welcher eine Matrix erwartet, die mit der rSquared() Funktion erzeugt werden kann. Die rSquared() Funktion wird später noch ausführlicher erläutert. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
+Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch \href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Ein weiterer wichtiger Parameter ist rSquared, welcher eine Matrix erwartet, die mit der rSquared() Funktion erzeugt werden kann. Die rSquared() Funktion wird später noch ausführlicher erläutert. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
 Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendiger als die Drag \& Drop Logik in SmartPLS. Allerdings können die Modelle aus SmartPLS mit dem semPLS Paket eingelesen werden. Somit kann das Modell in SmartPLS spezifiziert werden und weitere Berechnungen in R erfolgen. Alternativ kann die Spezifizierung in interaktiven Spreadsheets erfolgen. Nehmen wir z.B. die Matrix des Strukturmodells und führen folgenden Code aus:
 <<entry, eval=FALSE>>=
 data.entry(CB_inner_model)
@@ -400,7 +400,13 @@ Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hi
 #add path from Prei_Leistung to Performance
 new_model <- addPath(model, from="Preis_Leistung", to="Performance")
 @
-Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.
+Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.\\
+Eine weitere nützliche Eigenschaft bietet die plsm2sem() Funktion, mit welcher ein plsm Objekt in sem Objekt umgewandelt werden kann. Mit diesem sem Objekt kann dann eine kovarianzbasierte Analyse mit Hilfe des \href{http://cran.r-project.org/web/packages/sem/index.html}{sem} Pakets von John Fox erfolgen. Der Vorteil davon ist, dass das Modell nicht noch einmal mit der Syntax des sem Pakets spezifiziert werden muss. Allerdings muss auf besondere Eigenschaften, welche die beiten Ansätze unterscheiden geachtet werden.
+<<conv,eval=FALSE>>=
+#convert model for covariance based sem
+sem_model <- plsm2sem(model)
+@
+In wie weit dies hilfreich ist wurde in diesem Praktikum nicht untersucht, da sich auf den varianzbasierten PLS Ansatz fokussiert wurde.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -498,6 +504,7 @@ Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berech
 
 \subsection{Vergleich smartPLS und R}
 Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (casewise deletion) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
+\pagebreak
 
 \begin{figure}[h!]
 \centering
@@ -513,18 +520,16 @@ Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend 
 \label{PB_model_smartpls}
 \end{figure}
 
-
+\pagebreak
 
 Wie gut zu sehen ist, sind die Pfadkoeffizienten, äußeren Ladungen und das $R^{2}$ exakt gleich. Somit kann ein Fehler in der Software als unwahrscheinlich angesehen werden.\\
 \\
+
+
 Vergleicht man anschließend noch das semPLS Paket mit dem plspm Paket, indem man das Modell mit dem interpolierten Datensatz CBdata\_zoo mit der sempls() Funktion berechnet:
 <<>>=
 #calculate model with interpolated zoo dataset
 PB_model_zoo <- sempls(model = model,data = CBdata_zoo)
-
-#diagram zoo model
-pathDiagram(PB_model_zoo, file = "PB-structure-zoo", edge.labels = "both",
-           output.type = "graphics", digits = 4, rSquared=rSquared(PB_model_zoo))
 
 #plot the inner plspm model
 innerplot(CB_PLS, main ="PB_model_zoo in R with plspm")
@@ -542,6 +547,8 @@ summary(CB_PLS)$inner_summary$R2[3]
 \caption{PB\_model\_zoo in R with semPLS}
 \label{PB_model_R_zoo}
 \end{figure}
+
+\pagebreak
 
 kann ein Fehler aufgrund der verwendeten Software fast ausgeschlossen werden.
 
@@ -734,9 +741,9 @@ densityplot(new_PB_model_boot, pattern="lam")
 @
 
 Beschreibung zum Code:\\
-Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: new\_PB\_model, die Anzahl der samples: nboot=300 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
-Mit new\_PB\_model\_boot wird das erzeugte Objekt ausgegeben. Es enthält die Berechnungen der äußeren Ladungen und Pfadkoeffizienten, sowie den entsprechenden Bias und Standardfehler. Mit dem summary() Befehl wird zusätzlich noch der niedrigste und Höchste Wert angezeigt bei einem Konfidenzintervall von 0.95 (siehe Parameter level=0.95). Dies bedeutet dass die niedrigsten und höchsten Werte nur für das Konfidenzintervall von 95\% gezeigt werden. Es werden also jeweils 2.5\% unten und oben "abgeschnitten", da diese nicht häufig genug vorkommen um repräsentativ zu sein. In der Ausgabe stehen allerdings die Beziehungen nun in einer anderen Notation, wie schon beim Plot des Strukturmodells als Pfadmodell. Durch den Befehl new\_PB\_model\_boot\$fitted\_model\$ können jedoch bequem beide Notationen angezeigt werden und somit "übersetzt" werden.\\
-Anschließend werden diese Daten graphisch mit der Funktion parallelplot() dargestellt. Diese erhält als Parameter das neu erstellte Objekt new\_PB\_model\_boot, die Teilmenge new\_PB\_model\_boot\$t und eine refline an der Stelle 0. Die Teilmenge t ist dabei eine Matrix mit den berechneten Werten jeder einzelnen Bootstrap Replikation (Stichprobenziehung, case). Die Referenzlinien bei -1,0,1 dienen lediglich dazu, einschätzen zu können ob die Werte negativ oder positiv sind. Der Plot zeigt die schon erwähnten Pfadkoeffizienten, bzw. äußeren Ladungen aus der t Matrix in visueller Form. Eine graue Linie steht dabei für jeweils eine Stichprobenziehung. Die durchgezogene rote Linie zeigt die usprünglichen "originalen" (ohne Bootstrapping) ermittelten Beziehungen an. Die gestrichelte rote Linie gibt die Werte, welche innerhalb des Konfidenzintervall von 0.95 liegen an. Die gestrichelten vertikalen schwarzen Linien stellen die Referenzlinien bei -1,0,1 dar. Auf der Y-Achse sind die jeweiligen Beziehungen dargestellt und auf der X-Achse die entsprechenden Werte von -1 bis 1. Anschließend kann durch den zusätzlichen Parameter pattern="beta" (pattern="lam") nur die Pfadkoeffizienten (äußeren Ladungen) der Plot auf die jeweilige Beziehung beschränkt werden. Eine weitere Möglichkeit der Visualisierung stellt die densityplot() Funktion dar, welche analog die Ergebnisse in einer Verteilungsfunktion zeigt.\\
+Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: new\_PB\_model, die Anzahl der samples: nboot=5000 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
+Mit new\_PB\_model\_boot wird das erzeugte Objekt ausgegeben. Es enthält die Berechnungen der äußeren Ladungen und Pfadkoeffizienten, sowie den entsprechenden Bias und Standardfehler. Mit dem summary() Befehl wird zusätzlich noch der niedrigste und Höchste Wert angezeigt bei einem Konfidenzintervall von 0.95 (siehe Parameter level=0.95). Dies bedeutet dass die niedrigsten und höchsten Werte nur für das Konfidenzintervall von 95\% gezeigt werden. Es werden also jeweils 2.5\% unten und oben "abgeschnitten", da diese nicht häufig genug vorkommen um repräsentativ zu sein. In der Ausgabe stehen allerdings die Beziehungen nun in einer anderen Notation, wie schon beim Plot des Strukturmodells als Pfadmodell. Durch den Befehl new\_PB\_model\_boot\$fitted\_model können jedoch bequem beide Notationen angezeigt werden und somit "übersetzt" werden.\\
+Anschließend werden diese Daten graphisch mit der Funktion parallelplot() dargestellt. Diese erhält als Parameter das neu erstellte Objekt new\_PB\_model\_boot, die Teilmenge new\_PB\_model\_boot\$t und eine refline an der Stelle 0. Die Teilmenge t ist dabei eine Matrix mit den berechneten Werten jeder einzelnen Bootstrap Replikation (Stichprobenziehung, case). Die Referenzlinien bei -1,0,1 dienen lediglich dazu, einschätzen zu können ob die Werte negativ oder positiv sind. Der Plot zeigt die schon erwähnten Pfadkoeffizienten, bzw. äußeren Ladungen aus der t Matrix in visueller Form. Eine graue Linie steht dabei für jeweils eine Stichprobenziehung. Die durchgezogene rote Linie zeigt die usprünglichen "originalen" (ohne Bootstrapping) ermittelten Beziehungen an. Die gestrichelte rote Linie gibt die Werte, welche innerhalb des Konfidenzintervall von 0.95 liegen an. Die gestrichelten vertikalen schwarzen Linien stellen die Referenzlinien bei -1, 0, 1 dar. Auf der Y-Achse sind die jeweiligen Beziehungen dargestellt und auf der X-Achse die entsprechenden Werte von -1 bis 1. Anschließend kann durch den zusätzlichen Parameter pattern="beta" (pattern="lam") nur die Pfadkoeffizienten (äußeren Ladungen) der Plot auf die jeweilige Beziehung beschränkt werden. Eine weitere Möglichkeit der Visualisierung stellt die densityplot() Funktion dar, welche analog die Ergebnisse in einer Verteilungsfunktion zeigt.\\
 Die empirischen t-Werte (Achtung nicht verwechseln mit der oben genannten t Matrix, diese heißt lediglich so) werden nun mit der folgenden Formel ermittelt:
 \begin{equation}
 t = \frac{p_{ij}}{se^{*}_{p_{ij}}}
@@ -765,7 +772,7 @@ t_values <- new_PB_model_boot$t0/stderr
 #show t_values
 t_values
 @
-Zunächst wird ein Vektor mit den Standardfehlern erstellt, welche durch das Speichern des summary() Outputs in der Variable "s" mit dem \$ Operator angesteuert werden können. Die "originalen" Koeffizienten können einfacher durch new\_PB\_model\_boot\$t0 abgerufen werden. Nun wird ein neuer Vektor t\_values durch Division der "originalen" Werte durch die jeweiligen Standardfehler erstellt. Liegt nun ein t-Wert über einem festgelegten kritischen Wert von bspw. 2.57 (Signifikanzniveau = 1\%), ist die korrespondierende Beziehung signifikant mit einer Irrtumswahrscheinlichkeit von 1\%. Das Signifikanzniveau hängt dabei vom Forschungsgebiet ab. Im Marketing ist ein Signifikanzniveau von 5\% üblich, was einem kritischen Wert von 1.96 entspricht. Da jedoch alle ermittelten t-Werte über oder mit 3.911 nahe an 4 liegen, erfüllen diese alle gebräuchlichen Signifikanzniveaus und können somit auch als signifikant angesehen werden.\\
+Zunächst wird ein Vektor mit den Standardfehlern erstellt, welche durch das Speichern des summary() Outputs in der Variable "s" mit dem \$ Operator angesteuert werden können. Die "originalen" Koeffizienten können einfacher durch new\_PB\_model\_boot\$t0 abgerufen werden. Nun wird ein neuer Vektor t\_values durch Division der "originalen" Werte durch die jeweiligen Standardfehler erstellt. Liegt nun ein t-Wert über einem festgelegten kritischen Wert von bspw. 2.57 (Signifikanzniveau = 1\%), ist die korrespondierende Beziehung signifikant mit einer Irrtumswahrscheinlichkeit von 1\%. Das Signifikanzniveau hängt dabei vom Forschungsgebiet ab. Im Marketing ist ein Signifikanzniveau von 5\% üblich, was einem kritischen Wert von 1.96 entspricht. Da jedoch alle ermittelten t-Werte über oder sehr nahe an 4 liegen, erfüllen diese alle gebräuchlichen Signifikanzniveaus und können somit auch als signifikant angesehen werden.\\
 
 \paragraph{Determinationskoeffizient}
 
@@ -847,8 +854,8 @@ f^{2} = \frac{R^{2}_{incl}-R^{2}_{excl}}{1-R^{2}_{incl}}
 \end{equation}
 mit:\\
 \begin{tabular}{lll}
-$R^{2}_{incl}$ &= R^{2} inklusive exogene Variable\\
-$R^{2}_{excl}$ &= R^{2} exklusive exogene Variable\\
+$R^{2}_{incl}$ &= $R^{2}$ inklusive exogene Variable\\
+$R^{2}_{excl}$ &= $R^{2}$ exklusive exogene Variable\\
 $f^{2}$ &= Effektgröße
 \end{tabular}
 \\

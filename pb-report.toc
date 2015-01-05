@@ -11,23 +11,23 @@
 \contentsline {subsubsection}{\numberline {4.2.2}semPLS}{18}{subsubsection.4.2.2}
 \contentsline {subsubsection}{\numberline {4.2.3}knitr}{25}{subsubsection.4.2.3}
 \contentsline {subsection}{\numberline {4.3}SmartPLS Modell einlesen}{27}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Vergleich smartPLS und R}{31}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Validation}{36}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}reflektives Messmodell}{37}{subsubsection.4.5.1}
-\contentsline {paragraph}{Inhaltsvaliditit\IeC {\"a}t}{37}{section*.3}
-\contentsline {paragraph}{Indikatorreliabilit\IeC {\"a}t}{45}{section*.4}
-\contentsline {paragraph}{Konstruktreliabilit\IeC {\"a}t}{47}{section*.5}
-\contentsline {paragraph}{Diskriminanzvalidit\IeC {\"a}t}{48}{section*.6}
-\contentsline {subsubsection}{\numberline {4.5.2}Strukturmodell}{50}{subsubsection.4.5.2}
-\contentsline {paragraph}{Pfadkoeffizienten}{50}{section*.7}
-\contentsline {paragraph}{Bootstrapping}{51}{section*.8}
-\contentsline {paragraph}{Determinationskoeffizient}{58}{section*.9}
-\contentsline {paragraph}{Erkl\IeC {\"a}rungsbeitrag}{62}{section*.10}
-\contentsline {paragraph}{(}{64}{section*.11}
-\contentsline {paragraph}{Goodness-of-fit Index}{65}{section*.12}
-\contentsline {section}{\numberline {5}Resultate}{67}{section.5}
-\contentsline {subsection}{\numberline {5.1}Eigenes Modell nach Bukrhardt}{67}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Nachbildung Modell Seiler}{69}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Eigenes Modell nach Seiler}{70}{subsection.5.3}
-\contentsline {section}{\numberline {6}Diskussion}{72}{section.6}
-\contentsline {section}{\numberline {7}Ausblick}{72}{section.7}
+\contentsline {subsection}{\numberline {4.4}Vergleich smartPLS und R}{32}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Validation}{38}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}reflektives Messmodell}{38}{subsubsection.4.5.1}
+\contentsline {paragraph}{Inhaltsvaliditit\IeC {\"a}t}{38}{section*.3}
+\contentsline {paragraph}{Indikatorreliabilit\IeC {\"a}t}{46}{section*.4}
+\contentsline {paragraph}{Konstruktreliabilit\IeC {\"a}t}{48}{section*.5}
+\contentsline {paragraph}{Diskriminanzvalidit\IeC {\"a}t}{49}{section*.6}
+\contentsline {subsubsection}{\numberline {4.5.2}Strukturmodell}{51}{subsubsection.4.5.2}
+\contentsline {paragraph}{Pfadkoeffizienten}{51}{section*.7}
+\contentsline {paragraph}{Bootstrapping}{52}{section*.8}
+\contentsline {paragraph}{Determinationskoeffizient}{59}{section*.9}
+\contentsline {paragraph}{Erkl\IeC {\"a}rungsbeitrag}{63}{section*.10}
+\contentsline {paragraph}{(}{65}{section*.11}
+\contentsline {paragraph}{Goodness-of-fit Index}{66}{section*.12}
+\contentsline {section}{\numberline {5}Resultate}{68}{section.5}
+\contentsline {subsection}{\numberline {5.1}Eigenes Modell nach Bukrhardt}{68}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Nachbildung Modell Seiler}{70}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Eigenes Modell nach Seiler}{71}{subsection.5.3}
+\contentsline {section}{\numberline {6}Diskussion}{73}{section.6}
+\contentsline {section}{\numberline {7}Ausblick}{73}{section.7}
