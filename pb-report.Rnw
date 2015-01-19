@@ -66,28 +66,17 @@
 
 \pagenumbering{arabic} %Nummerierung der Seiten wieder aktivieren mit Arabischen Nummern
 
-
-\section*{Abstract} %Inhalt der Arbeit so kurz wie möglich zusammengefasst.
-
-
 \section{Einleitung}%Eine kurze Einführung in das Thema, eine Problemstellung und der Aufbau der Arbeit stehen hier.
-"Vor dem Hintergrund einer steigende Anzahl an vermögenden Privatperserson sowie eines durch hohes Ertragspotenzial und überschaubares Risiko geprägten Geschäfts gewinnt das Privat Banking an Attraktivität".\cite{seiler2009kundenzufriedenheit} \\Resultat dieser ansteigenden Attraktivität des Privat Banking auf Kundenseite ist, dass Kunden anspruchsvoller werden und damit verbunden höhere Ansprüche an ihre Privat Banking-Anbieter stellen.\cite{seiler2009kundenzufriedenheit}
-Diesen Ansprüchen gilt es auf Anbieterseite gerecht zu werden, um sich unter anderem von der Konkurrenz abggrenzen zu können.\\
-Die Capital Bank hat einen aus 122 Fragen bestehenden Fragebogen entwickeln, um ihre Kunden hinsichtlich dem Kundenbindungsvermögen, dem Potential zur Weiterempfehlung und dem Ausbau des eigenen Geschäfts zu analysieren.
+"Vor dem Hintergrund einer steigenden Anzahl an vermögenden Privatpersonen sowie eines durch hohes Ertragspotenzial und überschaubares Risiko geprägten Geschäfts gewinnt das Privat Banking an Attraktivität".\cite{seiler2009kundenzufriedenheit} \\Resultat dieser ansteigenden Attraktivität des Privat Banking auf Kundenseite ist, dass Kunden anspruchsvoller werden und damit verbunden höhere Ansprüche an ihre Privat Banking-Anbieter stellen.\cite{seiler2009kundenzufriedenheit}
+Diesen Ansprüchen gilt es auf Anbieterseite gerecht zu werden, um sich unter anderem von der Konkurrenz abgrenzen zu können.\\
+Die Capital Bank hat einen aus 122 Fragen bestehenden Fragebogen entwickelt, um ihre Kunden hinsichtlich dem Kundenbindungsvermögen, dem Potential zur Weiterempfehlung und dem Ausbau des eigenen Geschäfts zu analysieren.
 Dieser Fragebogen und der daraus erhobene Datensatz wurde unserer Gruppe für das Projektpraktikum im Bereich des Private Bankings zwecks Analyse zur Verfügung gestellt. \\
-Dieser Bericht dokumentiert die Arbeitsschritte, mit Betrachtung der Misserfolge und Erfolge, bis hin zu  den fertigen Ergebnissen des Projektpraktikums. Im ersten Abschnitt des Berichtes werden die grundlegenden Begrifflichkeiten erklärt. Als Zweites wird die genutze Software generell vorgestellt. Der nächste Abschnitt beinhaltet die Arbeitsweise und die Resultate. Hierbei wird genauer auf die Arbeit mit dem Fragebogen an sich, auf die erstellten und verworfenen Modelle, sowie auf das Endmodell eingangen. Mit den Resultaten des Endmodells befasst sich ein eigener Bereich. Hierbei wird nochmals genauer auf die Stärken und die Aussagekraft des Modells eingangen.
+Dieser Bericht dokumentiert die Arbeitsschritte, mit Betrachtung der Misserfolge und Erfolge, bis hin zu den fertigen Ergebnissen des Projektpraktikums. Der erste Abschnitt der Arbeit befasst sich mit der Analyse des Fragenbogens der Capital Bank. In diesem Teil werden die Fragen kategorisiert und hinsichtlich ihrer Aussagekraft untersucht. Aufgrund der immensen Menge an Fragen, die sich teils in ihrer Aussagekraft wiederholen, werden Verbesserungsvorschläge für die Gestaltung des Fragebogens geliefert. Der zweite Teil der Arbeit befasst sich mit der Software, die für das Projektpraktikum genutzt wurde. Hierbei wird die Programmiersprache R und ihr Nutzen für die Arbeit beschrieben. Auf eine genauere Erläuterung der ebenfalls genutzten Software SmartPLS wird in verzichtet, da SmartPLS in diesem Projektpraktikum hauptsächliche genutzt wurde, um die Modelle zu erstellen. Die in SmartPLS erhaltenen Werte wurden mithilfe von R erneut errechnet und bestätigt. Der nächste Abschnitt beinhaltet die erhaltenen Resultate. Hierbei wird genauer auf die Arbeitsweise, wie die Modelle erstellt wurden, und den Arbeitsweg zu einem eigenen Endmodell nach dem Vorbild von Volker Seiler eingegangen. In dem darauffolgendem Abschnitt wird dieses Endmodell anhand seiner Wertigkeit erläutert. Der letzte Abschnitt der Arbeit liefert ein Fazit, sowie einen Ausblick für das weitere Arbeiten.
 
-
-
-\section{Methodik}%Hier befindet sich eine Eläuterung der Methodik, welche bei der Bearbeitung benutzt wurde.
-
-\subsection{Strukturgleichungsmodelle}
-
-\subsubsection{Partial-Least-Squares-Verfahren}
 
 \section{Fragebogen}
 Der uns vorliegende Fragebogen richtet sich an die Private Banking Kunden der Capital Bank und soll die Dienstleistungsqualität messen. 
-Beginnend mit einer kurzen Einleitung und endend mit einem Verzicht auf Anonymität umschließt er zu Beginn 122 Fragen die wir zunächst in unterschiedliche Kategorien eingeteilt haben:
+Beginnend mit einer kurzen Einleitung und endend mit einem Verzicht auf Anonymität, umschließt er zu Beginn 122 Fragen, die wir zunächst in unterschiedliche Kategorien eingeteilt haben:
 \begin{itemize}
 \item Empfehlungsneigung
 \item \textbf{Berater}
@@ -107,7 +96,7 @@ Beginnend mit einer kurzen Einleitung und endend mit einem Verzicht auf Anonymit
 \item Ruf / Kompetenz
 \item Statistik
 \end{itemize}
-Berater, Zufriedenheit, Konkurrenz, die Capital Bank allgemein und die Kundenbindung erschienen uns als die 5 wichtigsten Kategorien. Was uns jedoch sehr schnell auffiel ist, dass es zu jeder Kategorie sehr viele einzelne Fragen gibt, die inhaltlich nicht sehr große Unterschiede aufweisen. Generell haben fast alle Fragen die gleiche Form einer Ordinaten Skala mit 5 Punkten, was bei dem Betrachter sehr schnell ein Gefühl von Monotonie und Langeweile aufkommen lassen kann. Dadurch, dass die einzelnen Kategorie-Blöcke außerdem nicht zusammenhängend, sondern teilweise sehr verteilt aufkommen, kann man sich schlecht auf ein Thema konzentrieren und es erweckt den Eindruck, als würden sich Fragen wiederholen. Abbildung \ref{fragebogen} zeigt den Fragebogen zu Beginn unserer Arbeit in Form einer Mindmap aufgegliedert in Kategorien.\\
+Berater, Zufriedenheit, Konkurrenz, die Capital Bank allgemein und die Kundenbindung erschienen uns als die 5 wichtigsten Kategorien. Was uns jedoch sehr schnell auffiel ist, dass es zu jeder Kategorie sehr viele einzelne Fragen gibt, die inhaltlich nicht sehr große Unterschiede aufweisen. Generell haben fast alle Fragen die gleiche Form einer Ordinaten Skala mit 5 Punkten, was bei dem Betrachter sehr schnell ein Gefühl von Monotonie und Langeweile aufkommen lassen kann. Dadurch, dass die einzelnen Kategorie-Blöcke außerdem nicht zusammenhängend, sondern teilweise sehr verteilt aufkommen, kann man sich schlecht auf ein Thema konzentrieren und es erweckt den Eindruck, als würden sich Fragen wiederholen. Abbildung \ref{fragebogen} zeigt den Fragebogen zu Beginn unserer Arbeit in Form einer Mindmap gegliedert in Kategorien.\\
 
 
 \includepdf[pages={1}]{figure/fragebogen.pdf}
@@ -115,13 +104,13 @@ Berater, Zufriedenheit, Konkurrenz, die Capital Bank allgemein und die Kundenbin
 
 
 Unserer Meinung nach wäre es angebracht, eine Kürzung des Fragebogens vorzunehmen. Dazu haben wir im Anschluss durch Berechnungen mit den Programmen R und Smart PLS erfolgreich insgesamt 51 Fragen kürzen können, ohne den Fragebogen in seiner Zielsetzung zu beeinflussen.\\
-Die Fragen 3 - 8 und 10, 11, 13 haben wir gekürzt, da es sich um wiederholende, sich auf den Berater beziehende Fragen handelt, deren Aussagekraft im Vergleich weniger aussagekräftig sind. Als Beispiel dazu Frage 12: „Die Kompetenzen meines Beraters und die Organisation der Capital Bank ermöglichen es, eine für meine Bedürfnisse optimale Dienstleistung zu erbringen.“ Die Beantwortung dieser Frage erfolgt schon allein durch die Beantwortung des kompletten Fragebogens, da dieser die Antwort widerspiegelt. Einige Fragen, welche sich in dem Absatz zwischen 35 und 39 befinden sind in ihrer Ordnung sehr unstrukturiert, da sich dort Fragen sowohl zum Kunden als auch zum Berater vermischen und dies eine Unordnung mit sich zieht. Die Frage 35 „Ich bin sehr daran interessiert daran zu erfahren, was andere Kunden der Capital Bank über die Bank denken.“ ist ein gutes Beispiel für sich wiederholende Fragen, da sie der Frage 64 stark ähnelt, welche lautet: „Die Aussagen anderer Private Banking-Kunden zur Service-Qualität nehme ich sehr ernst.“.\\
+Die Fragen 3 - 8 und 10, 11, 13 haben wir gekürzt, da es sich um wiederholende, sich auf den Berater beziehende Fragen handelt, deren Aussagekraft im Vergleich weniger aussagekräftig sind. Als Beispiel dazu Frage 12: „Die Kompetenzen meines Beraters und die Organisation der Capital Bank ermöglichen es, eine für meine Bedürfnisse optimale Dienstleistung zu erbringen.“ Die Beantwortung dieser Frage erfolgt schon allein durch die Beantwortung des kompletten Fragebogens, da dieser die Antwort widerspiegelt. Einige Fragen, welche sich in dem Absatz zwischen 35 und 39 befinden, sind in ihrer Ordnung sehr unstrukturiert, da sich dort Fragen sowohl zum Kunden als auch zum Berater vermischen und dies eine Unordnung mit sich zieht. Die Frage 35 „Ich bin sehr daran interessiert daran zu erfahren, was andere Kunden der Capital Bank über die Bank denken.“ ist ein gutes Beispiel für sich wiederholende Fragen, da sie der Frage 64 stark ähnelt, welche lautet: „Die Aussagen anderer Private Banking-Kunden zur Service-Qualität nehme ich sehr ernst.“.\\
 Ein weiteres Beispiel einer zu empfehlenden Kürzung wäre Frage 86, die mit „Ich habe Interesse…“ beginnt und anschließend Dienstleistungsangebote auflistet. Da der Fragebogen die Dienstleistungsqualität messen soll, erscheint uns in diesem Falle diese Frage unpassend, da unter anderem die drei Zielgrößen Empfehlungsneigung, Kundenbindung und Ergebnisqualität durch die Frage nicht bemessen werden.\\
 Wir würden empfehlen, diese in einer eigenen Befragung / Umfrage zu stellen. Genauso wie Frage 86 würden wir die Fragen 88 - 90 ebenfalls selektieren.\\
 Die Kompetenz des Beraters und die Kapitalbank spiegelt der Fragebogen im Prinzip wider, weshalb wir die Frage 108 „Mein Berater / Die Capital Bank hat hohe Kompetenzen bei Finanzierungen, in Steuerfragen, in Immobilienfragen.“ als suboptimal erachten.\\
-Den Statistikteil 113 - 122 am Ende ist in der Abbildung 2 nicht zu sehen, da diese in dem Modell in SmartPLS nicht erfasst wurden, jedoch sind diese obligatorisch und sollten weiterhin zum Fragebogen hinzugehören.\\
+Der Statistikteil 113 - 122 am Ende ist in Abbildung 2 nicht zu sehen, da diese in dem Modell in SmartPLS nicht erfasst wurden. Diese sind jedoch obligatorisch und sollten weiterhin zum Fragebogen hinzugehören.\\
 Die Einverständniserklärung am Ende des Fragebogens, in welcher der Kunde sich damit einverstanden erklärt, dass ein Mitarbeiter auf ihn zukommen kann, widerspricht der Anonymitätsgewährleistung zu Beginn des Fragebogens. Dazu würden wir entweder empfehlen, die Anonymität zu gewährleisten und diese Frage nicht zu stellen oder von vornherein darüber zu informieren, dass bei Rückfragen ein Mitarbeiter gegebenenfalls auf den Kunden zukommen kann.\\
-Nachdem wir mit Hilfe von Berechnungen und Modellen in SmartPLS und R zu einem abschließenden Entwurf des Fragebogens gekommen sind haben sich folgende Konstrukte ergeben:
+Nachdem wir mit Hilfe von Berechnungen und Modellen in SmartPLS und R zu einem abschließenden Entwurf des Fragebogens gekommen sind, haben sich folgende Konstrukte ergeben:
 
 \begin{itemize}
 \item Kunde
@@ -158,11 +147,9 @@ Nach der Überarbeitung des Fragebogens beinhaltet dieser nun noch 63 Fragen. Ab
 
 \section{Software}%Hier soll die benutzte Software vorgestellt werden
 
-\subsection{SmartPLS}
-
 \subsection{R-Pakete}
-\href{http://www.r-project.org/}{R} ist eine Programmiersprache und gleichzeitig eine Umgebung zur statistischen Datenverarbeitung, sowie deren Visualisierung. Außerdem ist R ein \href{http://www.gnu.org/}{GNU Projekt} und somit als Open Source Software, unter der \href{http://www.r-project.org/COPYING}{GNU General Public License}, frei verfügbar. Es läuft unter Linux, Windows oder Mac OS X. Eine Erweiterung der Funktionen erfolgt über Pakete, welche von den Usern selbst geschrieben und unter dem \href{http://cran.r-project.org/}{Comprehensive R Archive Network (CRAN)} der Öffentlichkeit zur Verfügung gestellt werden können. Der große Vorteil daran ist dass die jeweiligen Pakete immer weiter verwendet werden können und so eine Art Modularität ensteht. Ein Paket das zur Berechnung von Strukturgleichungsmodellen dient, kann zum Beispiel ein Paket zur graphischen Darstellung von Matrizen verwenden um die Modelle anschaulich zu visualisieren, statt eigens einen neuen Algorithmus dafür schreiben zu müssen. Es empfiehlt sich zusätzlich die Installation einer Integrierten Entwicklungsumgebung, wie beispielsweise \href{http://www.rstudio.com/}{RStudio}. Dies erleichtert die Arbeit durch Funktionen wie die Syntaxhervorhebung, Editor, History, Debugger und Workspace Verwaltung.\\
-Nach dem Start von RStudio müssen zunächst die erforderlichen Pakete installiert werden. Dies muss nur einmal ausgeführt und kann daher direkt in die Console eingegeben werden.
+\href{http://www.r-project.org/}{R} ist eine Programmiersprache und gleichzeitig eine Umgebung zur statistischen Datenverarbeitung sowie deren Visualisierung. Außerdem ist R ein \href{http://www.gnu.org/}{GNU Projekt} und somit als Open Source Software, unter der \href{http://www.r-project.org/COPYING}{GNU General Public License}, frei verfügbar. Es läuft unter Linux, Windows oder Mac OS X. Eine Erweiterung der Funktionen erfolgt über Pakete, welche von den Usern selbst geschrieben und unter dem \href{http://cran.r-project.org/}{Comprehensive R Archive Network (CRAN)} der Öffentlichkeit zur Verfügung gestellt werden können. Der große Vorteil daran ist, dass die jeweiligen Pakete immer weiter verwendet werden können und so eine Art Modularität ensteht. Ein Paket, das zur Berechnung von Strukturgleichungsmodellen dient, kann zum Beispiel ein Paket zur graphischen Darstellung von Matrizen verwenden, um die Modelle anschaulich zu visualisieren, statt eigens einen neuen Algorithmus dafür schreiben zu müssen. Es empfiehlt sich zusätzlich die Installation einer Integrierten Entwicklungsumgebung wie beispielsweise \href{http://www.rstudio.com/}{RStudio}. Dies erleichtert die Arbeit durch Funktionen wie die Syntaxhervorhebung, Editor, History, Debugger und Workspace Verwaltung.\\
+Nach dem Start von RStudio müssen zunächst die erforderlichen Pakete installiert werden. 
 
 <<ins, eval=FALSE>>=
 install.packages(c("plspm","semPLS","lavaan","sem"))
@@ -179,9 +166,9 @@ help(plspm)
 #or
 ?plspm
 @
-Darauf erscheint in R-Studio ein Hilfe Fenster. Dies kann sehr nützlich sein wenn versucht wird eine Funktion auszuführen ohne zu wissen welche Argumente sie benötigt. Wenn nicht sicher ist welche Funktionen überhaupt im Paket vorhanden sind, kann entweder im oben erwähnten Handbuch nachgeschaut werden oder unter dem Menüpunkt Packages das entsprechende Paket ausgewählt werden.\\
-Ein großer Vorteil des plspm Pakets ist die gute Dokumentation. Neben den oben genannten existiert ebenfalls ein frei verfügbares \href{http://www.gastonsanchez.com/PLS Path Modeling with R.pdf}{Buch}\cite{sanchez2013pls}vom Ersteller des Pakets. Außerdem ist das Paket Open Source und der komplette Code ist auf \href{https://github.com/gastonstat/plspm}{Github}verfügbar. Das heißt mit den nötigen Fähigkeiten kann genau nachvollzogen werden wie die Berechnung abläuft und somit Fehler in der Software quasi ausgeschlossen werden.\\
-Ein entscheidender Nachteil besteht jedoch in Version 0.4.0 (2013-12-08) bei der Behandlung von fehlenden Werten im Datensatz. Falls auch nur eine einzige Beobachtung bei jedem gemessenen Indikator eines latenten Konstrukts fehlende Werte aufweist, funktioniert der komplette Algorithmus nicht mehr, statt diese eine Beobachtung zu ignorieren. Wenn nun eine latente Variable nur durch einen Indikator gemessen wird, reicht eine Beobachtung welche für diesen Indikator einen fehlenden Wert aufweist um den Algorithmus terminieren zu lassen. Indikatoren sind in unserem Fall die Fragen des Fragebogens und Beobachtungen die Kunden, welche diese beantwortet haben. Da zahlreiche unbeantwortete Fragen im Datensatz existieren, ist also das plspm Paket für unseren Fall nicht brauchbar. Auch die Kontaktaufnahme mit dem Autor half nicht den Fehler zu beseitigen. Eventuell lohnt es sich jedoch die \href{http://cran.r-project.org/web/packages/plspm/NEWS}{Nachrichten}zu neuen Versionen des Pakets zu beobachten. Eine weitere Alternative wäre den frei verfügbaren Code zu manipulieren, wofür jedoch sehr gute R sowie PLS-Algorithmus Kenntnisse von Nöten sind. Nachfolgend wird der R-Code für das Erstellen und Berechnen eines Sturkturmodells mit dem plspm Paket gezeigt. Dafür wurde ein möglichst einfaches, beispielhaftes Modell aus dem Datensatz erstellt um die Übersichtlichkeit und Verständniskeit zu bewahren.
+Darauf erscheint in R-Studio ein Hilfefenster. Dies kann sehr nützlich sein wenn versucht wird eine Funktion auszuführen ohne zu wissen welche Argumente sie benötigt. Wenn nicht sicher ist welche Funktionen überhaupt im Paket vorhanden sind, kann entweder im oben erwähnten Handbuch nachgeschaut werden oder unter dem Menüpunkt Packages das entsprechende Paket ausgewählt werden.\\
+Ein großer Vorteil des plspm Pakets ist die gute Dokumentation. Neben den oben genannten existiert ebenfalls ein frei verfügbares \href{http://www.gastonsanchez.com/PLS Path Modeling with R.pdf}{Buch}\cite{sanchez2013pls}vom Ersteller des Pakets. Außerdem ist das Paket als Open Source lizensiert und der komplette Code ist auf \href{https://github.com/gastonstat/plspm}{Github}verfügbar. Das heißt mit den nötigen Fähigkeiten kann genau nachvollzogen werden wie die Berechnung abläuft und somit Fehler in der Software quasi ausgeschlossen werden.\\
+Ein entscheidender Nachteil besteht jedoch in Version 0.4.0 (2013-12-08) bei der Behandlung von fehlenden Werten im Datensatz. Falls auch nur eine einzige Beobachtung bei jedem gemessenen Indikator eines latenten Konstrukts fehlende Werte aufweist, funktioniert der komplette Algorithmus nicht mehr, statt diese eine Beobachtung zu ignorieren. Wenn nun eine latente Variable nur durch einen Indikator gemessen wird, reicht eine Beobachtung, welche für diesen Indikator einen fehlenden Wert aufweist um den Algorithmus terminieren zu lassen. Indikatoren sind in unserem Fall die Fragen des Fragebogens und Beobachtungen die Kunden, welche diese beantwortet haben. Da zahlreiche unbeantwortete Fragen im Datensatz existieren, ist also das plspm Paket für unseren Fall nicht brauchbar. Auch die Kontaktaufnahme mit dem Autor half nicht, den Fehler zu beseitigen. Eventuell lohnt es sich jedoch die \href{http://cran.r-project.org/web/packages/plspm/NEWS}{Nachrichten}zu neuen Versionen des Pakets zu beobachten. Eine weitere Alternative wäre, den frei verfügbaren Code zu manipulieren, wofür jedoch sehr gute R sowie PLS-Algorithmus Kenntnisse von Nöten sind. Nachfolgend wird der R-Code für das Erstellen und Berechnen eines Sturkturmodells mit dem plspm Paket gezeigt. Dafür wurde ein möglichst einfaches, beispielhaftes Modell aus dem Datensatz erstellt, um die Übersichtlichkeit und Verständlichkeit zu bewahren.
 
 <<plspm, results='hide', warning=FALSE,message=FALSE>>=
 #load package
@@ -265,7 +252,7 @@ outerplot(CB_PLS)
 @
 
 Beschreibung zum Code:\\
-Zunächst wird das Paket in die aktuelle R-Session geladen. Als nächstes wird ein Datensatz benötigt. Durch den file.choose() Befehl kann im Verzeichnis des Computers durch die Ordner zum gewünschten Datensatz navigiert werden. Wird dieser nun ausgewählt ist der Verzeichnispfad erst einmal in der Variable CBdataPath gespeichert. In R-Studio wird nun unter "Environment" diese Variable und ihr Wert angezeigt. Um die Datei jedoch einzulesen wird die Funktion read.csv() oder alternativ read.table() benötigt. Als Argument bekommt diese den vorher ausgewählten Dateipfad, welcher in der Variable CBdataPath gespeichert ist. Alternativ kann natürlich auch direkt der Dateipfad in Form eines Strings oder die Funktion file.choose() als Argument eingefügt werden. Auch wenn solche Abkürzungen den Code erheblich komprimieren sollte auch immer auf eine Lesbarkeit geachtet werden damit er auch für neue Nutzer verständlich bleibt. Falls fehlenden Werte als leere Felder dargestellt werden, können diese durch einen weiteren Parameter der read.csv() Funktion na.strings = "NA" auf die R-Standardnotation "NA" gesetzt werden . Falls der Datensatz Fehlende Werte als 888 darstellt, wie in smartPLS werden diese durch einen neuen Befehl (siehe Code) in "NA" umgewandelt. Falls die Spalten im Datensatz durch Semikolon getrennt werden kann entweder die Funktion read.csv2() benutzt werden oder ein weiterer Parameter in die read.csv() Funktion übergeben werden (sep=";"). Nun sehen wir unsere nächste Variable CBdata unter "Environment". Dies ist nun unser Datensatz welcher auch durch einen Klick auf das Tabellenzeichen angeschaut werden kann. Als nächstes wird das Strukturmodell (inneres Modell) definiert. Dies geschieht durch das Erstellen einer unteren Dreiecksmatrix. Zunächst wird also für jede Latente Variable im Modell ein Vektor erstellt mit der Länge der Gesamtzahl der Latenten Variablen und den Werten 0 oder 1. Eins bedeutet hier eine Verbindung und Null dementsprechend keine. Die Richtung des Zusammenhangs wird wie folgt gelesen: Von Spalte, zu Zeile. Zur besseren Lesbarkeit werden die Zeilennamen der Matrix gleich den Spaltennamen gesetzt. Nun können durch einen Klick auf das Tabellensymbol neben der CB\_inner\_model Variable im Environment die Beziehungen abgelesen werden. Die Diagonale besteht nur aus Nullen, da sonst eine Variable sich selbst erklären würde. Ebenso besteht der Teil über der Diagonale, die obere Matrix aus Nullen, damit keine Schleifen entstehen können was im PLS-Algorithmus ebenfalls nicht erlaubt ist. Allerdings erschwert dies die Spezifikation von Modellen, da es sein kann dass im Model keine Schleifen sind, obwohl in der oberen Matrix eine 1 steht. Dies muss nun behoben werden durch vertauschen der Spalten damit die 1 unterhalb der Matrix steht.
+Zunächst wird das Paket in die aktuelle R-Session geladen. Als nächstes wird ein Datensatz benötigt. Durch den file.choose() Befehl kann im Verzeichnis des Computers durch die Ordner zum gewünschten Datensatz navigiert werden. Wird dieser nun ausgewählt ist der Verzeichnispfad erst einmal in der Variable CBdataPath gespeichert. In R-Studio wird nun unter "Environment" diese Variable und ihr Wert angezeigt. Um die Datei jedoch einzulesen, wird die Funktion read.csv() oder alternativ read.table() benötigt. Als Argument bekommt diese den vorher ausgewählten Dateipfad, welcher in der Variable CBdataPath gespeichert ist. Alternativ kann natürlich auch direkt der Dateipfad in Form eines Strings oder die Funktion file.choose() als Argument eingefügt werden. Auch wenn solche Abkürzungen den Code erheblich komprimieren, sollte auch immer auf eine Lesbarkeit geachtet werden, damit er auch für neue Nutzer verständlich bleibt. Falls fehlenden Werte als leere Felder dargestellt werden, können diese durch einen weiteren Parameter der read.csv() Funktion na.strings = "NA" auf die R-Standardnotation "NA" gesetzt werden . Falls der Datensatz fehlende Werte als 888 darstellt, wie in SmartPLS, werden diese durch einen neuen Befehl (siehe Code) in "NA" umgewandelt. Falls die Spalten im Datensatz mit Semikolon getrennt werden, kann entweder die Funktion read.csv2() benutzt werden oder ein weiterer Parameter in die read.csv() Funktion übergeben werden (sep=";"). Nun sehen wir unsere nächste Variable CBdata unter "Environment". Dies ist nun unser Datensatz, welcher auch durch einen Klick auf das Tabellenzeichen angeschaut werden kann. Als nächstes wird das Strukturmodell (inneres Modell) definiert. Dies geschieht durch das Erstellen einer unteren Dreiecksmatrix. Zunächst wird also für jede latente Variable im Modell ein Vektor erstellt mit der Länge der Gesamtzahl der latenten Variablen und den Werten 0 oder 1. Eins bedeutet hier eine Verbindung, und Null dementsprechend keine. Die Richtung des Zusammenhangs wird wie folgt gelesen: Von Spalte, zu Zeile. Zur besseren Lesbarkeit werden die Zeilennamen der Matrix gleich den Spaltennamen gesetzt. Nun können durch einen Klick auf das Tabellensymbol neben der CB\_inner\_model Variable im Environment die Beziehungen abgelesen werden. Die Diagonale besteht nur aus Nullen, da sonst eine Variable sich selbst erklären würde. Ebenso die obere Matrix aus Nullen, damit keine Schleifen entstehen können, was im PLS-Algorithmus ebenfalls nicht erlaubt ist. Allerdings erschwert dies die Spezifikation von Modellen, da es sein kann, dass im Model keine Schleifen sind, obwohl in der oberen Matrix eine 1 steht. Dies muss nun durch Umordnung der Spalten behoben werden, sodass eine untere Dreiecksmatrix gegeben ist.
 <<mis, results='hide', warning=FALSE,message=FALSE>>=
 #does not work
 Preis_Leistung <- c(0,0,0)
@@ -287,20 +274,20 @@ CB_inner_model <- rbind(Preis_Leistung,
 
 innerplot(CB_inner_model, main="SEM: valid, plspm: valid")
 @
-Um sicher zu gehen ob das gewünschte Modell spezifiziert wurde kann durch den Befehl innerplot() eine graphische Veranschaulichung aufgerufen werden, welche im Plots Tab erscheint. Das vertauschen der Spalten, beeinflusst auch das Messmodell (äußeres Modell), welches durch eine Liste von Vektoren spezifiziert wird. Hier sind die Vektoren die Latenten Variablen in der Reihenfolge des rbind() Befehls und der Inhalt der Vektoren die Indikatoren eines Konstrukts. Anschließend muss noch ein Vektor erstellt werden, welcher die Messmethode für jedes Konstrukt enthält. Der Buchstabe "A" repräsentiert die reflektive Messung und "B" dementsprechend eine formative Messung.\\
-Nun sind alle Parameter für die Hauptfunktion plspm() verfügbar. Diese ist zur Berechnung des Modells zuständig und bekommt in ihrer einfachsten Form folgende Parameter:\\
+Um sicher zu gehen, ob das gewünschte Modell spezifiziert wurde, kann durch den Befehl innerplot() eine graphische Veranschaulichung aufgerufen werden, welche im Plots Tab erscheint. Das Vertauschen der Spalten beeinflusst auch das Messmodell (äußeres Modell), welches durch eine Liste von Vektoren spezifiziert wird. Hier sind die Vektoren die latenten Variablen in der Reihenfolge des rbind() Befehls und der Inhalt der Vektoren die Indikatoren eines Konstrukts. Anschließend muss noch ein Vektor erstellt werden, welcher die Messmethode für jedes Konstrukt enthält. Der Buchstabe "A" repräsentiert die reflektive Messung, und "B" dementsprechend eine formative Messung.\\
+Nun sind alle Parameter für die Hauptfunktion plspm() verfügbar. Diese ist zur Berechnung des Modells notwendig. Sie bekommt in ihrer einfachsten Form folgende Parameter:\\
 \begin{enumerate}
     \item Datensatz
     \item Sturkturmodell
     \item Messmodell
     \item Messmethoden
 \end{enumerate}
-Für das Behandeln von fehlenden Werten muss ein weiterer Parameter übergeben werden. Der scaling Parameter gibt die Skalierung der Indikatoren an. Für eine Berechnung mit fehlenden Werten müssen diese auf "NUM" für Numerisch gesetzt werden. Allerdings bleibt das weiter oben beschriebene Problem bei einer Beobachtung, für die alle Werte der Indikatoren einer Latente Variable fehlen, weiter bestehen. Diese müssten also mit viel Aufwand per Hand entfernt werden, was vor allem bei regelmäßiger Veränderung des Modells ausartet. Wird die Funktion nun ausgeführt entsteht der bereits weiter oben erwähnte Fehler und das Modell kann nicht berechnet werden.\\
-Zur Demonstration der Ergebnisse wurden die fehlenden Werte mit dem zoo Paket interpoliert um somit den Fehler zu beheben. Der Code zur Interpolation soll hier nicht weiter erläutert werden. In der Variable CB\_PLS sind nun die Ergebnisse der plspm Funktion gespeichert. Durch den summary() Befehl können diese nun in der Console ausgegeben werden. Dazu kann das Strukturmodell auch durch die plot() Funktion und das Messmodell durch outerplot() visualisiert werden. In den Plots sind nun neben den Konstrukten und Indikatoren auch die jeweiligen Pfadkoeffizienten zu sehen.
+Für das Behandeln von fehlenden Werten muss ein weiterer Parameter übergeben werden. Der scaling Parameter gibt die Skalierung der Indikatoren an. Für eine Berechnung mit fehlenden Werten müssen diese auf "NUM" für numerisch gesetzt werden. Allerdings bleibt das weiter oben beschriebene Problem bei einer Beobachtung, für die alle Werte der Indikatoren einer latente Variable fehlen, weiter bestehen. Diese müssten also mit viel Aufwand per Hand entfernt werden, was vor allem bei regelmäßiger Veränderung des Modells ausartet. Wird die Funktion nun ausgeführt, entsteht der bereits weiter oben erwähnte Fehler und das Modell kann nicht berechnet werden.\\
+Zur Demonstration der Ergebnisse wurden die fehlenden Werte mit dem zoo Paket interpoliert, um somit den Fehler zu beheben. Der Code zur Interpolation soll hier nicht weiter erläutert werden. In der Variable CB\_PLS sind nun die Ergebnisse der plspm Funktion gespeichert. Durch den summary() Befehl können diese nun in der Console ausgegeben werden. Dazu kann das Strukturmodell auch durch die plot() Funktion und das Messmodell durch outerplot() visualisiert werden. In den Plots sind nun neben den Konstrukten und Indikatoren auch die jeweiligen Pfadkoeffizienten zu sehen.
 
 \subsubsection{semPLS}
 Das Paket semPLS\cite{semPLS} wurde von \href{Armin.Monecke@stat.uni-muenchen.de}{Armin Monecke} und \href{Friedrich.Leisch@R-project.org}{Friedrich Leisch} geschrieben. Wie bei jedem Paket finden sich hierzu ein \href{http://cran.r-project.org/web/packages/semPLS/semPLS.pdf}{Handbuch} und eine kurze \href{http://cran.r-project.org/web/packages/semPLS/vignettes/semPLS-intro.pdf}{Einführung}.\\
-Das Paket erwies sich nach Meinung der Autoren als derzeit bestes für Strukturgleichungsmodelle basierend auf dem PLS Ansatz. Einziger Nachteil des Pakets ist die eher umständliche Visualisierung der Modelle mit dot - \href{http://www.graphviz.org/}{Graphviz}. Besonders nützlich ist das einfache importieren von Modellen die in SmartPLS erstellt wurden. Somit können die Vorteile von SmartPLS, einfache Modellierung per Drag \& Drop und die von R, mehr Funktionalitäten, kombiniert werden. Ein weiterer Vorteil könnte auch das Umwandeln des Modells in ein Objekt, welches Kovarianz basierte Berechnungen mit Hilfe des sem Pakets von \href{jfox@mcmaster.ca}{John Fox} erlaubt. Dies könnte sich vor allem in kommenden Praktika als nützlich erweisen um bei einem größeren Datensatz, einem weiter entwickelten Modell und mehr Erfahrung, den eher bestätigenden Kovarianzbasierten Ansatz anzuwenden. Ein Vorteil sind dabei die zahlreichen Kennziffern (Chi-Squared,RMSEA, GFI, AGFI...), zur Güte des Gesamtmodells, welche im PLS Ansatz nur durch eine kumultative Betrachtung der Kennziffern aus Struktur- und Messmodell erfolgt. Dies soll jedoch hier nicht weiter erläutert werden, da es Gegenstand zukünftiger Praktika sein könnte und sich hier auf den PLS Ansatz fokussiert wurde. Nachfolgend wird der R-Code für das Erstellen und Berechnen eines Sturkturmodells mit dem semPLS Paket gezeigt.
+Das Paket erwies sich nach Meinung der Autoren als derzeit bestes für Strukturgleichungsmodelle basierend auf dem PLS Ansatz. Einziger Nachteil des Pakets ist die eher umständliche Visualisierung der Modelle mit dot - \href{http://www.graphviz.org/}{Graphviz}. Besonders nützlich ist das einfache Importieren von Modellen, die in SmartPLS erstellt wurden. Somit können die Vorteile von SmartPLS, einfache Modellierung per Drag \& Drop und die von R, mehr Funktionalitäten, kombiniert werden. Ein weiterer Vorteil könnte auch das Umwandeln des Modells in ein Objekt sein, welches Kovarianz basierte Berechnungen mit Hilfe des sem Pakets von \href{jfox@mcmaster.ca}{John Fox} erlaubt. Dies könnte sich vor allem in kommenden Praktika als nützlich erweisen, um bei einem größeren Datensatz, einem weiter entwickelten Modell und mehr Erfahrung, den eher bestätigenden Kovarianzbasierten Ansatz anzuwenden. Ein Vorteil sind dabei die zahlreichen Kennziffern (Chi-Squared,RMSEA, GFI, AGFI...), zur Güte des Gesamtmodells, welche im PLS Ansatz nur durch eine kumultative Betrachtung der Kennziffern aus Struktur- und Messmodell erfolgt. Dies soll jedoch hier nicht weiter erläutert werden, da es Gegenstand zukünftiger Praktika sein könnte und sich hier auf den PLS Ansatz fokussiert wurde. Nachfolgend wird der R-Code für das Erstellen und Berechnen eines Sturkturmodells mit dem semPLS Paket gezeigt.
 
 <<semPLS, warning=FALSE,message=FALSE>>=
 #load package in R Session
@@ -384,8 +371,8 @@ PBcom <- agread(PBdot, layoutType="dot")
 plot(PBcom, main="Path model")
 @
 Beschreibung zum Code:\\
-Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die Latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen Latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. \\
-Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch \href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfe Funktion help(pathDiagram) nützlich um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Ein weiterer wichtiger Parameter ist rSquared, welcher eine Matrix erwartet, die mit der rSquared() Funktion erzeugt werden kann. Die rSquared() Funktion wird später noch ausführlicher erläutert. Um die .dot Datei wieder in R darzustellen wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
+Zunächst wird das Paket wieder in die aktuelle R-Session geladen und anschließend analog zu Kapitel 3.2.1 der Datensatz geladen. Für die Spezifizierung des Messmodells werden die latenten Variablen, sowie die Indikatoren jeweils in einen Vektor geschrieben. Als nächster Schritt wird eine Matrix aus diesen gebildet und die Spaltennamen auf "source" und "target" gesetzt, um direkt ablesen zu können, ob die Variablen reflektiv oder formativ gemessen werden. Das Strukturmodell wird analog zum Vorgehen beim Messmodell gebildet. Nachfolgend werden die einzelnen Teile mit der Funktion plsm() in ein Objekt geschrieben. Als Parameter werden der Datensatz, Messmodell und das Strukturmodell übergeben. Mit der Funktion mvpairs() können die Indikatoren der jeweiligen latenten Variablen als Histogramm, Streudiagramm mit Regressiongeraden und die Pearson Korrelation mit der beachteten Fallzahl N dargestellt werden. Mit Hilfe des vorher erstellten Modell Objekt kann nun die Hauptfunktion sempls() des Pakets ausgeführt werden, welche zur Berechnung dient. Als Parameter erhält sie das Modell und den Datensatz. Das Weighting Scheme ist standardmäßig auf centroid gestellt, falls es nicht als Parameter mitgegeben wird. Um die Ergebnisse aus SmartPLS und R besser vergleichen zu können, empfiehlt es sich hier in beiden Programmen das gleiche Schema zu verwenden. Allerdings sind viele Autoren der Meinung, dass dies in der Berechnung keine großen Unterschiede erzeugt: "0.005 or less for structural path and 0.05 or less for measurement path".\cite{noonan1982pls} Anschließend kann über das schlichte Ausführen des Objektnamen PB\_model ein erster Überblick über das Modell erfolgen. Für weitere Analysen eignet sich der summary() Befehl, welcher die Verschiedenen im Objekt enthaltenen Daten anzeigt, die über den \$ Operator angesteuert werden können. \\
+Die Visualisierung erfolgt etwas umständlich über das Rgraphviz Paket, das zunächst geladen wird. Außerdem muss noch \href{http://www.graphviz.org/}{Graphviz} auf dem Computer installiert werden. Mit der pathDiagram() Funktion wird nun das Diagramm in DOT Sprache und als PDF im workspace Ordner erstellt. Mit der Funktion getwd() kann der aktuelle workspace angezeigt werden. Neben dem Modell und einem Namen können noch zahlreiche weitere Parameter übergeben werden, wie z.B. die Nachkommastellen mit digits=2, hierzu ist wieder die Hilfefunktion help(pathDiagram) nützlich, um die gewünschten Parameter einzustellen. Hier ist vor allem der Parameter full=FALSE zu erwähnen, da so nur das Strukturmodell visualisiert werden kann. Ein weiterer wichtiger Parameter ist rSquared, welcher eine Matrix erwartet, die mit der rSquared() Funktion erzeugt werden kann. Die rSquared() Funktion wird später noch ausführlicher erläutert. Um die .dot Datei wieder in R darzustellen, wird der Dateipfad in eine Variable gespeichert und dieser in die agread() Funktion als Parameter übergeben. Der layoutType wird auf "dot" gesetzt und anschließend kann die Graphik mit dem plot() Befehl angezeigt werden.\\
 Zunächst scheint es als wäre die Modellspezifikation in R wesentlich aufwendiger als die Drag \& Drop Logik in SmartPLS. Allerdings können die Modelle aus SmartPLS mit dem semPLS Paket eingelesen werden. Somit kann das Modell in SmartPLS spezifiziert werden und weitere Berechnungen in R erfolgen. Alternativ kann die Spezifizierung in interaktiven Spreadsheets erfolgen. Nehmen wir z.B. die Matrix des Strukturmodells und führen folgenden Code aus:
 <<entry, eval=FALSE>>=
 data.entry(CB_inner_model)
@@ -401,12 +388,12 @@ Mit diesen können Variablen, Indikatoren, Pfade etc. im Nachhinein entfernt, hi
 new_model <- addPath(model, from="Preis_Leistung", to="Performance")
 @
 Hier wird beispielweise mit der Funktion addPath() ein neuer Pfad von der Variable "Preis\_Leistung" zur "Performance" angelegt und anschließend in ein neues Modell mit dem Namen new\_model gespeichert.\\
-Eine weitere nützliche Eigenschaft bietet die plsm2sem() Funktion, mit welcher ein plsm Objekt in sem Objekt umgewandelt werden kann. Mit diesem sem Objekt kann dann eine kovarianzbasierte Analyse mit Hilfe des \href{http://cran.r-project.org/web/packages/sem/index.html}{sem} Pakets von John Fox erfolgen. Der Vorteil davon ist, dass das Modell nicht noch einmal mit der Syntax des sem Pakets spezifiziert werden muss. Allerdings muss auf besondere Eigenschaften, welche die beiten Ansätze unterscheiden geachtet werden.
+Eine weitere nützliche Eigenschaft bietet die plsm2sem() Funktion, mit welcher ein plsm Objekt in ein sem Objekt umgewandelt werden kann. Mit diesem sem Objekt kann dann eine kovarianzbasierte Analyse mit Hilfe des \href{http://cran.r-project.org/web/packages/sem/index.html}{sem} Pakets von John Fox erfolgen. Der Vorteil davon ist, dass das Modell nicht noch einmal mit der Syntax des sem Pakets spezifiziert werden muss. Allerdings muss auf besondere Eigenschaften, welche die beiten Ansätze unterscheiden, geachtet werden.
 <<conv,eval=FALSE>>=
 #convert model for covariance based sem
 sem_model <- plsm2sem(model)
 @
-In wie weit dies hilfreich ist wurde in diesem Praktikum nicht untersucht, da sich auf den varianzbasierten PLS Ansatz fokussiert wurde.
+Inwieweit dies hilfreich ist wurde, in diesem Praktikum nicht untersucht, da sich auf den varianzbasierten PLS Ansatz fokussiert wurde.
 
 \subsubsection{knitr}
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{Knitr} ist ein Paket von \href{http://yihui.name/knitr/}{Yihui Xie} zur Erstellung von dynamischen Berichten in R mit Hilfe von Latex oder wahlweise auch Markdown. Es ist eine Weiterentwicklung von Sweave.\cite{lmucs-papers:Leisch:2002} Der Vorteil davon ist, dass der R Code zum einen automatisch mit Syntaxhervorhebung gekennzeichnet wird und zum anderen dass die Ergebnisse nicht zwischengespeichert und manuell in ein anderes Dokument eingefügt werden müssen. Falls zum Beispiel eine Änderung in einem Plot vorgenommen werden muss, wie eine falsche Beschriftung einer X-Achse zu korrigieren, muss dies nur im R Code geändert werden und die Datei kompiliert werden statt den Plot neu speichern und einfügen zu müssen. Außerdem sind der Bericht und Code in einem Dokument, was ebenfalls sehr hilfreich ist.\\
@@ -415,7 +402,7 @@ Zunächst wird das Paket installiert:
 <<knitrins, eval=FALSE>>=
 install.packages("knitr")
 @
-Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rnw files using: auf knitr gesetzt werden. Nun kann unter File -> New File -> R Sweave ein neues Projekt erstellt werden. In diesem kann dann LaTeX Code geschrieben werden und mit der folgenden Syntax auch R Code eingebettet werden. Ein R Code Block wird mit $<<>>=$ begonnen und mit $@$ geschlossen. In den Anfangstag $<<>>=$ können weitere Parameter übergeben, welche den Output beeinflussen. Ohne Parameter wird der R Code mit Syntaxhervorhebung dargestellt, ausgeführt und die Ergebnisse wie Console Output und Plots ebenfalls in die PDF geschrieben. Dies geschieht mit dem Button "Compile PDF". Als erster Parameter kann ein Label, also Name für den Codeblock übergeben werden, um diesen später zu referenzieren oder lediglich schneller zu finden. Mit dem Parameter eval=FALSE wird verhindert dass der R-Code ausgeführt wird. Dieser eignet sich zum Beispiel bei install.packages oder nicht funktionierendem Code, da der Output in diesem Fall für den Leser nicht von Relevanz ist. Der Parameter include=FALSE führt dagegen den Code aus, aber die Ergebnisse dieser Ausführung werden nicht in den Bericht geschrieben. Dies ist zum Beispiel für das Laden von Paketen von Vorteil. Mit message=FALSE und warning=FALSE können Nachrichten und Warnungen im Bericht unterdrückt werden.
+Anschließend muss noch in R unter Tools -> Global Options -> Sweave -> Weave Rnw files using: auf knitr gesetzt werden. Nun kann unter File -> New File -> R Sweave ein neues Projekt erstellt werden. In diesem kann dann LaTeX Code geschrieben werden und mit der folgenden Syntax auch R Code eingebettet werden. Ein R Code Block wird mit $<<>>=$ begonnen und mit $@$ geschlossen. In den Anfangstag $<<>>=$ können weitere Parameter übergeben werden, welche den Output beeinflussen. Ohne Parameter wird der R Code mit Syntaxhervorhebung dargestellt, ausgeführt und die Ergebnisse wie Console Output und Plots ebenfalls in die PDF geschrieben. Dies geschieht mit dem Button "Compile PDF". Als erster Parameter kann ein Label, also Name für den Codeblock übergeben werden, um diesen später zu referenzieren oder lediglich schneller zu finden. Mit dem Parameter eval=FALSE wird verhindert, dass der R-Code ausgeführt wird. Dieser eignet sich zum Beispiel bei install.packages oder nicht funktionierendem Code, da der Output in diesem Fall für den Leser nicht von Relevanz ist. Der Parameter include=FALSE führt dagegen den Code aus, aber die Ergebnisse dieser Ausführung werden nicht in den Bericht geschrieben. Dies ist zum Beispiel für das Laden von Paketen von Vorteil. Mit message=FALSE und warning=FALSE können Nachrichten und Warnungen im Bericht unterdrückt werden.
 Mit dem Parameter echo=FALSE wird der Code nicht in den Bericht geschrieben, aber trotzdem ausgeführt und die Ergebnisse in den Bericht geschrieben. Der Parameter results='asis' schreibt die rohen Ergebnisse aus R direkt in den Bericht. Ein Beispiel dazu wird nachfolgend mit xtable gezeigt.\\
 \\
 Ein weiteres nützliches Paket ist das xtable Paket, welches aus R Objekten LaTeX oder HTML Tabellen erzeugen kann.
@@ -437,7 +424,7 @@ print(xtable(summary(CB_PLS)$correlations))
 #print table with results='asis'
 print(xtable(summary(CB_PLS)$correlations))
 @
-Der Parameter results='asis' wird verwendet, da die Funktion xtable direkten LaTeX Code liefert und dieser so wie er ist kompiliert werden soll um die Tabelle im Bericht darzustellen anstatt des LaTeX Code. In der finalen Version sollte ebenfalls echo=FALSE verwendet werden, um den Befehl print xtable zu unterdrücken, da dieser lediglich zur Erzeugung einer ansprechenderen Tabelle dient und dem Leser sogesehen keinen zusätzlichen Nutzen bringt.\\
+Der Parameter results='asis' wird verwendet, da die Funktion xtable direkten LaTeX Code liefert und dieser so wie er ist kompiliert werden soll, um die Tabelle im Bericht darzustellen anstatt des LaTeX Code. In der finalen Version sollte ebenfalls echo=FALSE verwendet werden, um den Befehl print xtable zu unterdrücken, da dieser lediglich zur Erzeugung einer ansprechenderen Tabelle dient und dem Leser sogesehen keinen zusätzlichen Nutzen bringt.\\
 \\
 Mit \verb!\Sexpr{}! kann eine Variable dynamisch in einen Text geschrieben werden, sodass diese zunächst berechnet und anschließend die Variable durch den Wert ersetzt wird. Der folgende R Code wählt beispielsweise eine Zahl von 1-10 zufällig aus und schreibt diese in die Variable x.
 <<sample>>=
@@ -448,7 +435,7 @@ Die Variable x hat den Wert \Sexpr{x}.\\
 
 \subsection{SmartPLS Modell einlesen}
 
-Alternativ kann wie bereits erwähnt ein Modell aus SmartPLS importiert werden. Dazu muss das XML Paket installiert werden, da die Modellinformationen in XML Code gespeichert sind und nur so in R geladen werden können.\\
+Alternativ kann ein Modell aus SmartPLS importiert werden. Dazu muss das XML Paket installiert werden, da die Modellinformationen in XML Code gespeichert sind und nur so in R geladen werden können.\\
 Für Ubuntu wird hier eine andere Methode zur Installation benötigt. Dazu wird einfach in ein Terminal der Befehl:
 <<ubuntu, eval=FALSE>>=
 #!ACHTUNG KEIN R-CODE!
@@ -499,11 +486,11 @@ beim einlesen der csv Datei in R in:\\
 F001..SQ001..\\
 geändert werden. Daher empfiehlt es sich entweder schon in SmartPLS die csv Datei mit den Spaltennamen
 SQ001 zu benutzen (2014\_08\_30-CB\_Alle\_R.csv) oder die Spaltennamen in R nach dem einlesen wieder in F001[SQ001] zu ändern, was jedoch wesentlich aufwendiger ist.\\
-Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berechnungen wie gewohnt durchgeführt werden.\\ Die Ergebnisse sind logischerweise identisch, da bei beiden die Funktion sempls() die Berechnungen durchführt, lediglich das Modell wurde in unterschiedlichen Umgebungen (R und smartPLS) spezifiziert. Wo das Modell spezifiziert wird kann also individuell entschieden werden.
+Anschließend können, wie bereits im vorherigen Kapitel beschrieben, die Berechnungen wie gewohnt durchgeführt werden.\\ Die Ergebnisse sind logischerweise identisch, da bei beiden die Funktion sempls() die Berechnungen durchführt, lediglich das Modell wurde in unterschiedlichen Umgebungen (R und smartPLS) spezifiziert. Wo das Modell spezifiziert wird, kann also individuell entschieden werden.
 \\
 
-\subsection{Vergleich smartPLS und R}
-Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (casewise deletion) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann, wichtig ist nur in beiden Programmen das gleiche zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
+\subsection{Vergleich SmartPLS und R}
+Um eine gewisse Sicherheit der Ergebnisse zu erhalten, sollen diese nachfolgend in SmartPLS und R verglichen werden. Dazu wurde das bereits in den vorherigen Kapiteln vorgestellte Modell in SmartPLS berechnet. Zu beachten sind hier die gleichen Einstellungen bei fehlenden Werten (casewise deletion) und dem Weighting Scheme. Diese wurden in SmartPLS auf "Case Replacement" und "centroid" gesetzt, um denen in R zu entsprechen. Dies ist nicht notwendig, da es auch in R durch den Parameter wscheme="pathWeighting" oder wscheme="factorial"  umgestellt werden kann. Wichtig ist hier, in beiden Programmen die gleichen Einstellungen zu verwenden. Anschließend sollen die beiden Modelle verglichen werden.
 \pagebreak
 
 \begin{figure}[h!]
@@ -602,13 +589,13 @@ fa.diagram(PB_fac, main ="Factor Analysis")
 fa.diagram(PB_fac_poly, main ="Factor Analysis polychoric")
 @
 
-Anschließend werden diese wie gewohnt in die R-Session geladen. Der Datensatz muss nicht noch einmal eingelesen werden, falls dies schon erfolgte. Hier wird dieser erneut eingelesen, da die explorative Faktorenanalyse auch vor der Modellspezifikation erfolgen kann und somit Konstrukte aus vorhandenen Daten gebildet werden statt diese persönlich manuell zu erstellen.\\
-Zunächst muss der gewünschte Teildatensatz extrahiert werden. In diesem Fall wurden die Indikatoren bereits gewählt und daher werden diese auch als Teildatensatz für die Faktorenanalyse in der Variable "indicatorset" gespeichert. Alternativ könnten auch noch andere Indikatoren hinzugefügt werden von denen vermutet wird dass Sie zu einem spezifizierten Konstrukt passen. Um die Anzahl der Faktoren zu bestimmten, wird zunächst eine parallel Analyse nach Horn\cite{horn1965rationale} durchgeführt. Alternativ könnte auch in Scree-Test oder das Kaiser-Guttman-Kriterium herangezogen werden, allerdings herrscht in der Literatur Konsens darüber dass die parallel Analyse diesen überlegen ist.\cite{dinno2009exploring} Die nachfolgenden Berechnungen und Erklärungen sollen lediglich der Illustration dienen, da die Autoren der Meinung sind dass sich vorher mit der Methodik, den Annahmen und der Interpretation der Ergebnisse intensiver beschäftigt werden sollte, statt blind Funktionen auszuführen dessen Funktionsweise noch nicht gänzlich recherchiert wurde. Eine gute Einstiegsliteratur dazu ist beispielsweise Hayton's Tutorial zur parallel Analyse\cite{hayton2004factor} und das Kapitel zur explorativen Faktorenanalyse im Buch Multivariate Data Analysis von Hair et al.\cite{hair2006multivariate}\\
-Die parallel Analyse wird mit der Funktion fa.parallel() aufgerufen und erhält als Parameter den Teil-Datensatz indicatorset, sowie fa="fa", das lediglich dazu dient die Hauptkomponentenanalyse nicht im Plot zu zeigen, da sie in diesem Fall nicht von Interesse ist. Zu beachten ist hier dass mehr Beobachtungen als Variablen in diesem Datensatz enthalten sein müssen. Dies ist in dem genannten Fall mit 261 Beobachtungen und 9 Variablen gewährleistet. Laut des Outputs in der Console werden 3 Faktoren vorgeschlagen. (Die Anzahl der Komponenten kann ignoriert werden, da eine Faktorenanalyse das Ziel ist und keine Hauptkomponentenanalyse). Dies ist ebenfalls im dazugehörigen Scree Plot zu sehen: Auf der X-Achse ist die Anzahl der Faktoren und auf der Y-Achse die Eigenwerte der Faktorenanalyse dargestellt. Die blaue durchgezogene Linie, unterbrochen durch Dreiecke stellt die Eigenwerte der Faktoren dar. Solange die Dreiecke oberhalb der gestrichelten roten Linie der Faktorenanalyse liegen, können diese Faktoren extrahiert werden. Die gestrichelte rote Linie stellt dabei die durchschnittlichen Eigenwerte von zufälligen, unkorrelierten, simulierten Daten dar.\\
-Alternativ kann die parallel Analyse auch mit der polychorischen Korrelation statt des Bravais-Pearson Korrelationskoeffizienten berechnet werden, welche sich speziell für Likert-Skalen eignet.\cite{joreskog1986prelis} Dies geschieht in R mit der Funktion fa.parallel.poly(), welche die gleichen Parameter erhält, sowie eine zusätlichen global Parameter der auf TRUE gesetzt wird. Dieser soll dazu dienen zu signalisieren dass alle Variablen die gleiche Anzahl an Antwort Alternativen besitzen (In diesem Fall 1-5, sowie NA für fehlende Werte). Allerdings wird dieser laut Consolen Output wieder auf false gesetzt, da im Datensatz indicatorset Variablen enthalten sind dessen Beobachtungen nicht die volle Skala von 1-5 aufweisen, obwohl diese möglich wären. Für dieses Problem wurde noch keine Lösung erarbeitet und daher sollten die Ergebnisse dieser Berechnung kritisch angesehen werden. Der Consolen Output rät wieder zu einer Anzahl von 3 Faktoren, was ebenfalls wieder im Scree-Plot zu sehen ist. Da beide Verfahren die Faktorenanzahl von 3 liefern und im Vorhinein ebenfalls von 3 Faktoren (Preis\_Leistung, Performance, Kundenzufriedenheit) ausgegangen wurde, soll nun also die Faktorenanalyse mit 3 Faktoren angewendet werden.\\
-Dazu wird die Methode fa(), mit dem Datensatz indicatorset, nfactors = 3 und rotation="varimax" als Parametern, aufgerufen. Nfactors gibt dabei die zuvor ermittelte Faktoren Anzahl von 3 und rotation die Rotationsmethode an. Diese wurde auf varimax gesetzt, da dies unterstellt dass die extrahierten Faktoren unabhängig voneinander sind. Da die Faktoren später nichts anderes als die Konstrukte, also latenten Variablen sind und diese sich inhaltlich unterscheiden sollten (siehe Diskriminanzvalidität) erscheint diese Rotationsmethode zweckmäßig. Die Wahl der Rotationsmethode besitzt eine gewisse Robustheit\cite{zwick1986comparison}, allerdings sollte bei der Anwendung die gewählte Methode Argumentativ gestützt werden oder die Ergebnisse unterschiedlicher Methoden verglichen werden. Für eine ausführliche Erläuterung der Rotationsmethoden siehe beispielweise Mulaik.\cite{mulaik1972foundations} Ebenfalls muss die Methode zur Faktorextrahierung ausgewählt werden. Dies geschieht mit dem Parameter fm, welcher als Standard auf fm="minres" gesetzt ist, für das minimales Residuum Verfahren. Auch hier sollte vorher recherchiert werden inwieweit sich diese unterscheiden und welche unter den gegebenen Daten am sinnvollsten erscheint oder auch verschiedene Ergebnisse verglichen werden. (siehe dazu auch Hayton S.193ff.\cite{hayton2004factor} ) Anschließend wird analog zur parallel Analyse die Faktorenanalyse mittels der fa.poly() Funktion mit polychorischen Korrelationen berechnet. Nun werden die Ergebnisse mit Hilfe der print() Funktion, welche als zusätlichen Parameter noch cut = 0.3 bekommt, in die Console geschrieben. Dieser Parameter dient lediglich der Übersichtlichkeit, er unterdrückt Werte die kleiner als 0.3 sind damit die Matrix der Ladungen besser leslich wird. Als Spalten werden nun die Faktoren MR1, MR2 und MR3 gelistet und als Zeilen die jeweiligen Indikatoren. Nun können die Konstrukte gebildet oder in diesem Fall überprüft werden. Dazu wird noch einmal PB\_model aufgerufen um die ursprünglichen Zuordnungen anzuzeigen.\\
-Der Faktor ML2 weißt hohe Ladungen bei den Indikatoren SQ009, SQ076, SQ092, SQ101 und SQ096 auf. Dieser kann also als das Konstrukt Preis\_Leistung identifiziert werden. Generell sollten die Indikatoren die höchste Ladung bei dem Faktor aufzeigen, dem sie auch vorher in Form eines Konstrukts zugeordnet worden sind. Falls vorher noch keine Konstrukte gebildet wurden, werden die Fragen nach einem gemeinsamen inhaltlichen Kern abgesucht und anschließend ein dazu passender Name ausgedacht. Auf Faktor ML1 laden die Indikatoren SQ079 und SQ080 am höchsten, dies scheint also die latente Variable Performance zu sein. Abschließend laden SQ046 und SQ110 am höchsten auf ML3, welcher die Kundenzufriedenheit wiederspiegelt. Im Idealfall entsteht eine "Treppe" und die Indikatoren laden nur stark auf einen Faktor. Dies ist im gegeben Fall mit SQ101 und SQ110 nicht der Fall, da diese noch auf einen jeweils anderen Faktor laden. Das könnte nun durch eine Reihe von Umstrukturierungen versucht werden zu erreichen, allerdings stellt es auch den optimalen Fall dar und je nach Daten ist dieser auch schlichtweg nicht zu erreichen. Daher soll hier darauf verzichtet werden. Wird nun die Matrix der Ladungen der polychorischen Berechnungen betrachtet, können zwar unterschiedliche Werte festgestellt werden, allerdings laden die Indikatoren ebenfalls am höchsten auf das vorher spezifizierte Konstrukt. Zu beachten sind die unterschiedlichen Bezeichnungen der Faktoren. MR3 ist nun die latente Variable Preis\_Leistung, MR1 die Performance und MR2 die Kundenzufriedenheit. Da die Namen der Variablen vom Autor zugeordnet werden und dabei lediglich auf die Ladungen der Indikatoren geachtet wird, haben die veränderten Namen der Faktoren keinen Einfluss auf das Ergebnis.\\
-Mit der fa.diagram() Funktion können die Ergebnisse auch in einem leicht verständlichen Diagramm dargestellt werden. Dieses sieht nun wie das mit dem semPLS Paket spezifizierte äußere Modell aus. Die Faktoren werden analog zu den Konstrukten im Strukturgleichungsmodell als Kreise dargestellt und die Indikatoren als Rechtecke. Die Ladungen stehen an den Pfeilen, welche Richtung der Indikatoren verlaufen, also reflektiv definiert sind. Hier ist ebenfalls zu sehen, dass sich die Berechnungen auf Basis von Pearson und polychorischen Korrelationen zwar in der Höhe einiger Ladungen unterscheiden, letztendlich jedoch zum gleichen Ergebnis kommen. Allerdings ist dies nicht immer der Fall und deshalb sollte überlegt werden welche Methode die geeignetere für einen gegebenen Datensatz darstellt. Im vorliegenden Fall sind die Autoren der Meinung, dass mit polychorischen Korrelationen gerechnet werden sollte, da die Daten mit Hilfe von Likert Skalen erhoben wurden.
+Anschließend werden diese wie gewohnt in die R-Session geladen. Der Datensatz muss nicht noch einmal eingelesen werden, falls dies schon erfolgte. Hier wird dieser erneut eingelesen, da die explorative Faktorenanalyse auch vor der Modellspezifikation erfolgen kann und somit Konstrukte aus vorhandenen Daten gebildet werden, statt diese persönlich manuell zu erstellen.\\
+Zunächst muss der gewünschte Teildatensatz extrahiert werden. In diesem Fall wurden die Indikatoren bereits gewählt und daher werden diese auch als Teildatensatz für die Faktorenanalyse in der Variable "indicatorset" gespeichert. Alternativ könnten auch noch andere Indikatoren hinzugefügt werden, von denen vermutet wird, dass sie zu einem spezifizierten Konstrukt passen. Um die Anzahl der Faktoren zu bestimmten, wird zunächst eine parallel Analyse nach Horn\cite{horn1965rationale} durchgeführt. Alternativ könnte auch in Scree-Test oder das Kaiser-Guttman-Kriterium herangezogen werden, allerdings herrscht in der Literatur Konsens darüber, dass die parallel Analyse diesen überlegen ist.\cite{dinno2009exploring} Die nachfolgenden Berechnungen und Erklärungen sollen lediglich der Illustration dienen, da die Autoren der Meinung sind, dass sich vorher mit der Methodik, den Annahmen und der Interpretation der Ergebnisse intensiver beschäftigt werden sollte, statt blind Funktionen auszuführen, dessen Funktionsweise noch nicht gänzlich recherchiert wurde. Eine gute Einstiegsliteratur dazu ist beispielsweise Hayton's Tutorial zur parallel Analyse\cite{hayton2004factor} und das Kapitel zur explorativen Faktorenanalyse im Buch Multivariate Data Analysis von Hair et al.\cite{hair2006multivariate}\\
+Die parallel Analyse wird mit der Funktion fa.parallel() aufgerufen und erhält als Parameter den Teil-Datensatz indicatorset, sowie fa="fa", das lediglich dazu dient die Hauptkomponentenanalyse nicht im Plot zu zeigen, da sie in diesem Fall nicht von Interesse ist. Zu beachten ist hier, dass mehr Beobachtungen als Variablen in diesem Datensatz enthalten sein müssen. Dies ist in dem genannten Fall mit 261 Beobachtungen und 9 Variablen gewährleistet. Laut des Outputs in der Console werden 3 Faktoren vorgeschlagen. (Die Anzahl der Komponenten kann ignoriert werden, da eine Faktorenanalyse das Ziel ist und keine Hauptkomponentenanalyse). Dies ist ebenfalls im dazugehörigen Scree Plot zu sehen: Auf der X-Achse ist die Anzahl der Faktoren und auf der Y-Achse die Eigenwerte der Faktorenanalyse dargestellt. Die blaue durchgezogene Linie, unterbrochen durch Dreiecke stellt die Eigenwerte der Faktoren dar. Solange die Dreiecke oberhalb der gestrichelten roten Linie der Faktorenanalyse liegen, können diese Faktoren extrahiert werden. Die gestrichelte rote Linie stellt dabei die durchschnittlichen Eigenwerte von zufälligen, unkorrelierten, simulierten Daten dar.\\
+Alternativ kann die parallel Analyse auch mit der polychorischen Korrelation statt des Bravais-Pearson Korrelationskoeffizienten berechnet werden, welche sich speziell für Likert-Skalen eignet.\cite{joreskog1986prelis} Dies geschieht in R mit der Funktion fa.parallel.poly(), welche die gleichen Parameter erhält, sowie eine global Parameter der auf TRUE gesetzt wird. Dieser soll dazu dienen zu signalisieren, dass alle Variablen die gleiche Anzahl an Antwortalternativen besitzen (In diesem Fall 1-5, sowie NA für fehlende Werte). Allerdings wird dieser laut Consolen Output wieder auf false gesetzt, da im Datensatz indicatorset Variablen enthalten sind, dessen Beobachtungen nicht die volle Skala von 1-5 aufweisen, obwohl dies möglich wäre. Für dieses Problem wurde noch keine Lösung erarbeitet und daher sollten die Ergebnisse dieser Berechnung kritisch angesehen werden. Der Consolen Output rät wieder zu einer Anzahl von 3 Faktoren, was ebenfalls wieder im Scree-Plot zu sehen ist. Da beide Verfahren die Faktorenanzahl von 3 liefern und im Vorhinein ebenfalls von 3 Faktoren (Preis\_Leistung, Performance, Kundenzufriedenheit) ausgegangen wurde, soll nun also die Faktorenanalyse mit 3 Faktoren angewendet werden.\\
+Dazu wird die Methode fa(), mit dem Datensatz indicatorset, nfactors = 3 und rotation="varimax" als Parametern, aufgerufen. "Nfactors" gibt dabei die zuvor ermittelte Anzahl an Faktoren von 3, und "rotation" die Rotationsmethode an. Diese wurde auf varimax gesetzt, da dies unterstellt, dass die extrahierten Faktoren unabhängig voneinander sind. Da die Faktoren später nichts anderes als die Konstrukte, also latenten Variablen sind und diese sich inhaltlich unterscheiden sollten (siehe Diskriminanzvalidität), erscheint diese Rotationsmethode zweckmäßig. Die Wahl der Rotationsmethode besitzt eine gewisse Robustheit\cite{zwick1986comparison}, allerdings sollte bei der Anwendung die gewählte Methode argumentativ gestützt werden oder die Ergebnisse unterschiedlicher Methoden verglichen werden. Für eine ausführliche Erläuterung der Rotationsmethoden siehe beispielweise Mulaik.\cite{mulaik1972foundations} Ebenfalls muss die Methode zur Faktorextrahierung ausgewählt werden. Dies geschieht mit dem Parameter fm, welcher als Standard auf fm="minres" (minimales Residuum) gesetzt ist. Auch hier sollte vorher recherchiert werden, inwieweit sich diese unterscheiden und welche unter den gegebenen Daten am sinnvollsten erscheint oder auch verschiedene Ergebnisse verglichen werden. (siehe dazu auch Hayton S.193ff.\cite{hayton2004factor} ) Anschließend wird analog zur parallel Analyse die Faktorenanalyse mittels der fa.poly() Funktion mit polychorischen Korrelationen berechnet. Nun werden die Ergebnisse mit Hilfe der print() Funktion, welche als zusätlichen Parameter noch cut = 0.3 bekommt, in die Console geschrieben. Dieser Parameter dient lediglich der Übersichtlichkeit, er unterdrückt Werte die kleiner als 0.3 sind, damit die Matrix der Ladungen besser leslich wird. Als Spalten werden nun die Faktoren MR1, MR2 und MR3 gelistet und als Zeilen die jeweiligen Indikatoren. Nun können die Konstrukte gebildet oder in diesem Fall überprüft werden. Dazu wird noch einmal PB\_model aufgerufen, um die ursprünglichen Zuordnungen anzuzeigen.\\
+Der Faktor ML2 weißt hohe Ladungen bei den Indikatoren SQ009, SQ076, SQ092, SQ101 und SQ096 auf. Dieser kann also als das Konstrukt Preis\_Leistung identifiziert werden. Generell sollten die Indikatoren die höchste Ladung bei dem Faktor aufzeigen, dem sie auch vorher in Form eines Konstrukts zugeordnet worden sind. Falls vorher noch keine Konstrukte gebildet wurden, werden die Fragen nach einem gemeinsamen inhaltlichen Kern abgesucht und anschließend ein dazu passender Name ausgedacht. Auf Faktor ML1 laden die Indikatoren SQ079 und SQ080 am höchsten, dies scheint also die latente Variable Performance zu sein. Abschließend laden SQ046 und SQ110 am höchsten auf ML3, welcher die Kundenzufriedenheit wiederspiegelt. Im Idealfall entsteht eine "Treppe" und die Indikatoren laden nur stark auf einen Faktor. Dies ist mit SQ101 und SQ110 nicht der Fall, da diese noch auf einen jeweils anderen Faktor laden. Das könnte nun durch eine Reihe von Umstrukturierungen versucht werden zu erreichen, allerdings stellt es auch den optimalen Fall dar und je nach Daten ist dieser auch schlichtweg nicht zu erreichen. Daher soll hier darauf verzichtet werden. Wird nun die Matrix der Ladungen der polychorischen Berechnungen betrachtet, können zwar unterschiedliche Werte festgestellt werden, allerdings laden die Indikatoren ebenfalls am höchsten auf das vorher spezifizierte Konstrukt. Zu beachten sind die unterschiedlichen Bezeichnungen der Faktoren. MR3 ist nun die latente Variable Preis\_Leistung, MR1 die Performance und MR2 die Kundenzufriedenheit. Da die Namen der Variablen vom Autor zugeordnet werden und dabei lediglich auf die Ladungen der Indikatoren geachtet wird, haben die veränderten Namen der Faktoren keinen Einfluss auf das Ergebnis.\\
+Mit der fa.diagram() Funktion können die Ergebnisse auch in einem leicht verständlichen Diagramm dargestellt werden. Dieses sieht nun wie das mit dem semPLS Paket spezifizierte äußere Modell aus. Die Faktoren werden analog zu den Konstrukten im Strukturgleichungsmodell als Kreise dargestellt und die Indikatoren als Rechtecke. Die Ladungen stehen an den Pfeilen, welche in Richtung der Indikatoren verlaufen, also reflektiv definiert sind. Hier ist ebenfalls zu sehen, dass sich die Berechnungen auf Basis von Pearson und polychorischen Korrelationen zwar in der Höhe einiger Ladungen unterscheiden, letztendlich jedoch zum gleichen Ergebnis kommen. Allerdings ist dies nicht immer der Fall und deshalb sollte überlegt werden welche Methode die geeignetere für einen gegebenen Datensatz darstellt. Im vorliegenden Fall sind die Autoren der Meinung, dass mit polychorischen Korrelationen gerechnet werden sollte, da die Daten mit Hilfe von Likert Skalen erhoben wurden.
 
 \paragraph{Indikatorreliabilität} 
 
@@ -616,7 +603,7 @@ Die sogenannten äußeren Ladungen (outer loadings) wurden bereits mit der Funkt
 <<outer>>=
 PB_model$outer_loadings
 @
-Beim Konstrukt Preis\_Leistung sind die Ladungen der Indikatoren SQ096 und SQ101 unter den gewünschten 0.7, jedoch noch über dem Minimum von 0.4. Hier muss also abgewogen werden ob diese gelöscht werden sollten. Da sich die Konstruktreliabilität von 0.74 auf 0.89 verbessert werden diese entfernt und es entsteht das folgende Modell: 
+Beim Konstrukt Preis\_Leistung sind die Ladungen der Indikatoren SQ096 und SQ101 unter den gewünschten 0.7, jedoch noch über dem Minimum von 0.4. Hier muss also abgewogen werden, ob diese gelöscht werden sollten. Da sich die Konstruktreliabilität von 0.74 auf 0.89 verbessert, werden diese entfernt und es entsteht das folgende Modell: 
 <<new, message=FALSE>>=
 #specify new model
 new_PB_model <- sempls(model = plsm(data = CBdata, 
@@ -637,7 +624,7 @@ new_PB_model
 
 
 @
-Der Code wurde hier auf das nötigste reduziert, da dieser bereits im Kapitel semPLS ausführlicher dargestellt wurde. Auf die Konstruktreliabilität wird im nächsten Abschnitt eingegangen. Neben den verbesserten Ladungen und damit der Konstruktreliabilität durch das Löschen ist jedoch auch zu sehen, dass der Pfadkoeffizient von Preis\_Leistung zu Kundenzufriedenheit von 0.34 auf 0.29 gesunken ist. Hier müssen also die Vor- und Nachteile wie bereits erwähnt abgewogen werden. Im Idealfall lässt sich ein anderer Indikator finden, welcher beide Werte verbessert. Da das Modell jedoch nur zur Demonstration dient, wird dies an dieser Stelle jedoch unterlassen.
+Der Code wurde hier auf das Nötigste reduziert, da dieser bereits im Kapitel semPLS ausführlicher dargestellt wurde. Auf die Konstruktreliabilität wird im nächsten Abschnitt eingegangen. Neben den verbesserten Ladungen und damit der Konstruktreliabilität durch das Löschen, ist jedoch auch zu sehen, dass der Pfadkoeffizient von Preis\_Leistung zu Kundenzufriedenheit von 0.34 auf 0.29 gesunken ist. Hier müssen also die Vor- und Nachteile abgewogen werden. Im Idealfall lässt sich ein anderer Indikator finden, welcher beide Werte verbessert. Da das Modell jedoch nur zur Demonstration dient, wird dies an dieser Stelle jedoch unterlassen.
 
 \paragraph{Konstruktreliabilität} 
 
@@ -658,11 +645,11 @@ Die korrespondierende Funktion heißt im semPLS Paket dgrho() und erhält als ei
 dgrho(PB_model)
 dgrho(new_PB_model)
 @
-Hier erkennt man die Steigerung des rho der latenten Variable Preis\_Leistung von 0.74 im alten Modell auf 0.89 im neuen Modell, welche durch das löschen der Indikatoren SQ096 und SQ101 erreicht wurde. Außerdem liegen alle rhos über den in der Literatur üblichen Empfehlungen von mindestens 0.6 bis 0.7.\cite{nunnally1978c,bagozzi1988evaluation} Allerdings muss bei zu hohen Werten (>0.95) untersucht werden ob die Indikatoren nicht eventuell einfach das gleiche messen.
+Hier erkennt man die Steigerung des rho der latenten Variable Preis\_Leistung von 0.74 im alten Modell auf 0.89 im neuen Modell, welche durch das Löschen der Indikatoren SQ096 und SQ101 erreicht wurde. Außerdem liegen alle rhos über den in der Literatur üblichen Empfehlungen von mindestens 0.6 bis 0.7.\cite{nunnally1978c,bagozzi1988evaluation} Allerdings muss bei zu hohen Werten (>0.95) untersucht werden ob die Indikatoren nicht eventuell einfach das selbe messen.
 
 \paragraph{Diskriminanzvalidität} 
 
-Darunter wird die Unterschiedlichkeit der Messungen verschiedener Konstrukte mit einem Messinstrument verstanden. Vereinfacht bedeutet dies, dass ein Konstrukt einzigartig sein sollte und sich daher von anderen Kontrukten unterscheiden sollte. Gemessen werden kann dies unter anderem mit dem Fornell \& Larcker Kriterium\cite{fornell1981structural}, welches besagt dass die gemeinsame Varianz zwischen einer latenten Variablen und ihren Indikatoren größer sein soll als die gemeinsame Varianz mit anderen latenten Variablen. Hierzu wird zunächst die durchschnittlich erfasste Varianz nach der folgenden Formel berechnet:
+Darunter wird die Unterschiedlichkeit der Messungen verschiedener Konstrukte mit einem Messinstrument verstanden. Vereinfacht bedeutet dies, dass ein Konstrukt einzigartig sein sollte und sich daher von anderen Kontrukten unterscheiden sollte. Gemessen werden kann dies unter anderem mit dem Fornell \& Larcker Kriterium\cite{fornell1981structural}, welches besagt, dass die gemeinsame Varianz zwischen einer latenten Variable und ihren Indikatoren größer sein soll als die gemeinsame Varianz mit anderen latenten Variablen. Hierzu wird zunächst die durchschnittlich erfasste Varianz nach der folgenden Formel berechnet:
 \begin{equation}
 DEV = \sum_{i}^{}\frac{\lambda_{i}^{2}}{\sum_{i}^{}\lambda_{i}^{2}+\sum_{i}^{}var(\epsilon_{i})}
 \end{equation}
@@ -680,16 +667,16 @@ PB_model$path_coefficients^2
 communality(new_PB_model)
 new_PB_model$path_coefficients^2
 @
-Ist nun die jeweils ermittelte durchschnittlich erfasste Varianz eines Konstrukts höher als jede quadrierte Korrelation mit einem anderen Konstrukt, ist das Fornell \& Larcker Kriterium erfüllt. Dies ist im alten, sowie im neuen Modell gegeben. Beachte auch die gesteigerte DEV der Preis\_Leistung im neuen Modell, welche sich durch das Löschen der zwei Indikatoren ergibt.\\
+Ist nun die jeweils ermittelte durchschnittlich erfasste Varianz eines Konstrukts höher als jede quadrierte Korrelation mit einem anderen Konstrukt, ist das Fornell \& Larcker Kriterium erfüllt. Dies ist im alten, sowie im neuen Modell gegeben. Zu beachten ist auch die gesteigerte DEV der Preis\_Leistung im neuen Modell, welche sich durch das Löschen der zwei Indikatoren ergibt.\\
 \\
-Eine weitere Methode die Diskriminanzvalidität zu überprüfen stellt das Analysieren der "cross loadings" dar.
+Eine weitere Methode die Diskriminanzvalidität zu überprüfen, stellt das Analysieren der "cross loadings" dar.
 <<cross>>=
 PB_model$cross_loadings
 new_PB_model$cross_loadings
 @
-Hier sollten die Ladungen der Indikatoren auf das im Modell entsprechend zugeordnete Konstrukt am höchsten sein und idealerweise, jedoch nicht notwendigerweise die Ladungen auf andere Konstrukte unter 0.7 betragen. Dies ist sowohl im Ausgangsmodell als auch im neuen Modell erfüllt.\\
+Hier sollten die Ladungen der Indikatoren auf das im Modell entsprechend zugeordnete Konstrukt am höchsten sein und idealerweise, jedoch nicht notwendigerweise, die Ladungen auf andere Konstrukte unter 0.7 betragen. Dies ist sowohl im Ausgangsmodell als auch im neuen Modell erfüllt.\\
 \\
-Damit sind alle Kriterien an das reflektive Messmodell erfüllt. Bei komplexen Modellen sind diese Kennzahlen nicht immer alle erfüllt, jedoch liefern sie wertvolle Maßzahlen an denen sich Ersteller des Modells bei der Spezifikation orientieren kann. Am Ende sollte der Ersteller sich allerdings nicht  ausschließlich auf diese Kennzahlen verlassen und jegliche Logik ausschalten, sondern diese auch kritisch hinterfragen, sowie das Gesamtmodell im Auge behalten. So könnte z.B. durch reine Beachtung der Kennzahlen ein Modell, welches diese perfekt erfüllt erstellt werden, jedoch am Ende die für den Ersteller eigentlich wichtigen latenten Variablen gar nicht oder nur schlecht erklärt.
+Damit sind alle Kriterien an das reflektive Messmodell erfüllt. Bei komplexen Modellen sind diese Kennzahlen nicht immer alle erfüllt, jedoch liefern sie wertvolle Maßzahlen, an denen sich Ersteller des Modells bei der Spezifikation orientieren kann. Am Ende sollte der Ersteller sich allerdings nicht  ausschließlich auf diese Kennzahlen verlassen und jegliche Logik ausschalten, sondern diese auch kritisch hinterfragen sowie das Gesamtmodell im Auge behalten. So könnte z.B. durch reine Beachtung der Kennzahlen ein Modell, welches diese perfekt erfüllt erstellt werden, jedoch am Ende die für den Ersteller eigentlich wichtigen latenten Variablen gar nicht oder nur schlecht erklärt.
 
 \subsubsection{Strukturmodell}
 
@@ -706,14 +693,14 @@ new_PB_model$total_effects
 
 \paragraph{Bootstrapping}
 
-Die Zuverlässigkeit der Pfadkoeffizienten kann mittels der Bootstrapping Methode ermittelt werden. Hierbei werden eine bestimmte Anzahl und Größe an Teilmengen zufällig aus dem original Datensatz gezogen und jeweils mit diesen Teilmengen das Modell berechnet. Somit erhält man Intervalle mit durchschnitts, minimalen, maximalen Werten, sowie Standardfehler der jeweiligen Beziehung.
+Die Zuverlässigkeit der Pfadkoeffizienten kann mittels der Bootstrapping Methode ermittelt werden. Hierbei werden eine bestimmte Anzahl und Größe an Teilmengen zufällig aus dem original Datensatz gezogen und jeweils mit diesen Teilmengen das Modell berechnet. Somit erhält man Intervalle mit Durchschnitts, minimalen, maximalen Werten, sowie Standardfehler der jeweiligen Beziehung.
 
 <<boot, message=FALSE>>=
 #create seed with arbitrary number
 set.seed(123)
 
 #execute algorithm
-new_PB_model_boot <- bootsempls(new_PB_model, nboot=200, verbose=FALSE)
+new_PB_model_boot <- bootsempls(new_PB_model, nboot=5000, verbose=FALSE)
 
 #show results
 new_PB_model_boot
@@ -741,10 +728,10 @@ densityplot(new_PB_model_boot, pattern="lam")
 @
 
 Beschreibung zum Code:\\
-Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: new\_PB\_model, die Anzahl der samples: nboot=5000 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
-Mit new\_PB\_model\_boot wird das erzeugte Objekt ausgegeben. Es enthält die Berechnungen der äußeren Ladungen und Pfadkoeffizienten, sowie den entsprechenden Bias und Standardfehler. Mit dem summary() Befehl wird zusätzlich noch der niedrigste und Höchste Wert angezeigt bei einem Konfidenzintervall von 0.95 (siehe Parameter level=0.95). Dies bedeutet dass die niedrigsten und höchsten Werte nur für das Konfidenzintervall von 95\% gezeigt werden. Es werden also jeweils 2.5\% unten und oben "abgeschnitten", da diese nicht häufig genug vorkommen um repräsentativ zu sein. In der Ausgabe stehen allerdings die Beziehungen nun in einer anderen Notation, wie schon beim Plot des Strukturmodells als Pfadmodell. Durch den Befehl new\_PB\_model\_boot\$fitted\_model können jedoch bequem beide Notationen angezeigt werden und somit "übersetzt" werden.\\
-Anschließend werden diese Daten graphisch mit der Funktion parallelplot() dargestellt. Diese erhält als Parameter das neu erstellte Objekt new\_PB\_model\_boot, die Teilmenge new\_PB\_model\_boot\$t und eine refline an der Stelle 0. Die Teilmenge t ist dabei eine Matrix mit den berechneten Werten jeder einzelnen Bootstrap Replikation (Stichprobenziehung, case). Die Referenzlinien bei -1,0,1 dienen lediglich dazu, einschätzen zu können ob die Werte negativ oder positiv sind. Der Plot zeigt die schon erwähnten Pfadkoeffizienten, bzw. äußeren Ladungen aus der t Matrix in visueller Form. Eine graue Linie steht dabei für jeweils eine Stichprobenziehung. Die durchgezogene rote Linie zeigt die usprünglichen "originalen" (ohne Bootstrapping) ermittelten Beziehungen an. Die gestrichelte rote Linie gibt die Werte, welche innerhalb des Konfidenzintervall von 0.95 liegen an. Die gestrichelten vertikalen schwarzen Linien stellen die Referenzlinien bei -1, 0, 1 dar. Auf der Y-Achse sind die jeweiligen Beziehungen dargestellt und auf der X-Achse die entsprechenden Werte von -1 bis 1. Anschließend kann durch den zusätzlichen Parameter pattern="beta" (pattern="lam") nur die Pfadkoeffizienten (äußeren Ladungen) der Plot auf die jeweilige Beziehung beschränkt werden. Eine weitere Möglichkeit der Visualisierung stellt die densityplot() Funktion dar, welche analog die Ergebnisse in einer Verteilungsfunktion zeigt.\\
-Die empirischen t-Werte (Achtung nicht verwechseln mit der oben genannten t Matrix, diese heißt lediglich so) werden nun mit der folgenden Formel ermittelt:
+Zunächst wird ein "seed" erstellt, da beim bootstrapping Verfahren mit jedem erneuten Ausführen zufällige unterschiedliche Datensätze (samples) gebildet werden. Mit der Funktion set.seed() kann der Status des Zufallsgenerator gespeichert werden, sodass bei erneutem ausführen der bootsempls() Funktion die gleichen samples und somit auch die gleichen Werte berechnet werden. Die Funktion bootsempls() erhält als Parameter das Modell: new\_PB\_model, die Anzahl der Samples: nboot=5000 und verbose=TRUE zeigt den Prozess des bootstrapping in der Console an. Nboot, also die Anzahl der Samples, sollte mindestens höher als die originale Anzahl der Beobachtungen sein, eine Größe von 5000 wird empfohlen. Die "cases", also die Größe der einzelnen Samples sollte der Anzahl der validen Beobachtungen entsprechen. Dies muss jedoch nicht extra als Parameter an die bootsempls() Methode übergeben werden.\\
+Mit new\_PB\_model\_boot wird das erzeugte Objekt ausgegeben. Es enthält die Berechnungen der äußeren Ladungen und Pfadkoeffizienten sowie den entsprechenden Bias und Standardfehler. Mit dem summary() Befehl wird zusätzlich noch der niedrigste und höchste Wert angezeigt bei einem Konfidenzintervall von 0.95 (siehe Parameter level=0.95). Dies bedeutet, dass die niedrigsten und höchsten Werte nur für das Konfidenzintervall von 95\% gezeigt werden. Es werden also jeweils 2.5\% unten und oben "abgeschnitten", da diese nicht häufig genug vorkommen, um repräsentativ zu sein. In der Ausgabe stehen allerdings die Beziehungen nun in einer anderen Notation, wie schon beim Plot des Strukturmodells als Pfadmodell. Durch den Befehl new\_PB\_model\_boot\$fitted\_model können jedoch bequem beide Notationen angezeigt werden und somit "übersetzt" werden.\\
+Anschließend werden diese Daten graphisch mit der Funktion parallelplot() dargestellt. Diese erhält als Parameter das neu erstellte Objekt new\_PB\_model\_boot, die Teilmenge new\_PB\_model\_boot\$t und eine refline an der Stelle 0. Die Teilmenge t ist dabei eine Matrix mit den berechneten Werten jeder einzelnen Bootstrap Replikation (Stichprobenziehung, case). Die Referenzlinien bei -1,0,1 dienen lediglich dazu, einschätzen zu können ob die Werte negativ oder positiv sind. Der Plot zeigt die schon erwähnten Pfadkoeffizienten, bzw. äußeren Ladungen aus der t Matrix in visueller Form. Eine graue Linie steht dabei für jeweils eine Stichprobenziehung. Die durchgezogene rote Linie zeigt die ursprünglichen "originalen" (ohne Bootstrapping) ermittelten Beziehungen an. Die gestrichelte rote Linie gibt die Werte, welche innerhalb des Konfidenzintervall von 0.95 liegen an. Die gestrichelten vertikalen schwarzen Linien stellen die Referenzlinien bei -1, 0, 1 dar. Auf der Y-Achse sind die jeweiligen Beziehungen dargestellt und auf der X-Achse die entsprechenden Werte von -1 bis 1. Anschließend kann durch den zusätzlichen Parameter pattern="beta" (pattern="lam") nur die Pfadkoeffizienten (äußeren Ladungen) der Plot auf die jeweilige Beziehung beschränkt werden. Eine weitere Möglichkeit der Visualisierung stellt die densityplot() Funktion dar, welche analog die Ergebnisse in einer Verteilungsfunktion zeigt.\\
+Die empirischen t-Werte (Nicht zu verwechseln mit der oben genannten t Matrix, diese heißt lediglich so) werden nun mit der folgenden Formel ermittelt:
 \begin{equation}
 t = \frac{p_{ij}}{se^{*}_{p_{ij}}}
 \end{equation}
@@ -781,7 +768,7 @@ Die Kennzahl $R^2$ ist ein Messzahl für den erklärten Anteil der Varianz einer
 rSquared(PB_model)
 rSquared(new_PB_model)
 @
-Allerdings lässt sich laut Backhaus et al.\cite{backhaus2004industriegutermarketing} keine allgemein gültige Aussage formulieren, ab welcher Höhe ein $R^{2}$ als gut zu betrachten ist, da dies von der Problemstellung abhängt. In der Marketing Forschung werden als Daumenregel $R^{2}$ Werte von 0.75, 0.50 und 0.25 als wesentlich, moderat und schwach angesehen.\cite{hair2011pls,henseler2009use} Modelle sollten nicht auf Basis der $R^{2}$ Werte spezifiziert werden, da diese künstlich durch lediglich genügend erklärende Variablen erhöht werden können. Stattdessen sollen die $R^{2}$ Werte zwar hoch sein, jedoch mit einer möglichst geringen Anzahl an erklärende Variablen. Dazu gibt es das korrigierte $R^{2}_{adj}$, welches zusätzlich die Anzahl der exogenen Variablen in der Berechnung berücksichtigt und somit Modelle vergleichbar macht, die mit einer unterschiedlichen Anzahl an erklärenden Variablen einen unterschiedlichen $R^{2}$ Wert erreichen. Da dies jedoch in dem vorgestellten Modell aufgrund der lediglich 2 exogenen Variablen wenig Sinnvoll ist, wird dies hier nur zur Veranschaulichung demonstriert. 
+Allerdings lässt sich laut Backhaus et al.\cite{backhaus2004industriegutermarketing} keine allgemeingültige Aussage formulieren, ab welcher Höhe ein $R^{2}$ als gut zu betrachten ist, da dies von der Problemstellung abhängt. In der Marketing Forschung werden als Daumenregel $R^{2}$ Werte von 0.75, 0.50 und 0.25 als wesentlich, moderat und schwach angesehen.\cite{hair2011pls,henseler2009use} Modelle sollten nicht auf Basis der $R^{2}$ Werte spezifiziert werden, da diese künstlich durch lediglich genügend erklärende Variablen erhöht werden können. Stattdessen sollen die $R^{2}$ Werte zwar hoch sein, jedoch mit einer möglichst geringen Anzahl an erklärende Variablen. Dazu gibt es das korrigierte $R^{2}_{adj}$, welches zusätzlich die Anzahl der exogenen Variablen in der Berechnung berücksichtigt und somit Modelle vergleichbar macht, die mit einer unterschiedlichen Anzahl an erklärenden Variablen einen unterschiedlichen $R^{2}$ Wert erreichen. Da dies jedoch in dem vorgestellten Modell aufgrund der lediglich 2 exogenen Variablen wenig sinnvoll ist, wird dies hier nur zur Veranschaulichung demonstriert. 
 \begin{equation}
  R^{2}_{adj} = 1-(1-R^{2})*\frac{n-1}{n-k-1}
 \end{equation}
@@ -810,8 +797,8 @@ adjrSquared <- 1-(1-rSquared(new_PB_model)[3])*((210-1)/(210-2-1))
 #print result
 adjrSquared
 @
-Hier wird nun das korrigierte $R^{2}$ für die endogene latente Variable Kundenzufriedenheit berechnet. Dies geschieht nach der oben vorgestellten Formel. Erwähnenswert ist hier die Nummer 3 in den eckigen Klammern nach der normalen rSquared() Funktion. Diese ist eigentlich nicht notwendig, da lediglich 1 $R^{2}$ berechnet wurde, falls es jedoch mehrere erklärte (endogene) Variablen gibt wird diese wichtig, da mit der oben Vorgestellten Formel nicht ein kompletter Vektor berechnet werden kann wie bei den Standardfehlern. Dies begründet sich dadurch, dass die Zahl (k) der exogenen, also erklärenden Variablen für jede endogene, erklärte Variable unterschiedlich ist. Somit kann mit den eckigen Klammern wie bei einem Array lediglich das $R^{2}$ der Kundenzufriedenheit angesprochen werden. Kundenzufriedenheit hat 2 erklärende Variablen Performance und Preis\_Leistung, daher beträgt k = 2. Nun fehlt nur noch die Zahl der Beobachtungswerte (n) welche mit 210 ausgewiesen sind. Dies kann entweder nach dem durchführen der sempls() Methode in der Console als Output abgelesen werden (Total number of complete cases: 210) oder durch Subtraktion der nicht validen Fälle von der gesamten Fallzahl (N).\\
-Beachte jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern lediglich zum Vergleich mit anders spezifizierten Modellen herangezogen wird. Zur Veranschaulichung wird erneut ein neues Modell spezifiziert, welches die weiteren exogenen Variablen Ambiente und Kenntnisstand beinhaltet, die beide ebenfalls die Kundenzufriedenheit erklären.
+Hier wird nun das korrigierte $R^{2}$ für die endogene latente Variable Kundenzufriedenheit berechnet. Dies geschieht nach der oben vorgestellten Formel. Erwähnenswert ist hier die Nummer 3 in den eckigen Klammern nach der normalen rSquared() Funktion. Diese ist eigentlich nicht notwendig, da lediglich 1 $R^{2}$ berechnet wurde, falls es jedoch mehrere erklärte (endogene) Variablen gibt wird diese wichtig, da mit der oben Vorgestellten Formel nicht ein kompletter Vektor berechnet werden kann wie bei den Standardfehlern. Dies begründet sich dadurch, dass die Zahl (k) der exogenen, also erklärenden Variablen für jede endogene, erklärte Variable unterschiedlich ist. Somit kann mit den eckigen Klammern lediglich das $R^{2}$ der Kundenzufriedenheit angesprochen werden. Kundenzufriedenheit hat 2 erklärende Variablen Performance und Preis\_Leistung, daher beträgt k = 2. Nun fehlt nur noch die Zahl der Beobachtungswerte (n), welche mit 210 ausgewiesen sind. Dies kann entweder nach dem durchführen der sempls() Methode in der Console als Output abgelesen werden (Total number of complete cases: 210) oder durch Subtraktion der nicht validen Fälle von der gesamten Fallzahl (N).\\
+Zu beachten ist jedoch, dass $R^{2}_{adj}$ nicht wie $R^{2}$ interpretiert wird, sondern lediglich zum Vergleich mit anders spezifizierten Modellen herangezogen wird. Zur Veranschaulichung wird erneut ein neues Modell spezifiziert, welches die weiteren exogenen Variablen Ambiente und Kenntnisstand beinhaltet, die beide ebenfalls die Kundenzufriedenheit erklären.
 <<diff, message=FALSE>>=
 #specify new model
 diff_PB_model <- sempls(model = plsm(data = CBdata, 
@@ -844,10 +831,10 @@ new_adjrSquared
 #compare to old adjusted rSquared
 adjrSquared
 @
-Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821, wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet sieht man dass das alte mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche kleine Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
+Durch die zwei weiteren exogenen latenten Variablen stieg $R^{2}$ von 0.3797589 auf 0.3814821. Wird nun jedoch das korrigierte $R^{2}_{adj}$ berechnet, ist zu erkennen dass das alte Modell mit 0.3737663 besser als das neue Modell mit 0.3663223 ist. Diese Unterschiede sind sehr gering und werden beim Runden der Werte nicht einmal Sichtbar, man könnte dies jedoch auf die Spitze treiben und zum Beispiel 50 exogene Variablen spezifizieren und somit ein höheres $R^{2}$ erzielen, zur Verdeutlichung reichen allerdings auch solche geringen Unterschiede. Generell sollte darauf geachtet werden ein möglichst hohes $R^{2}$ mit möglichst wenigen erklärenden Variablen zu erzielen. Falls zwischen einem höheren $R^{2}$ oder weniger exogenen Variablen entschieden werden muss, bietet das $R^{2}_{adj}$ eine sinnvolle Kennzahl zur Entscheidung.
 
 \paragraph{Erklärungsbeitrag}
-Die Effektgröße gibt an, welchen Erklärungsbeitrag eine exogene latente Variable auf eine endogene latente Variable hat. Dies wird über die Änderung des $R^{2}$ der endogenen Variable, bei löschen oder hinzufügen von exogenen Variablen, gemessen.\\
+Die Effektgröße gibt an, welchen Erklärungsbeitrag eine exogene latente Variable auf eine endogene latente Variable hat. Dies wird über die Änderung des $R^{2}$ der endogenen Variable, beim löschen oder hinzufügen von exogenen Variablen, gemessen.\\
 Diese berechnet sich nach Cohen\cite{cohen1988statistical} wie folgt:
 \begin{equation}
 f^{2} = \frac{R^{2}_{incl}-R^{2}_{excl}}{1-R^{2}_{incl}}
@@ -875,7 +862,8 @@ excl_pl_PB_model <- sempls(model = plsm(data = CBdata,
 rSquared(excl_pl_PB_model)[2]
 
 #calculate fSquared for Preis_Leistung  
-pl_fSquared <-   (rSquared(new_PB_model)[3]-rSquared(excl_pl_PB_model)[2])/(1-rSquared(new_PB_model)[3])
+pl_fSquared <-   (rSquared(new_PB_model)[3]-rSquared(excl_pl_PB_model)[2])/
+                  (1-rSquared(new_PB_model)[3])
 
 #show fSquared Preis_Leistung
 pl_fSquared
@@ -893,7 +881,8 @@ excl_perf_PB_model <- sempls(model = plsm(data = CBdata,
 rSquared(excl_perf_PB_model)[2]
 
 #calculate fSquared for Performance
-perf_fSquared <- (rSquared(new_PB_model)[3]-rSquared(excl_perf_PB_model)[2])/(1-rSquared(new_PB_model)[3])
+perf_fSquared <- (rSquared(new_PB_model)[3]-rSquared(excl_perf_PB_model)[2])/
+                  (1-rSquared(new_PB_model)[3])
   
 #show fSquared Performance
 perf_fSquared
@@ -966,17 +955,9 @@ Dieser wurde jedoch von Henseler und Sarstedt konzeptionell und empirisch kritis
 
 
 
-<<>>=
-CB_data_F<- subset(CB_data, F040 == "F")
-CB_data_M<- subset(CB_data, F040 == "M")
-@
-
-
-
-
 \newpage
 \section{Resultate}%Unsere Resultate stehen hier. 
-\subsection{Eigenes Modell nach Bukrhardt}
+\subsection{Eigenes Modell nach Burkhardt}
 
 
 
@@ -999,8 +980,296 @@ Ausgehend von Modell \ref{ausgangsmodell} haben wir uns zunächst intensiv mit d
 \end{figure}
 
 
-%insert LIST here
-\newpage
+\begin{enumerate}
+
+  \item Mitwirkungsfähigkeit
+		\begin{itemize}
+			\item Frage 24:
+			Ich besitze Kenntnisse im Bereich der Finanzanlagen.
+			\item Frage 29:
+			Ich habe die mir dargelegten Informationen verstanden.
+		\end{itemize}
+		
+		
+	\item Mitwirkungsbereitschaft
+		\begin{itemize}
+			\item Frage 25:
+			Ich bin der Meinung, dass ohne meine Mitwirkung auch der beste Berater keine guten Leistungen für mich erbringen kann.
+			\item Frage 26:
+			Ich bin bereit, Entscheidungskompetenzen an meinen Berater zu delegieren.
+			\item Frage 27:
+			Ich habe dem Berater alle notwendigen Vorinformationen zu meinen persönlichen Daten und meiner persönlichen Lebenssituation (finanzielle Verhältnisse, Ziele, Präferenzen) offengelegt.
+			\item Frage 28:
+			Ich halte meinen Berater über meine aktuelle Situation auf dem Laufenden, so dass er mir eventuell angepasste Empfehlungen geben kann.
+			\item Frage 30:
+			Ich scheue keinen zeitlichen Aufwand, um mit meinem Berater in Kontakt zu treten.
+			\item Frage 31:
+			Ich trage wesentlich dazu bei, mit meinem Berater eine optimale Lösung für mich zu entwickeln.
+			\item Frage 32:
+			Bei der Capital Bank bin ich weit eher bereit, zu einer optimalen Lösung beizutragen, als ich das bei mir bekannten Wettbewerbern wäre.
+			\item Frage 99:
+			Die einzelnen Anlageentscheidungen soll die Capital Bank für mich treffen.
+		\end{itemize}
+		
+		
+	\item Zufriedenheit
+		\begin{itemize}
+			\item Frage 9:
+			Ich bin mit dem angebotenen Gebührenmodell, das ich bei der Capital Bank nutze, sehr zufrieden.
+			\item Frage 22:
+			Kommunikation und Auftritt der Capital Bank sind in jeder Situation optimal.
+			\item Frage 23:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben:
+			Die Qualität von Kommunikation und Auftritt der Capital Bank ist im Vergleich zu mir bekannten Wettbewerber eine der höchsten im Private Banking.
+			\item Frage 44:
+			Ich bin mit dem Ablauf der Beratung sehr zufrieden.
+			\item Frage 46:
+			Ich bin mit meinem aktuellem Berater sehr zufrieden.
+			\item Frage 47:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben:
+			Im Vergleich zu mir bekannten Wettbewerbern hat die Capital Bank die besten Berater.
+			\item Frage 60:
+			Ich bin mit dem Engagement, das mein Berater betreibt, um mir bei meinen finanziellen Angelegenheiten zu helfen, sehr zufrieden.
+			\item Frage 61:
+			Ich bin im Allgemeinen sehr zufrieden mit den Dienstleistungen und Produkten der Capital Bank.
+			\item Frage 67:
+			Insgesamt ist die Interaktion zwischen mir und meinem Berater hervorragend.
+			\item Frage 68:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben:
+			Die Interaktion zwischen mir und meinem Berater ist im Vergleich zu mir bekannten Wettbewerbern eine der höchsten im Private Banking.
+			\item Frage 109:
+			Allgemein ist die Dienstleistungsqualität bei der Capital Bank hervorragend.
+			\item Frage 110:
+			Ich bin mit der Capital Bank absolut zufrieden.
+		\end{itemize}
+		
+		
+	\item Kunde 
+		\begin{itemize}
+			\item Frage 33:
+			Ich unterhalte mich gern mit anderen Kunden der Capital Bank, um Erfahrungen auszutauschen.
+			\item Frage 34:
+			Bei der Capital Bank kommt man schnell mit anderen Kunden in Kontakt (sei es in den Geschäftsräumen oder bei organisierten Veranstaltungen).
+			\item Frage 36:
+			Ich unterhalte mich gern mit anderen Kunden anderer Banken, um Erfahrungen auszutauschen.
+			\item Frage 37:
+			Ich bin sehr daran interessiert zu erfahren, was andere Kunden anderer Banken über die Capital Bank denken.
+			\item Frage 64:
+			Die Aussagen anderer Private Banking-Kunden zur Service-Qualität nehme ich sehr ernst.
+		\end{itemize}
+		
+		
+	\item Umfeld
+		\begin{itemize}
+			\item Frage 20:
+			In der Capital Bank herrscht eine ruhige Atmosphäre.
+			\item Frage 21:
+			Das Ambiente in der Capital Bank wird den Ansprüchen des Private Banking gerecht.
+		\end{itemize}
+		
+		
+	\item Erreichbarkeit
+		\begin{itemize}
+			\item Frage 14:
+			Mein Berater setzt weitgehend auf das direkte Gespräch mit mir.
+			\item Frage 15:
+			Mein Berater antwortet auf schriftliche Anfragen unverzüglich.
+			\item Frage 16:
+			Mein Berater ist immer sehr gut erreichbar.
+			\item Frage 19:
+			Die Niederlassung der Capital Bank ist für mich sehr gut erreichbar.
+		\end{itemize}	
+		
+		
+	\item Bindung
+		\begin{itemize}
+			\item Frage 104:
+			Ich würde mich jederzeit erneut für die Capital Bank entscheiden.
+			\item Frage 105:
+			Es gibt keinen Zweifel daran, dass ich weiterhin Kunde der Capital Bank bleibe.
+		\end{itemize}
+		
+		
+	\item Ergebnisqualität
+		\begin{itemize}
+			\item Frage 84:
+			Insgesamt ist die Qualität der Produkte und Dienstleistungen sehr hoch.
+			\item Frage 85:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben:
+			Die Qualität der Produkte ist im Vergleich zu mir bekannten Wettbewerbern eine der höchsten im Private Banking.
+		\end{itemize}
+		
+		
+	\item Leistung
+		\begin{itemize}
+			\item Frage 9:
+			Ich bin mit dem angebotenen Gebührenmodell, das ich bei der Capital Bank nutze, sehr zufrieden.
+			\item Frage 76:
+			Das Preis-Leistungsverhältnis der Capital Bank ist ausgezeichnet.
+			\item Frage 79:
+			Ich bin mit der langfristigen Performance (Wertentwicklung), die meine Kapitalanlagen erzielt haben, sehr zufrieden.
+			\item Frage 80:
+			Dank der Capital Bank kann ich eine bessere Rendite erreichen, als mir dies allein (ohne Beratung) gelingt.
+			\item Frage 96:
+			Die Gebühren bei der Capital Bank sind für die gebotene Qualität zu hoch.
+		\end{itemize}
+		
+		
+	\item Leistungsumfang
+		\begin{itemize}
+			\item Frage 77:
+			Die Capital Bank bietet mir alle Produkte und Dienstleistungen an, die ich mir von einer Bank wünsche.
+			\item Frage 78:
+			Die Capital Bank bietet mir Lösungen, die ich sonst nicht bekomme.
+			\item Frage 87:
+			In der Capital Bank sind mir deren eigene Produkte lieber als die anderer Anbieter.
+			\item Frage 91:
+			Ich habe meine Betreuungsform aus mehreren Möglichkeiten ausgewählt.
+		\end{itemize}
+		
+		
+	\item Anlagevorschlag
+		\begin{itemize}
+			\item Frage 69:
+			All meine Wünsche (u.a. Renditevorstellungen und Risikotoleranz) fanden im Anlagevorschlag Berücksichtigung.
+			\item Frage 70:
+			Beim Anlagevorschlag wurden keine bestimmten Unternehmen oder (hauseigenen) Produkte aus Gründen bevorzugt, die nichts mit der Sache zu tun hatten.
+			\item Frage 71:
+			Der Anlagevorschlag ist umfassend und berücksichtigt meine persönliche Situation sowie illiquide Finanzmittel/ Investitionen (z.B. Immobilien).
+			\item Frage 72:
+			Die Konsequenzen der Anlagestrategie werden durch Simulationen verschiedener Szenarien/ Stresstests verdeutlicht.
+			\item Frage 73:
+			Der Anlagevorschlag wird mir in einer grafischen Aufarbeitung verdeutlicht.
+			\item Frage 74:
+			Der Anlagevorschlag ist für mich verständlich formuliert.
+			\item Frage 75:
+			Der Anlagevorschlag hält, was mir mein Berater zum Zeitpunkt des Vertragsabschlusses prognostiziert hat.
+			\item Frage 76:
+			Das Preis-Leistungsverhältnis der Capital Bank ist ausgezeichnet.
+		\end{itemize}
+		
+		
+	\item Vermögensreporting
+		\begin{itemize}
+			\item Frage 81:
+			Das Vermögensreporting ist übersichtlich/ anschaulich dargestellt.
+			\item Frage 82:
+			Der zeitliche Abstand zwischen den Reports ist an meine Bedürfnisse angepasst.
+			\item Frage 83:
+			Ich kann anhand des Vermögensreporting die Leistung meines Beraters sehr gut bewerten.
+		\end{itemize}
+		
+		
+	\item Empfehlungsneigung
+		\begin{itemize}
+			\item Frage 1:
+			Auf einer Skala von 0 - 10, wie wahrscheinlich ist es, dass Sie die Capital Bank an einen Freund oder Kollegen weiterempfehlen?
+			\item Frage 107:
+			Die Capital Bank genießt einen guten Ruf.
+		\end{itemize}
+		
+		
+	\item Ausbau Geschäft
+		\begin{itemize}
+			\item Frage 102:
+			Die Beratung der Capital Bank ist auch für Gelder, die bei anderen Banken liegen, interessant.
+			\item Frage 103:
+			Ich kann mir sehr gut vorstellen, die Geschäftsbeziehung zur Capital Bank weiter auszubauen.
+			\item Frage 106:
+			Bei der Capital Bank ist mein Geld sicher.
+		\end{itemize}
+		
+		
+	\item Berater
+		\begin{itemize}
+			\item Frage 11:
+			Ich vertraue meinem Berater völlig.
+			\item Frage 17:
+			Mein Berater sollte mich öfter kontaktieren.
+			\item Frage 18:
+			Die Mitarbeiter sind adrett und ansprechend gekleidet.
+		\end{itemize}
+		
+		
+	\item Informationsstand
+		\begin{itemize}
+			\item Frage 6:
+			Mein Berater kann auf Spezialisten zurückgreifen, um mir bei spezifischen Fragestellungen weiterzuhelfen.
+			\item Frage 7:
+			Mein Berater benutzt gern die ihm zur Verfügung stehende EDV, um mir weiterzuhelfen.
+			\item Frage 8:
+			Mein Berater kann mir ein umfangreiches Produktspektrum anbieten.
+		\end{itemize}
+		
+		
+	\item Kundenorientierung
+		\begin{itemize}
+			\item Frage 10:
+			Ich habe das Gefühl, dass die Beratung unabhängig und in meinem Interesse erfolgt.
+			\item Frage 12:
+			Die Kompetenzen meines Beraters und die Organisation der Capital Bank ermöglichen es, eine für meine Bedürfnisse optimale Dienstleistung zu erbringen.
+			\item Frage 13:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben:
+			Die Qualität von Beraterkompetenz und Organisation bei der Capital Bank ist im Vergleich zu mir bekannten Wettbewerbern eine der besten im Private Banking.
+			\item Frage 56:
+			Mein Berater bietet mir individuelle Lösungen.
+			\item Frage 57:
+			Mein Berater stimmt den Beratungsprozess individuell auf meine Bedürfnisse ab.
+			\item Frage 58:
+			Mein Berater hat ein sehr gutes Gefühl dafür, wenn ich kontaktiert werden möchte.
+			\item Frage 59:
+			Mein Berater behandelt mich im Gespräch so, wie ich es mir vorstelle.
+			\item Frage 92:
+			Meine Kosten werden mir klar und transparent dargestellt.
+			\item Frage 93:
+			Ich kenne meine Konditionen im Detail.
+			\item Frage 94:
+			Die Capital Bank zeigt mir auch versteckte Provisionen auf.
+		\end{itemize}
+		
+		
+	\item Auftragsklärung
+		\begin{itemize}
+			\item Frage 48:
+			Mein Berater klärt mich über alle Vertrags-/Produktdetails auf.
+			\item Frage 49:
+			Mein Berater achtet stets darauf, dass ich umfassend über meine Produkte informiert bin.
+			\item Frage 50:
+			Die Dokumentation beinhaltet alle Informationen, damit ich das Gespräch später gut nachvollziehen kann.
+			\item Frage 55:
+			Ich kann darauf vertrauen, dass ich umfassend informiert werde und dass, sollte es einmal zu Unstimmigkeiten kommen, diese zu meiner Zufriedenheit gelöst werden.
+		\end{itemize}
+		
+		
+	\item Servicequalität
+		\begin{itemize}
+			\item Frage 3:
+			Mein Berater erscheint mir kompetent und sachkundig.
+			\item Frage 4:
+			Mein Berater erklärt mir Dinge so, dass ich sie nachvollziehen kann.
+			\item Frage 5:
+			Mein Berater kann sich in meine Probleme und Wünsche sehr gut hineinversetzen.
+			\item Frage 39:
+			Mein Berater ist sehr flexibel.
+			\item Frage 40:
+			Mein Berater arbeitet sehr gewissenhaft.
+			\item Frage 41:
+			Mein Berater erledigt Aufgaben in angemessener Zeit.
+			\item Frage 42:
+			Mein Berater zeichnet sich durch vorausschauendes Denken aus.
+			\item Frage 43:
+			Mein Berater ist im Gespräch sehr strukturiert vorgegangen.
+			\item Frage 45:
+			Mein Berater wirkt in der Gesprächsführung sehr erfahren.
+			\item Frage 62:
+			Die Qualität der Beratung in der Capital Bank ist hervorragend.
+			\item Frage 63:
+			Falls Sie Erfahrungen mit anderen Wettbewerbern haben: Die Qualität der Beratung in der Capital Bank ist im Vergleich zu mir bekannten Wettbewerbern eine der besten im Private Banking.
+		\end{itemize}
+		
+\end{enumerate}	
+
+
 Bei der Berechnung des Modells ist jedoch deutlich geworden, dass das Modell nicht sehr stabil ist. Denn nach erstmaligem Durchlaufen der bootstrapping- Methode erhielten wir sehr gute Werte, als wir jedoch die neuen Werte von Herr Seiler importierten, haben sich diese Werte stark von den zuvor Errechneten unterschieden. Des Weiteren konnten wir den Konstrukten zahlreiche Indikatoren zuordnen, wo jedoch auszuschließen war, dass diese im Zusammenhang mit ihnen standen und trotzdem erhielten wir gute Werte. Aufgrund der Tatsache, dass das Modell sehr komplex und sehr instabil ist, sind Empfehlungen für das Management nicht möglich. Aus diesem Grund haben wir weitere Modelle erstellt und getestet. 
 
 \subsection{Nachbildung Modell Seiler}
@@ -1013,27 +1282,466 @@ Nachdem es uns nicht geglückt ist, die Indikatoren frei nach dem Fragebogen den
 Bei der Abgleichung der Indikatoren von Seiler mit den Fragen aus unserem Fragebogen gab es nicht immer inhaltliche Übereinstimmungen. Zum besseren Verständnis haben wir unsere Zuweisungen im Folgenden aufgeführt:
 
 
-%insert LIST here
+\begin{enumerate} % Das ist der Anfang der numnerierten Liste, der bis zum ende geht
+
+    \item Erreichbarkeit: % Dies ist ein Eintrag in die numnerierte Liste
+    \begin{itemize} % Hier fängt eine neue nicht nummerierte Liste an
+        \item My private banking adviser's reachibility over the phone is very good.
+        \item Mein Berater ist sehr gut erreichbar (Frage 16)
+        \item My private banking adviser immediately responds to written requests.
+        \item Mein Berater antwortet auf schriftliche Anfragen unverzüglich (Frage 15)
+        \item My private banking adviser is available for appointments on short notice.
+        \item Mein Berater erledigt Aufgaben in angemessener Zeit (Frage 41)
+    \end{itemize} % Hier endet die nicht nummerierte Liste wieder
+    
+    \item Räumlichkeiten:
+    \begin{itemize}
+        \item My private banking provider’s premises appear well-tended. 
+        \item Kommunikation und Auftritt der Capital Bank sind in jeder Situation optimal. (Frage 22)
+        \item The ambience of my private banking provider’s premises is classy.
+        \item Das Ambiente in der Capital Bank wird den Ansprüchen des Private Banking gerecht. (Frage 21)
+        \item My private banking provider’s premises are discrete.
+        \item In der Capital Bank herrscht eine ruhige Atmosphäse (Frage 20)
+    \end{itemize}
+    
+   
+   
+    
+   
+    
+    
+    \item Produktangebot:    
+    \begin{itemize}
+        \item My private banking provider offers me a broad range of products from independent parties.
+        \item Mein Berater kann mir ein umfangreiches Produktspektrum anbieten (Frage 8)
+        \item My private banking provider offers me an exclusive set of products that I would not get from other providers.
+        \item Die Capital Bank bietet mir Lösungen, die ich sonst nicht bekomme. (Frage 78)
+        \item My private banking provider offers me a broader range of products than other providers.
+        \item In der Capital Bank sind mit deren eigene Produkte lieber als die  anderer Anbieter (Frage 87)
+    \end{itemize}
+    
+    
+   
+   
+    
+   
+    
+    \item Anlagevorschlag:    
+    \begin{itemize}
+        \item My private banking provider prepares an individual investment proposal for me.
+        \item  All meine Wünsch (u.a. Renditevorstellungen und Risikotoleranz) fanden im Anlagevorschlag Berücksichtigung. (Frage 69)
+        \item  My private banking provider uses information from the counseling interview when preparing the investment proposal.
+        \item Der Anlagevorschlag hält, was mir mein Berater zum Zeitpunkt des Vertragsabschlusses prognostiziert hat. (Frage 75)
+        \item The investment proposal is formulated in a way that I can understand it.
+        \item Der Anlagevorschlag ist für mich verständlich formuliert (Frage 74)
+    \end{itemize}
+    
+    \item Reporting:
+    \begin{itemize}
+        \item My portfolio’s reporting statements match my needs.
+        \item Der zeitliche Abstand zwischen den Reports ist an meine Bedürfnisse angepasst. (Frage 82)
+        \item My portfolio’s reporting statements are easy to understand.
+        \item Ich kann anhand des Vermögensreporting die Leistung meines Beraters sehr gut bewerten (Frage 83)
+        \item Information on the reporting statements are clearly illustrated (e.g. with charts and diagrams).
+        \item Das Vermögensreporting ist übersichtlich / anschaulich dargestellt. (Frage 81)
+    \end{itemize}
+    
+    
+    
+    
+    
+    \item Performance: 
+    \begin{itemize}
+        \item The medium term (2-3 years) performance of my portfolio meets my expectations.
+        \item Ich bin mit der langfristigen Performance (Wertentwicklung), die meine Kapitalanlagen erzielt haben, sehr zufrieden. (Frage 79)
+        \item The performance of my portfolio meets my expectations.
+        \item Keine passende Frage zu !
+    \end{itemize}
+
+    
+    \item Berater:
+    \begin{itemize}
+        \item My private banking adviser is always friendly.
+        \item Ich bin mit meinem aktuellen Berater sehr zufrieden (Frage 46)
+        \item Keine passende Frage zu Freundlichkeit Berater!
+        \item My private banking adviser is trustworthy.
+        \item Ich vertraue meinem Berater völlig. (Frage 11)
+        \item My private banking adviser has the required expertise for my needs.
+        \item Mein Berater kann sich in meine Probleme und Wünsche sehr gut hineinversetzen. (Frage 5)
+        \item My private banking adviser explains complex issues in an understandable manner.
+        \item Mein Berater erklärt mir Dinge so, dass ich sie nachvollziehen kann. (Frage 4)
+        \item My private banking adviser listens carefully to what I say.
+        \item Mein Berater behandelt mich im Gespräch so, wie ich es mir vorstelle. (Frage 59)
+        \item My private banking adviser and I meet at eye level.
+        \item Insgesamt ist die Interaktion zwischen mir und meinem Berater hervorragend. (Frage 67)
+    \end{itemize}
+
+    
+    \item Preis- / Leistungsverhältnis:
+    \begin{itemize}
+        \item My private banking provider is worth the money I pay.
+        \item Ich bin mit dem Engagement, das mein Berater betreibt, um mir bei meinem finanziellen Angelegenheiten zu helfen, sehr zufrieden. (Frage 60)
+        \item The value provided by my private banking provider is excellent.
+        \item Die Qualität der Beratung in der Capital Bank ist hervorragend. (Frage 62)
+        \item The fees charged by my private banking provider are too high for the quality offered.
+        \item Die Gebühren bei der Capital Bank sind für die gebotene Qualität zu hoch. (Frage 96) Negativ gestellte Frage!
+    \end{itemize}
+
+    
+    \item Kundenzufriedenheit:
+    \begin{itemize}
+        \item Overall, I am very satisfied with my private banking provider.
+        \item Ich bin mit meinem aktuellen Berater sehr zufrieden. (Frage 46)
+        \item I am more satisfied with my private banking provider than I expected.
+        \item Keine passende Frage!
+        \item My private banking provider matches my ideal profile of a private banking provider.
+        \item Ich bin mit dem Ablauf der Beratung sehr zufrieden. (Frage 44)
+    \end{itemize}
+
+    \item Kundenloyalität:
+    \begin{itemize}
+        \item I recommend my private banking provider to other people without concerns.
+        \item Auf einer Skala von 0-10, wie wahrscheinlich ist es, dass Sie die Capital Bank an einen Freund oder Kollegen weiterempfehlen? (Frage 1)
+        \item I am thinking about switching my private banking provider.
+        \item Es gibt keinen Zweifel daran, dass ich weiterhin Kunde der Capital Bank bleibe. (Frage 105)
+        \item If I had to decide again I would still choose my private banking provider at any time.
+        \item Ich würde mich jederzeit erneut für die Capital Bank entscheiden. (Frage 104)
+        \item I stay with my private banking provider even when friends / acquaintances / relatives recommend someone else.
+        \item Keine passende Frage! 
+        \item Fragen 64-66, sind aber nicht verneint!
+        \item Die Aussagen anderer Private Banking-Kunden zur Service-Qualität nehme ich sehr ernst. (Frage 64)
+        \item Andere Kunden beeinflussen mich in meiner Wahrnehmung der Servicequalität (Frage 65)
+        \item Der Austausch mit anderen Private Banking-Kunden beeinflusst meine Mitwirkungsbereitschaft in einem Beratungsgespräch. (Frage 66)    
+    \end{itemize}
+
+
+\end{enumerate}% Hier ist die numerierte Liste zu Ende
+
 
 \subsection{Eigenes Modell nach Seiler}
 Bei der Bildung des neuen Strukturmodells haben wir uns primär an Herrn Seiler's Arbeit orientiert. Zu allererst bildeten wir die drei Kernkonstrukte: Bank, Berater und Kunde. Diese beschreiben unseres Erachtens das Grundgerüst unseres Strukturmodells. Aufbauend auf dem Grundgerüst und dem Fragebogen bildeten wir die Konstrukte: Erreichbarkeit, Umgebung, Leistungsumfang, Anlagevorschlag, Vermögensreporting, Mitwirkungsbereitschaft und Mitwirkungsfähigkeit, welche die drei Kernkonstrukte beeinflussen und sich letztendlich auf die Zufriedenheit (Bildung des Konstrukts Zufriedenheit, siehe nächster Abschnitt), unser letztes Konstrukt, übertragen. Anhand der gebildeten Fragebogens fügten wir die dazugehörigen Indikatoren den Konstrukten hinzu.
-Dazu wurden die Konstrukte von dem alten Modell am Anfang vereinfacht und zu verschiedenen Konstrukten zusammengefasst. Dafür fügten wir die Konstrukte Empfehlungsneigung, Kundenbindung, Ergebnisqualität sowie Performance und ihre zuvor ermittelten Indikatoren zum Konstrukt Zufriedenheit zu. Wie in Abbildung 1 zu sehen ist, kamen wir zu insgesamt 11 Konstrukten:\\
+Dazu wurden die Konstrukte von dem alten Modell am Anfang vereinfacht und zu verschiedenen Konstrukten zusammengefasst. Dafür fügten wir die Konstrukte Empfehlungsneigung, Kundenbindung, Ergebnisqualität sowie Performance und ihre zuvor ermittelten Indikatoren zum Konstrukt Zufriedenheit. Wie in Abbildung 1 zu sehen ist, kamen wir zu insgesamt 11 Konstrukten:\\
 
 
 \hspace*{-4.8cm}\includegraphics[scale = 0.83]{figure/finalesmodell}
 
 
-%insert LIST here
+\begin{enumerate}
+
+
+    \item Anlagevorschlag:
+    \begin{itemize}
+    \item Frage 69: 
+    All meine Wünsche (u.a. Renditevorstellungen und Risikotoleranz) fanden im Anlagevorschlag Berücksichtigung.
+    \item Frage 70: 
+    Beim Anlagevorschlag wurden keine bestimmten Unternehmen oder (hauseigenen) Produkte aus Gründen bevorzugt, die nichts mit der Sache zu tun hatten.
+    \item Frage 71: 
+    Der Anlagevorschlag ist umfassend und berücksichtigt meine persönliche Situation sowie illiquide Finanzmittel / Investitionen (z.B. Immobilien).
+    \item Frage 72:
+    Die Konsequenzen der Anlagestrategie werden durch Simulationen verschiedener Szenarien / Stresstests verdeutlicht.
+    \item Frage 73:
+    Der Anlagevorschlag wird mir in einer grafischen Aufarbeitung verdeutlicht.
+    \item Frage 74:
+    Der Anlagevorschlag ist für mich verständlich formuliert.
+    \item Frage 75:
+    Der Anlagevorschlag hält, was mir mein Berater zum Zeitpunkt des Vertragsabschlusses prognostiziert hat.
+    \end{itemize}
+    
+
+    \item Bank:
+    \begin{itemize}
+    \item Frage 1:
+    Auf einer Skala von 0-10, wie wahrscheinlich ist es, dass Sie die Capital Bank an einen Freund oder Kollegen weiterempfehlen?
+    \item Frage 47:
+    Falls Sie Erfahrungen mit anderen Wettbewerbern haben: Im Vergleich zu mir bekannten Wettbewerbern hat die Capital Bank die besten Berater.
+    \item Frage 76:
+    Das Preis-Leistungsverhältnis der Capital Bank ist ausgezeichnet.
+    \item Frage 80:
+    Dank der Capital Bank kann ich eine bessere Rendite erreichen, als mir dies allein (ohne Beratung) gelingt.
+    \item Frage 94:
+    Die Capital Bank zeigt mir auch versteckte Provisionen auf.
+    \item Frage 95:
+    Mir ist wichtig zu wissen, wie viel die Capital Bank an mir verdient.
+    \item Frage 96:
+    Die Gebühren bei der Capital Bank sind für die gebotene Qualität zu hoch.
+    \item Frage 97:
+    Die Capital Bank ist ehrlich und fair im Umgang mit Ihren Kunden.
+    \item Frage 102:
+    Die Beratung der Capital Bank ist auch für Gelder, die bei anderen Banken liegen, interessant.
+    \item Frage 103:
+    Ich kann mir sehr gut vorstellen, die Geschäftsbeziehung zur Capital Bank weiter auszubauen.
+    \item Frage 106:
+    Bei der Capital Bank ist mein Geld sicher.
+    \end{itemize}
+    
+
+    \item Berater:    
+    \begin{itemize}
+    \item Frage 11:
+    Ich vertraue meinem Berater völlig.
+    \item Frage 17:
+    Mein Berater sollte mich öfter kontaktieren.
+    \item Frage 18:
+    Die Mitarbeiter sind adrett und ansprechend gekleidet.
+    \end{itemize}
+    
+
+  
+    
+
+
+    \item  Erreichbarkeit:   
+    \begin{itemize}
+    \item Frage 14:
+    Mein Berater setzt weitgehend auf das direkte Gespräch mit mir.
+    \item Frage 15:
+    Mein Berater antwortet auf schriftliche Anfragen unverzüglich.
+    \item Frage 16:
+    Mein Berater ist immer sehr gut erreichbar.
+    \item Frage 19:
+    Die Niederlassung der Capital Bank ist für mich sehr gut erreichbar.
+    \end{itemize}
+    
+        \item Kunde:
+    \begin{itemize}
+    \item Frage 33:
+    Ich unterhalte mich gern mit anderen Kunden der Capital Bank, um Erfahrungen auszutauschen.
+    \item Frage 34:
+    Bei der Capital Bank kommt man schnell mit anderen Kunden in Kontakt (sei es in den Geschäftsräumen oder bei organisierten Veranstaltungen).
+    \item Frage 36:
+    Ich unterhalte mich gern mit anderen Kunden anderer Banken, um Erfahrungen auszutauschen
+    \item Frage 37:
+    Ich bin sehr daran interessiert zu erfahren, was andere Kunden anderer Banken über die Capital Bank denken.
+    \item Frage 64:
+    Die Aussagen anderer Private Banking-Kunden zur Service-Qualität nehme ich sehr ernst.
+    \end{itemize}
+    
+ 
+    
+    
+
+
+    
+        \item Leistungsumfang:
+    \begin{itemize}
+   \item Frage 77:
+    Die Capital Bank bietet mir alle Produkte und Dienstleistungen an, die ich mir von einer Bank wünsche.
+    \item Frage 78:
+    Die Capital Bank bietet mir Lösungen, die ich sonst nicht bekomme.
+    \item Frage 87:
+    In der Capital Bank sind mir deren eigene Produkte lieber als die anderer Anbieter.
+    \item Frage 91:
+    Ich habe meine Betreuungsform aus mehreren Möglichkeiten ausgewählt.
+    \end{itemize}
+    
+        \item Mitwirkungsbereitschaft:
+    \begin{itemize}
+    \item Frage 25:
+    Ich bin der Meinung, dass ohne meine Mitwirkung auch der beste Berater keine guten Leistungen für mich erbringen kann.
+    \item Frage 26:
+    Ich bin bereit, Entscheidungskompetenzen an meinen Berater zu delegieren.
+    \item Frage 27:
+    Ich habe dem Berater alle notwendigen Vorinformationen zu meinen persönlichen Daten und meiner persönlichen Lebenssituation (finanzielle Verhältnisse, Ziele, Präferenzen) offengelegt.
+    \item Frage 28:
+    Ich halte meinen Berater über meine aktuelle Situation auf dem Laufenden, so dass er mir eventuell angepasste Empfehlungen geben kann.
+    \item Frage 30:
+    Ich scheue keinen zeitlichen Aufwand, um mit meinem Berater in Kontakt zu treten.
+    \item Frage 31:
+    Ich trage wesentlich dazu bei, mit meinem Berater eine optimale Lösung für mich zu entwickeln.
+    \item Frage 32:
+    Bei der Capital Bank bin ich weit eher bereit, zu einer optimalen Lösung beizutragen, als ich das bei mir bekannten Wettbewerbern wäre.
+    \item Frage 99:
+    Die einzelnen Anlageentscheidungen soll die Capital Bank für mich treffen.
+    \end{itemize}
+    
+
+
+        \item Mitwirkungsfähigkeit:
+    \begin{itemize}
+    \item Frage 24:
+    Ich besitze Kenntnisse im Bereich der Finanzlagen.
+    \item Frage 29:
+    Ich habe die mir dargelegten Informationen verstanden.
+    \end{itemize}
+    
+        \item Umgebung:
+    \begin{itemize}
+    \item Frage 20:
+    In der Capital Bank herrscht eine ruhige Atmosphäre.
+    \item Frage 21:
+    Das Ambiente in der Capital Bank wird den Ansprüchen des Private Banking gerecht.
+    \end{itemize}
+    
+        \item Vermögensreporting:
+    \begin{itemize}
+    \item Frage 81:
+    Das Vermögensreporting ist übersichtlich / anschaulich dargestellt.
+    \item Frage 82:
+    Der zeitliche Abstand zwischen den Reports ist an meine Bedürfnisse angepasst.
+    \item Frage 83:
+    Ich kann anhand des Vermögensreporting die Leistung meines Beraters sehr gut bewerten.
+    \end{itemize}
+    
+        \item Zufriedenheit:
+    \begin{itemize}
+
+    \item Frage 9:
+    Ich bin mit dem angebotenen Gebührenmodell, das ich bei der Capital Bank nutze, sehr zufrieden.
+    \item Frage 22:
+    Kommunikation und Auftritt der Capital Bank sind in jeder Situation optimal.
+    \item Frage 23:
+    Falls Sie Erfahrungen mit anderen Wettbewerbern haben: Die Qualität von Kommunikation und Auftritt der Capital Bank ist im Vergleich zu mir bekannten Wettbewerbern eine der höchsten im Private Banking.
+    \item Frage 44:
+    Ich bin mit dem Ablauf der Beratung sehr zufrieden.
+    \item Frage 46:
+    Ich bin mit meinem aktuellem Berater sehr zufrieden.
+    \item Frage 60:
+    Ich bin mit dem Engagement, das mein Berater betreibt, um mir bei meinem finanziellen Angelegenheiten zu helfen, sehr zufrieden.
+    \item Frage 61:
+    Ich bin im Allgemeinen sehr zufrieden mit den Dienstleistungen und Produkten der Capital Bank.
+    \item Frage 67:
+    Insgesamt ist die Interaktion zwischen mir und meinem Berater hervorragend.
+    \item Frage 68:
+    Falls Sie Erfahrungen mit anderen Wettbewerbern haben: Die Interaktion zwischen mir und meinem Berater ist im Vergleich zu mir bekannten Wettbewerbern eine der höchsten im Private Banking.
+    \item Frage 84:
+    Insgesamt ist die Qualität der Produkte und Dienstleistungen sehr hoch.
+    \item Frage 85:
+    Falls Sie Erfahrungen mit anderen Wettbewerbern haben: Die Qualität der Produkte ist im Vergleich zu mir bekannten Wettbewerbern eine der höchsten im Private Banking.
+    \item Frage 104:
+    Ich würde mich jederzeit erneut für die Capital Bank zu entscheiden.
+    \item Frage 105:
+    Es gibt keinen Zweifel daran, dass ich weiterhin Kunde der Capital Bank bleibe.
+    \item Frage 107:
+    Die Capital Bank genießt einen guten Ruf.
+    \item Frage 109:
+    Allgemein ist die Dienstleistungsqualität bei der Capital Bank hervorragend.
+    \item Frage 110:
+    Ich bin mit der Capital Bank absolut zufrieden.
+    \end{itemize}
+
+
+\end{enumerate}
+
+\subsubsection{Eigenes Modell in R}
+Das vorgestellte Modell wurde ebenfalls in R nachgebildet:
+<<warning=FALSE>>=
+library(semPLS)
+
+#read data file
+CBdata <- read.csv("/home/jannic/Schreibtisch/PB/Data/2014_08_30-CB_Alle_R.csv")
+
+#specify inner model
+latentvar <- cbind(c("Mitwirkungsfaehigkeit",
+                   "Mitwirkungsbereitschaft",
+                   "Kunde",
+                   "Berater",
+                   "Bank",
+                   "Berater",
+                   "Berater",
+                   "Umgebung",
+                   "Anlagevorschlag",
+                   "Vermoegensreporting",
+                   "Leistungsumfang",
+                   "Erreichbarkeit",
+                   "Bank"),
+                    c("Mitwirkungsbereitschaft",
+                      "Kunde",
+                      rep("Zufriedenheit",3),
+                      "Kunde",
+                      rep("Bank",5),
+                      "Umgebung",
+                      "Kunde")
+                 )
+
+#specify outer model
+indicators = cbind(c(rep("Anlagevorschlag",7),
+                     rep("Bank",11),
+                     rep("Berater",3),
+                     rep("Erreichbarkeit",4),
+                     rep("Kunde",5),
+                     rep("Leistungsumfang",4),
+                     rep("Mitwirkungsbereitschaft",8),
+                     rep("Mitwirkungsfaehigkeit",2),
+                     rep("Umgebung",2),
+                     rep("Vermoegensreporting",3),
+                     rep("Zufriedenheit",16)
+                     )
+                   ,
+                  c("SQ069","SQ070","SQ071","SQ072","SQ073","SQ074","SQ075",
+                    "SQ001","SQ047","SQ076","SQ080","SQ094","SQ095","SQ096",
+                    "SQ097","SQ102","SQ103","SQ106",
+                    "SQ011","SQ017","SQ018",
+                    "SQ014","SQ015","SQ016","SQ019",
+                    "SQ033","SQ034","SQ036","SQ037","SQ064",
+                    "SQ077","SQ078","SQ087","SQ091",
+                    "SQ025","SQ026","SQ027","SQ028","SQ030","SQ031","SQ032","SQ099",
+                    "SQ024","SQ029",
+                    "SQ020","SQ021",
+                    "SQ081","SQ082","SQ083",
+                    "SQ009","SQ022","SQ023","SQ044","SQ046","SQ060","SQ061",
+                    "SQ067","SQ068","SQ084","SQ085","SQ104","SQ105","SQ107","SQ109","SQ110")
+                  )
+
+#create plsm object
+model <- plsm(data = CBdata, strucmod=latentvar, measuremod=indicators)
+
+#calculate model
+final_model <- sempls(model = model,data = CBdata,maxit=50,wscheme="pw")
+
+#load the Rgraphviz Package
+library(Rgraphviz)
+
+#get rSquared
+final_model_rSquared <- rSquared(final_model)
+
+#visualize model with dot 
+#graphviz required
+pathDiagram(final_model, file = "PB-structure-final", edge.labels = "both",
+            output.type = "graphics", digits = 3, rSquared=final_model_rSquared)
+
+@
+
+\begin{figure}[h!]
+\centering
+\hspace*{-3cm}\vspace*{-0.5cm}\includegraphics[scale=1]{PB-structure-final.pdf}
+\caption{Eigenes Modell in R mit semPLS}
+\label{final_model}
+\end{figure}
+
+Zunächst ist festzuhalten, dass die Koeffizienten und $R^{2}$ denen in SmartPLS entsprechen, wie schon in Kapitel 4.4 aufgezeigt wurde. \\
+Allerdings wird nach der Berechnung eine weitere Information angezeigt:\\
+Total number of complete cases: 52\\
+Dies bedeutet, dass aufgrund der fehlenden Werte nur noch 52 Beobachtungen übrig blieben, um das Modell zu berechnen. Diese Information war zumindest für die Autoren nicht in SmartPLS aufzufinden, obwohl diese sehr wichtig ist. Das bedeutet durch die Einstellung "Case Replacement" in SmartPLS oder analog in R, den Parameter pairwise=TRUE reduziert sich der Datensatz von 261 auf 52 Beobachtungen. Dies geschieht, weil durch diese Einstellungen alle Beobachtungen gelöscht werden, die bei einem der verwendeten Indikatoren einen fehlenden Wert aufweisen.\\
+Selbst in dem in Kapitel 4.2.2 verwendeten Modell aus lediglich 3 latenten Variablen mit 9 Indikatoren wurden nur 195 von 261 Beobachtungen beachtet.\\
+Um dieses Problem zu berücksichtigen ergeben sich 3 Möglichkeiten:
+\begin{enumerate}
+\item Modell vereinfachen
+\item Mehr Beobachtungen sammeln
+\item Fehlende Werte schätzen
+\end{enumerate}
+Das Modell zu verkleinern wäre die einfachste Lösung, würde jedoch den Aussagegehalt stark mindern. Mehr Beobachtungen zu sammeln könnte sich als schwierig erweisen, da die Capital Bank nur eine begrenzte Anzahl an Kunden aufweist und eine Doppelbefragung die Ergebnisse verfälschen könnte. Die fehlenden Werte zu schätzen könnte ebenfalls die Ergebnisse verfälschen. Laut Hair et al.\cite{hair2013primer} sollte dies nur bei einem Anteil der fehlenden Werten von unter 5\% in Erwägung gezogen werden. In SmartPLS muss dafür beim Ausführen des Algorithmus die Einstellung "Mean replacement" eingestellt werden. Diese ersetzt fehlende Werte mit dem jeweiligen Mittelwert. In R kann die Schätzmethode durch ein jeweiliges Paket bzw. eine Funktion gewählt werden. In Kapitel 4.2.1 wurde beispielsweise das Paket "zoo" und die Funktion na.approx() verwendet.
+
+
+
+
 
 
 \section{Diskussion}%Eine Diskussion über die Resultate findet sich hier.
 Nach Aufstellung des Modells muss nun die Bewertung erfolgen. Diese erfolgt in folgenden Schritten:
 
 \includegraphics[width = 1\textwidth]{figure/beurteilung}
-
 Wir beurteilen ausschließlich das reflektive Messmodell, da bei unserem Strukturmodell die Richtung der Korrespondenzregeln vom Konstrukt zum Indikator führen, was letztendlich bedeutet, dass die Indikatoren von den Konstrukten beeinflusst werden. Um das reflektive Messmodell zu bewerten, müssen folgende Berechnungen durchgeführt werden: Indikatorreliabilität, Konstruktreliabilität, Durchschnittlich erfasste Varianz sowie die Diskriminanzvalidität.
+Nach der Erstellung des Modells haben wir, mit Hilfe des PLS- Algorithmus, die äußeren Ladungen (Outer Loadings) der einzelnen Konstrukte und Indikatoren ermittelt. Diese weisen bei den Konstrukten Zufriedenheit, Kunde, Berater, Mitwirkungsfähigkeit, Erreichbarkeit, Umgebung, Anlagevorschlag, Vermögensreporting und Leistungsumfang sehr gute Werte auf. Die Pfadkoeffizienten liegen zwischen 0,434 und 0,943, womit die einzelnen Konstrukte ideal beschrieben werden. Jedoch sind bei den Konstrukten Mitwirkungsbereitschaft und Bank sieben Ausreißer, die unter 0,4 liegen. Grundsätzlich müsste man diese Indikatoren löschen, jedoch haben wir uns dazu entschieden, diese in dem Modell zu behalten. Dies beruht auf zwei Gründen. Der erste Grund ist, dass wir der Meinung sind, dass die Fragen den Konstrukten gut zugeordnet sind. Der zweite Grund ist, dass wir uns die schlechten Werte durch die wenigen Befragten erklären. Darüber hinaus wurden bei der Berechnung der Werte nur die Befragten berücksichtigt, welche die im Modell verwendeten Fragen vollständig beantwortet haben, wodurch sich die Anzahl nochmals minimiert hat (52 Beobachtungen wurden berücksichtigt).  Auf die Konstrukte Berater, Mitwirkungsbereitschaft, Erreichbarkeit, Anlagevorschlag, Vermögensreporting und Leistungsumfang zeigen keine Pfadkoeffizienten und sind somit exogen sprich unabhängig. Das bedeutet $R^{2}$ ist für diese Werte nicht definiert. \\
+Das Konstrukt Zufriedenheit  weist bei 3 Pfadkoeffizienten einen Wert von $R^{2}$ = 0.804 sprich ca. 80\% des Konstruktes werden dadurch erklärt. Bei den Kunden haben wir einen Wert von $R^{2}$ = 0.107 d.h. ca. 10\% des Wertes werden durch die 3 Pfadkoeffizienten erklärt. Bei der Mitwirkungsbereitschaft ergibt sich ein Wert von $R^{2}$ = 0.162 was bedeutet, dass ca. 16\% des Konstruktes erklärt werden mit einem einzigen Pfadkoeffizienten. Das vierte Konstrukt Umgebung, mit auch nur einem Pfadkoeffizienten, haben einen Wert von $R^{2}$ = 0.433 bzw. ca. 43\% die das Konstrukt erklären. Letzteres Konstrukt, die Bank weist einen Wert von $R^{2}$ = 0.725 also ca. 73\% und 5 Pfadkoeffizienten.\\
+Zu beachten gilt, dass der Wert von $R^{2}$ dann als gut gilt, je höher er ist und je weniger Pfadkoeffizienten auf das dazugehörige Konstrukt zeigen. \\
+Eine mögliche Begründung für den Wert von $R^{2}$ könnte womöglich die geringe Anzahl der Testpersonen sein.
+Um herauszufinden, welche Konstrukte die Werte von $R^{2}$ der jeweiligen Konstrukte am meisten beeinflussen, haben wir den größten Wert der jeweiligen Pfadkoeffizienten ermittelt. Dabei haben wir nur mit Konstrukten gearbeitet, die mit mehr als einem Pfadkoeffizienten aufzeigten.\\
+Dabei kam heraus, dass die Zufriedenheit am meisten von dem Pfadkoeffizienten der Bank mit dem Wert 0.685 beeinflusst wird. Das Konstrukt Kunde wird durch einen Wert von 0.327 von der Mitwirkungsbereitschaft am meisten beeinflusst. Und zuletzt übt das Konstrukt Anlagevorschlag mit einem Wert von 0.428 starken Einfluss auf die Bank aus.
+
+
 
 \section{Ausblick}%Zum Schluss folgt ein Ausblick auf künftige Arbeiten. 
+Ziel des Projektpraktikums war es anhand des, durch den Fragebogen ermittelten, Datensatzes  der Capital Bank Empfehlungen geben zu können, inwiefern gewisse Arbeitsbereiche der Capital Bank (z.B. der Berater) gestärkt werden müssen, um das Kundenbindungsvermögen, das Weiterempfehlungspotential und den Ausbau des eigenen Geschäfts zu verbessern. Wir, als Gruppe, haben zwar, auf Basis des Datensatzes, ein Modell mit Aussagekraft entwickelt, jedoch denken wir nicht, dass diese Aussagekraft ausreicht, um der Capital Bank hinsichtlich ihrer Zielsetzung Empfehlungen geben zu können. Dies begründen wir damit, dass das Modell auf Basis einer zu geringen Datenmenge erstellt worden ist. Diese geringe Datenmenge resultiert unserer Meinung nach aus dem immensen Pool an Fragen und der zwangsläufig vollständigen Bearbeitung dieser, da die Software lediglich Befragte berücksichtigen, die den Konstrukten zugeordnete Fragestellenungen beantwortet haben. Um die Aussagekraft unseres Modells hinsichtlich der Zielsetzung zu prüfen, bedarf es unserer Meinung nach einer größeren Menge von Daten. Um diese zu erhalten, haben wir im Abschnitt Fragebogen der vorliegenden Arbeit bereits begründete Verbesserungsvorschläge zur Kürzung des Fragebogens erbracht. Diese Verkürzung hilft auch bei der Erstellung des Modells, da umso höher die Menge an Fragen ist, desto schwerer ist es ein aussagekräftigtes Modell zu erstellen. Dies hat sich während des Projektpraktikums bestätigt. Bei der immensen Anzahl an Fragen und damit verbunden auch hohen Anzahl an Konstrukten verlor man zwangsläufig den Überblick über das Gesamtmodell. Einzelne Konstrukte und Konstruktpfade erwiesen sich beim Erstellen als gut, jedoch verloren sie an Wertigkeit während des Arbeitsprozesses, da weitere Konstrukte und damit verbunden Konstruktpfade, die sich wiederum einzelnd betrachtet als gut erwiesen, erstellt wurden. Das Gesamtmodell verlor jedoch an Aussagekraft, desto mehr Konstrukte und Pfade erstellt wurden. Des weiteren war die Gefahr von Scheinzusammenhängen groß. Unser realtiv solides erstes Modell war bspw. instabil als wir die neuen Werte hinzufügten. Diese Gefahr besteht ebenso bei einem Fragebogen mit wenig Fragen, jedoch ist sie bei solch einem Fragebogen, wie dem vorliegenden immens hoch.
 
 
 \bibliographystyle{plain} %Stil der Bibliothek

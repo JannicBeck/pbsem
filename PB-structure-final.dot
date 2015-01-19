@@ -1,0 +1,96 @@
+digraph "final_model" {
+  rankdir=LR;
+  size="8,8";
+  node [fontname="Helvetica" fontsize=14 shape=box];
+  edge [fontname="Helvetica" fontsize=10];
+  center=1;
+  "Erreichbarkeit" [shape=ellipse]
+  "Anlagevorschlag" [shape=ellipse]
+  "Berater" [shape=ellipse]
+  "Leistungsumfang" [shape=ellipse]
+  "Mitwirkungsfaehigkeit" [shape=ellipse]
+  "Umgebung" [shape=ellipse, label="Umgebung\n0.433"]
+  "Vermoegensreporting" [shape=ellipse]
+  "Bank" [shape=ellipse, label="Bank\n0.725"]
+  "Mitwirkungsbereitschaft" [shape=ellipse, label="Mitwirkungsbereitschaft\n0.162"]
+  "Kunde" [shape=ellipse, label="Kunde\n0.107"]
+  "Zufriedenheit" [shape=ellipse, label="Zufriedenheit\n0.804"]
+ "Erreichbarkeit" -> "SQ014" [label="lam_1_1=0.685"];
+  "Erreichbarkeit" -> "SQ015" [label="lam_1_2=0.597"];
+  "Erreichbarkeit" -> "SQ016" [label="lam_1_3=0.509"];
+  "Erreichbarkeit" -> "SQ019" [label="lam_1_4=0.831"];
+  "Anlagevorschlag" -> "SQ069" [label="lam_2_1=0.688"];
+  "Anlagevorschlag" -> "SQ070" [label="lam_2_2=0.678"];
+  "Anlagevorschlag" -> "SQ071" [label="lam_2_3=0.764"];
+  "Anlagevorschlag" -> "SQ072" [label="lam_2_4=0.63"];
+  "Anlagevorschlag" -> "SQ073" [label="lam_2_5=0.68"];
+  "Anlagevorschlag" -> "SQ074" [label="lam_2_6=0.76"];
+  "Anlagevorschlag" -> "SQ075" [label="lam_2_7=0.643"];
+  "Berater" -> "SQ011" [label="lam_3_1=0.889"];
+  "Berater" -> "SQ017" [label="lam_3_2=-0.431"];
+  "Berater" -> "SQ018" [label="lam_3_3=0.454"];
+  "Leistungsumfang" -> "SQ077" [label="lam_4_1=0.842"];
+  "Leistungsumfang" -> "SQ078" [label="lam_4_2=0.821"];
+  "Leistungsumfang" -> "SQ087" [label="lam_4_3=0.571"];
+  "Leistungsumfang" -> "SQ091" [label="lam_4_4=0.638"];
+  "Mitwirkungsfaehigkeit" -> "SQ024" [label="lam_5_1=0.812"];
+  "Mitwirkungsfaehigkeit" -> "SQ029" [label="lam_5_2=0.711"];
+  "Umgebung" -> "SQ020" [label="lam_6_1=0.938"];
+  "Umgebung" -> "SQ021" [label="lam_6_2=0.943"];
+  "Vermoegensreporting" -> "SQ081" [label="lam_7_1=0.905"];
+  "Vermoegensreporting" -> "SQ082" [label="lam_7_2=0.953"];
+  "Vermoegensreporting" -> "SQ083" [label="lam_7_3=0.886"];
+  "Bank" -> "SQ001" [label="lam_8_1=-0.619"];
+  "Bank" -> "SQ047" [label="lam_8_2=0.727"];
+  "Bank" -> "SQ076" [label="lam_8_3=0.787"];
+  "Bank" -> "SQ080" [label="lam_8_4=0.654"];
+  "Bank" -> "SQ094" [label="lam_8_5=0.68"];
+  "Bank" -> "SQ095" [label="lam_8_6=0.114"];
+  "Bank" -> "SQ096" [label="lam_8_7=-0.279"];
+  "Bank" -> "SQ097" [label="lam_8_8=0.74"];
+  "Bank" -> "SQ102" [label="lam_8_9=0.354"];
+  "Bank" -> "SQ103" [label="lam_8_10=0.549"];
+  "Bank" -> "SQ106" [label="lam_8_11=0.674"];
+  "Mitwirkungsbereitschaft" -> "SQ025" [label="lam_9_1=0.104"];
+  "Mitwirkungsbereitschaft" -> "SQ026" [label="lam_9_2=0.345"];
+  "Mitwirkungsbereitschaft" -> "SQ027" [label="lam_9_3=0.287"];
+  "Mitwirkungsbereitschaft" -> "SQ028" [label="lam_9_4=0.46"];
+  "Mitwirkungsbereitschaft" -> "SQ030" [label="lam_9_5=0.607"];
+  "Mitwirkungsbereitschaft" -> "SQ031" [label="lam_9_6=0.824"];
+  "Mitwirkungsbereitschaft" -> "SQ032" [label="lam_9_7=0.777"];
+  "Mitwirkungsbereitschaft" -> "SQ099" [label="lam_9_8=0.275"];
+  "Kunde" -> "SQ033" [label="lam_10_1=0.839"];
+  "Kunde" -> "SQ034" [label="lam_10_2=0.807"];
+  "Kunde" -> "SQ036" [label="lam_10_3=0.802"];
+  "Kunde" -> "SQ037" [label="lam_10_4=0.786"];
+  "Kunde" -> "SQ064" [label="lam_10_5=0.695"];
+  "Zufriedenheit" -> "SQ009" [label="lam_11_1=0.802"];
+  "Zufriedenheit" -> "SQ022" [label="lam_11_2=0.434"];
+  "Zufriedenheit" -> "SQ023" [label="lam_11_3=0.518"];
+  "Zufriedenheit" -> "SQ044" [label="lam_11_4=0.847"];
+  "Zufriedenheit" -> "SQ046" [label="lam_11_5=0.757"];
+  "Zufriedenheit" -> "SQ060" [label="lam_11_6=0.78"];
+  "Zufriedenheit" -> "SQ061" [label="lam_11_7=0.808"];
+  "Zufriedenheit" -> "SQ067" [label="lam_11_8=0.875"];
+  "Zufriedenheit" -> "SQ068" [label="lam_11_9=0.777"];
+  "Zufriedenheit" -> "SQ084" [label="lam_11_10=0.829"];
+  "Zufriedenheit" -> "SQ085" [label="lam_11_11=0.753"];
+  "Zufriedenheit" -> "SQ104" [label="lam_11_12=0.794"];
+  "Zufriedenheit" -> "SQ105" [label="lam_11_13=0.755"];
+  "Zufriedenheit" -> "SQ107" [label="lam_11_14=0.755"];
+  "Zufriedenheit" -> "SQ109" [label="lam_11_15=0.853"];
+  "Zufriedenheit" -> "SQ110" [label="lam_11_16=0.824"];
+  "Erreichbarkeit" -> "Umgebung" [label="beta_1_6=0.658"];
+  "Anlagevorschlag" -> "Bank" [label="beta_2_8=0.428"];
+  "Berater" -> "Bank" [label="beta_3_8=0.078"];
+  "Leistungsumfang" -> "Bank" [label="beta_4_8=0.308"];
+  "Umgebung" -> "Bank" [label="beta_6_8=-0.151"];
+  "Vermoegensreporting" -> "Bank" [label="beta_7_8=0.178"];
+  "Mitwirkungsfaehigkeit" -> "Mitwirkungsbereitschaft" [label="beta_5_9=0.402"];
+  "Berater" -> "Kunde" [label="beta_3_10=-0.017"];
+  "Bank" -> "Kunde" [label="beta_8_10=0.004"];
+  "Mitwirkungsbereitschaft" -> "Kunde" [label="beta_9_10=0.327"];
+  "Berater" -> "Zufriedenheit" [label="beta_3_11=0.294"];
+  "Bank" -> "Zufriedenheit" [label="beta_8_11=0.685"];
+  "Kunde" -> "Zufriedenheit" [label="beta_10_11=0.026"];
+}
